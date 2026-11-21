@@ -1,7 +1,8 @@
 # CURIOUS MIND — MASTER CHARACTER V1.0
 
 Status: draft, menunggu persetujuan pemilik proyek. Belum ada aset final.
-Draft visual: [`drafts/stick_figure_master_sheet_draft.png`](drafts/stick_figure_master_sheet_draft.png) · [`drafts/expressions_sheet_draft.png`](drafts/expressions_sheet_draft.png)
+Draft visual V2 (terbaru, ilustrasi tinta): [`drafts/v2/stick_figure_master_sheet_draft_v2.png`](drafts/v2/stick_figure_master_sheet_draft_v2.png) · [`drafts/v2/expressions_sheet_draft_v2.png`](drafts/v2/expressions_sheet_draft_v2.png) · [`drafts/v2/face_study_draft_v2.png`](drafts/v2/face_study_draft_v2.png)
+Draft visual V1 (geometris, disimpan untuk perbandingan): [`drafts/stick_figure_master_sheet_draft.png`](drafts/stick_figure_master_sheet_draft.png) · [`drafts/expressions_sheet_draft.png`](drafts/expressions_sheet_draft.png)
 Referensi visual utama: [`references/curious_mind_reference_sheet.png`](references/curious_mind_reference_sheet.png)
 
 ![Reference sheet](references/curious_mind_reference_sheet.png)
@@ -90,12 +91,24 @@ characters/
     ├── poses/                # pose aksi (penamaan menyusul)
     ├── references/           # gambar acuan visual, bukan aset produksi
     └── drafts/               # draft visual untuk ditinjau, bukan aset produksi
-        └── src/              # generator draft (satu geometri untuk semua view & ekspresi)
+        ├── src/              # generator draft V1 (geometris)
+        └── v2/               # draft V2 (ilustrasi tinta)
+            └── src/          # generator V2 (satu geometri untuk semua view & ekspresi)
 ```
+
+## Metode Produksi Visual (Draft V2)
+
+Image generation tidak tersedia di lingkungan produksi saat ini, jadi draft dibuat dengan workflow ilustrasi SVG berbasis kode:
+
+- Setiap garis adalah **goresan tinta**: garis tengah melalui titik kunci, dihaluskan dengan spline Catmull-Rom, lalu diberi profil ketebalan (ujung meruncing, lebih tebal di sisi bayangan kanan bawah).
+- Kepala berbentuk **kurva organik** (kranium sedikit penuh, rahang lebih lembut), bukan lingkaran sempurna.
+- Mata dibangun dari **kurva kelopak atas** dan **kurva bawah**; pupil terpotong kelopak sehingga terlihat half-lidded. Kantung mata tipis abu-abu memberi kesan sedikit lelah.
+- Kaos digambar dari **kerangka stickman** (leher, bahu, sudut lengan, pinggul), dengan bukaan lengan, lipatan, dan sisi bayangan.
+- Alternatif ke depan: image generation (jika tersedia) atau ilustrasi vektor manual. Hasil apa pun wajib mengikuti geometri dan aturan di dokumen ini.
 
 ## Geometri Draft (acuan konsistensi)
 
-Satuan: radius kepala = 100. Semua view dan ekspresi memakai geometri yang sama dari `drafts/src/generate_drafts.py`.
+Satuan: radius kepala = 100. Semua view dan ekspresi memakai geometri yang sama dari generator draft. Nilai di bawah berasal dari V1; V2 memakai proporsi yang sama dengan garis bervariasi (outline kepala ±6,4, kelopak 11, alis 9,5 meruncing, lengan/kaki 6,6) dan palet V2 di master sheet.
 
 | Bagian | Nilai |
 |---|---|
@@ -115,4 +128,4 @@ Satuan: radius kepala = 100. Semua view dan ekspresi memakai geometri yang sama 
 | Kerah / bayangan kaos | `#A8322F` |
 | Dalam mulut | `#7A2323` |
 
-Untuk membuat ulang draft: `python3 characters/stick_figure/drafts/src/generate_drafts.py characters/stick_figure/drafts` (butuh `rsvg-convert`).
+Untuk membuat ulang draft V2: `python3 characters/stick_figure/drafts/v2/src/generate_v2.py characters/stick_figure/drafts/v2` (butuh `numpy` dan `rsvg-convert`). V1: `python3 characters/stick_figure/drafts/src/generate_drafts.py characters/stick_figure/drafts`.

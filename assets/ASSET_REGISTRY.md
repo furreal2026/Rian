@@ -31,8 +31,11 @@ Tujuan (dari Master §4 dan Environment §11): cari dan pakai aset yang sudah ad
 |---|---|---|
 | Spesifikasi master character (V1.0) | `characters/stick_figure/MASTER_CHARACTER.md` | draft, menunggu persetujuan |
 | Reference sheet visual | `characters/stick_figure/references/curious_mind_reference_sheet.png` | available (acuan visual, bukan aset produksi) |
-| Draft master character sheet | `characters/stick_figure/drafts/stick_figure_master_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
-| Draft 10 ekspresi inti | `characters/stick_figure/drafts/expressions_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
+| Draft master character sheet V2 (ilustrasi tinta) | `characters/stick_figure/drafts/v2/stick_figure_master_sheet_draft_v2.png` | in_progress (draft, menunggu persetujuan) |
+| Draft 10 ekspresi inti V2 | `characters/stick_figure/drafts/v2/expressions_sheet_draft_v2.png` | in_progress (draft, menunggu persetujuan) |
+| Face study deadpan V2 | `characters/stick_figure/drafts/v2/face_study_draft_v2.png` | in_progress (draft, menunggu persetujuan) |
+| Draft master character sheet V1 (geometris) | `characters/stick_figure/drafts/stick_figure_master_sheet_draft.png` | in_progress (disimpan untuk perbandingan) |
+| Draft 10 ekspresi inti V1 | `characters/stick_figure/drafts/expressions_sheet_draft.png` | in_progress (disimpan untuk perbandingan) |
 | Desain master stick figure | `characters/stick_figure/stick_figure_master.png` | needed |
 | 10 ekspresi inti (`expression_<nama>.png`): deadpan, skeptical, annoyed, exhausted, confused, shocked, angry, disgusted, worried, smug | `characters/stick_figure/expressions/` | needed |
 | 7 kostum resmi awal (`outfit_<nama>.png`): casual_red_shirt, hoodie, police, scientist, jacket, samurai, superhero | `characters/stick_figure/outfits/` | needed |
