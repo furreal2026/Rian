@@ -1,6 +1,7 @@
 # CURIOUS MIND — MASTER CHARACTER V1.0
 
 Status: draft, menunggu persetujuan pemilik proyek. Belum ada aset final.
+Draft visual: [`drafts/stick_figure_master_sheet_draft.png`](drafts/stick_figure_master_sheet_draft.png) · [`drafts/expressions_sheet_draft.png`](drafts/expressions_sheet_draft.png)
 Referensi visual utama: [`references/curious_mind_reference_sheet_v01.png`](references/curious_mind_reference_sheet_v01.png)
 
 ![Reference sheet](references/curious_mind_reference_sheet_v01.png)
@@ -30,15 +31,17 @@ Karakter utama adalah stick figure bergaya kartun minimalis dengan kesan dewasa,
 
 ## Clothing System
 
-Pakaian hanya dikenakan pada bagian badan atas. Kostum dapat berubah sesuai peran cerita:
+Pakaian hanya dikenakan pada bagian badan atas. Kostum dapat berubah sesuai peran cerita. Tujuh kostum resmi awal:
 
 - Casual red shirt.
 - Hoodie.
 - Police uniform.
 - Scientist coat.
+- Jacket.
 - Samurai outfit.
 - Superhero costume.
-- Other story-specific outfits.
+
+Kostum lain yang khusus untuk cerita tertentu boleh ditambahkan sesuai kebutuhan.
 
 Pakaian tidak boleh mengubah bentuk dasar kepala, wajah, lengan, atau kaki.
 
@@ -65,13 +68,16 @@ Pakaian tidak boleh mengubah bentuk dasar kepala, wajah, lengan, atau kaki.
 
 ## Asset Naming
 
-Gunakan lowercase snake_case:
+Gunakan lowercase snake_case, mengikuti aturan `assets/ASSET_REGISTRY.md`: versi pertama **tanpa suffix**. Suffix `_v02`, `_v03`, dan seterusnya hanya untuk revisi berikutnya.
 
-- `stick_figure_master_v01.png`
-- `expression_deadpan_v01.png`
-- `expression_skeptical_v01.png`
-- `outfit_police_v01.png`
-- `outfit_hoodie_v01.png`
+- `stick_figure_master.png`
+- `expression_deadpan.png`
+- `expression_skeptical.png`
+- `outfit_police.png`
+- `outfit_hoodie.png`
+- Revisi: `expression_deadpan_v02.png`
+
+File di `drafts/` memakai akhiran `_draft` dan bukan aset produksi.
 
 ## Folder Structure
 
@@ -79,8 +85,34 @@ Gunakan lowercase snake_case:
 characters/
 └── stick_figure/
     ├── MASTER_CHARACTER.md   # dokumen ini
-    ├── expressions/          # expression_<nama>_v01.png
-    ├── outfits/              # outfit_<nama>_v01.png
+    ├── expressions/          # expression_<nama>.png
+    ├── outfits/              # outfit_<nama>.png
     ├── poses/                # pose aksi (penamaan menyusul)
-    └── references/           # gambar acuan visual, bukan aset produksi
+    ├── references/           # gambar acuan visual, bukan aset produksi
+    └── drafts/               # draft visual untuk ditinjau, bukan aset produksi
+        └── src/              # generator draft (satu geometri untuk semua view & ekspresi)
 ```
+
+## Geometri Draft (acuan konsistensi)
+
+Satuan: radius kepala = 100. Semua view dan ekspresi memakai geometri yang sama dari `drafts/src/generate_drafts.py`.
+
+| Bagian | Nilai |
+|---|---|
+| Tinggi total | ≈ 2,8 diameter kepala (kepala ≈ 36% tinggi) |
+| Garis outline, lengan, kaki | 7 |
+| Kelopak atas (ciri utama half-lidded) | 11 |
+| Alis | 10, terpisah di atas kelopak |
+| Mata | oval, posisi tetap; ekspresi hanya mengubah kelopak, pupil, alis, mulut |
+| Tangan | bulat putih dengan outline |
+| Kaki | garis hitam pendek, tanpa sepatu |
+
+| Warna | Hex |
+|---|---|
+| Outline / mata / alis | `#1A1A1A` |
+| Kepala & tangan | `#FFFFFF` |
+| Kaos merah (casual) | `#D64541` |
+| Kerah / bayangan kaos | `#A8322F` |
+| Dalam mulut | `#7A2323` |
+
+Untuk membuat ulang draft: `python3 characters/stick_figure/drafts/src/generate_drafts.py characters/stick_figure/drafts` (butuh `rsvg-convert`).
