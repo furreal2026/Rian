@@ -33,7 +33,7 @@ Master §11 Phase F menyebut "export sesuai rasio dan spesifikasi platform", tet
 
 | Item | Nilai | Sumber |
 |---|---|---|
-| Format aset reusable | PNG dengan latar transparan | Environment §5 |
+| Format aset reusable lintas environment | PNG dengan latar transparan, jika diperlukan | Environment §5 |
 | Isi per gambar | Satu aset utama, objek utuh, tidak terpotong | Environment §5 |
 | Penamaan file | huruf kecil, snake_case, deskriptif | Environment §9 |
 | Suffix versi | `_v01`, `_v02`, hanya jika ada beberapa versi | Environment §9 |
