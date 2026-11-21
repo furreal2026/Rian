@@ -27,3 +27,7 @@ Folder ini berisi dokumen panduan dan standar produksi Curious Mind.
 - EPISODE_PRODUCTION_TEMPLATE.md
 
 Gunakan Master Guide sebagai acuan utama produksi Curious Mind.
+docs/
+├── CURIOUS_MIND_MASTER_GUIDE.md
+├── CURIOUS_MIND_ENVIRONMENT.md
+└── CURIOUS_MIND_CAMERA_TRANSITIONS.md
