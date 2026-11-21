@@ -31,3 +31,12 @@ docs/
 ├── CURIOUS_MIND_MASTER_GUIDE.md
 ├── CURIOUS_MIND_ENVIRONMENT.md
 └── CURIOUS_MIND_CAMERA_TRANSITIONS.md
+Rian/
+├── README.md
+├── docs/
+│   ├── CURIOUS_MIND_MASTER_GUIDE.md
+│   ├── CURIOUS_MIND_ENVIRONMENT.md
+│   └── CURIOUS_MIND_CAMERA_TRANSITIONS.md
+├── characters/
+├── environments/
+└── references/
