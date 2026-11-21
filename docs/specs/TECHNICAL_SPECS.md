@@ -123,3 +123,18 @@ Hanya penamaan aset environment yang sudah diatur (Environment §9).
 ## 12. Riset dan sumber
 
 Master §11 Phase B meminta sumber tepercaya dan pemisahan fakta, asumsi, fiksi, tetapi belum ada format pencatatan sumber. Format log riset: TBD.
+
+## 13. Usulan dari pipeline video (2026-11-21) — belum disetujui
+
+Nilai berikut dipakai sementara oleh `pipeline/` agar render bisa diuji. **Bagian 1–12 di atas tetap TBD** sampai pemilik proyek memutuskan dan keputusannya dicatat di `docs/decisions/CHANGELOG.md`.
+
+| Item | Usulan | Lokasi |
+|---|---|---|
+| Ekspor 9:16 | 1080×1920, 30 fps, H.264 (yuv420p, CRF 18), AAC 192 kbps 48 kHz, MP4 faststart | `assets/presets/formats.json` |
+| Loudness | −14 LUFS terintegrasi, true peak −1,5 dBTP | `assets/presets/formats.json` |
+| Safe area Shorts | atas 150 px, rel aksi kanan x ≥ 930, area judul/kanal y ≥ 1560 | `assets/presets/formats.json` |
+| Subtitle | Nunito 900, 68 px, putih + outline gelap 12 px, sorotan kuning, maks. 2 baris, posisi otomatis menghindari karakter | `assets/presets/captions.json` |
+| Format sumber aset | JSON vektor (environment/prop/rig) atau PNG + receipt generasi | `docs/CURIOUS_MIND_VIDEO_PIPELINE.md` §5 |
+| Layer 2.5D | `depth` per layer (0 = jauh, 1 = bidang aktor, >1 = foreground) | `pipeline/src/lib/camera.mjs` |
+| Penamaan episode | `episodes/epNNN_<slug>/episode.json`, output di `episodes/<id>/output/` (tidak di-commit) | — |
+| Peran tooling | Code Engine Curious Mind (Node + canvas + FFmpeg). Remotion/HyperFrames/Lemo-Opuscar belum dipakai | `pipeline/` |
