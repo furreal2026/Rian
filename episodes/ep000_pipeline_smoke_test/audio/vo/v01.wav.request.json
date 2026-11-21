@@ -1,0 +1,9 @@
+{
+  "kind": "speech",
+  "provider": "espeak-ng",
+  "purpose": "TECHNICAL FIXTURE ONLY — robotic placeholder for pipeline tests; never publish",
+  "input_sha256": "74a19d3058555614843d6db825cb8debc80f511c78b43d6e74d8fc2fc2ed3fb8",
+  "input_text": "What if you could pause the whole world for one minute?",
+  "status": "complete",
+  "requested_at": "2026-11-21T23:21:45.549Z"
+}

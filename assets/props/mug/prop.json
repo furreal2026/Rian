@@ -1,0 +1,80 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "mug",
+  "status": "draft",
+  "description": "Mustard ceramic mug. state 'steam' adds rising steam.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 64,
+    "h": 60
+  },
+  "anchor": {
+    "x": 32.0,
+    "y": 60
+  },
+  "grip": {
+    "x": 52,
+    "y": 30
+  },
+  "shapes": [
+    {
+      "type": "path",
+      "d": "M44 18 C62 18 62 42 44 42",
+      "stroke": "#3B2C25",
+      "lineWidth": 6
+    },
+    {
+      "type": "roundRect",
+      "x": 6,
+      "y": 8,
+      "w": 40,
+      "h": 48,
+      "r": 8,
+      "fill": "#C9A93E",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    },
+    {
+      "type": "rect",
+      "x": 10,
+      "y": 12,
+      "w": 8,
+      "h": 40,
+      "fill": "#E3C866",
+      "alpha": 0.7
+    },
+    {
+      "type": "path",
+      "d": "M18 2 C14 -8 24 -12 20 -22",
+      "stroke": "#FFFFFF",
+      "lineWidth": 3,
+      "alpha": 0.55,
+      "state": "steam",
+      "sway": {
+        "amp": 0.12,
+        "speed": 0.7
+      },
+      "origin": {
+        "x": 18,
+        "y": 2
+      }
+    },
+    {
+      "type": "path",
+      "d": "M32 2 C28 -10 38 -14 34 -26",
+      "stroke": "#FFFFFF",
+      "lineWidth": 3,
+      "alpha": 0.5,
+      "state": "steam",
+      "sway": {
+        "amp": 0.12,
+        "speed": 0.6,
+        "phase": 1.5
+      },
+      "origin": {
+        "x": 32,
+        "y": 2
+      }
+    }
+  ]
+}

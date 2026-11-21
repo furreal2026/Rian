@@ -1,0 +1,43 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "question_orb",
+  "status": "draft",
+  "description": "Curiosity orb with a drawn question-mark glyph (symbol, not caption text) \u2014 the 'What if?' motif.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 70,
+    "h": 70
+  },
+  "anchor": {
+    "x": 35,
+    "y": 35
+  },
+  "grip": {
+    "x": 35.0,
+    "y": 35.0
+  },
+  "shapes": [
+    {
+      "type": "circle",
+      "x": 35,
+      "y": 35,
+      "r": 32,
+      "fill": "#8ECAE6",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    },
+    {
+      "type": "path",
+      "d": "M24 26 C24 12 46 12 46 26 C46 36 35 36 35 46",
+      "stroke": "#FFFFFF",
+      "lineWidth": 7
+    },
+    {
+      "type": "circle",
+      "x": 35,
+      "y": 56,
+      "r": 4.5,
+      "fill": "#FFFFFF"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "heart",
+  "status": "draft",
+  "description": "Heart icon (warmth/affection metaphor).",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 60,
+    "h": 54
+  },
+  "anchor": {
+    "x": 30,
+    "y": 27
+  },
+  "grip": {
+    "x": 30.0,
+    "y": 27.0
+  },
+  "shapes": [
+    {
+      "type": "path",
+      "d": "M30 52 C-8 26 4 -6 30 12 C56 -6 68 26 30 52 Z",
+      "fill": "#F28482",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    }
+  ]
+}

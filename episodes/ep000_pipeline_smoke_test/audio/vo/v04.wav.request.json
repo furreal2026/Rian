@@ -1,0 +1,9 @@
+{
+  "kind": "speech",
+  "provider": "espeak-ng",
+  "purpose": "TECHNICAL FIXTURE ONLY — robotic placeholder for pipeline tests; never publish",
+  "input_sha256": "5b8d9fcbef8ffaef07fe7640a7ea64bd367f9783b97ffcd9a7f3cc4559930447",
+  "input_text": "One minute for the world is still one minute of your life.",
+  "status": "complete",
+  "requested_at": "2026-11-21T23:21:45.786Z"
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "speech",
+  "provider": "espeak-ng",
+  "purpose": "TECHNICAL FIXTURE ONLY — robotic placeholder for pipeline tests; never publish",
+  "input_sha256": "0bc2d022c3bd55185a07e1f787fe247974e5a5c13060c81ace75a68789e63be5",
+  "input_text": "Everyone freezes. Cars, birds, even your neighbour's sneeze.",
+  "status": "complete",
+  "requested_at": "2026-11-21T23:21:45.648Z"
+}
