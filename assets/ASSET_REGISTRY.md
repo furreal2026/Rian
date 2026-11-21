@@ -29,4 +29,11 @@ Tujuan (dari Master §4 dan Environment §11): cari dan pakai aset yang sudah ad
 
 | Item | Lokasi | Status |
 |---|---|---|
-| Desain master stick figure | TBD | TBD (folder `characters/stick_figure/` masih kosong) |
+| Spesifikasi master character (V1.0) | `characters/stick_figure/MASTER_CHARACTER.md` | draft, menunggu persetujuan |
+| Reference sheet visual | `characters/stick_figure/references/curious_mind_reference_sheet.png` | available (acuan visual, bukan aset produksi) |
+| Draft master character sheet | `characters/stick_figure/drafts/stick_figure_master_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
+| Draft 10 ekspresi inti | `characters/stick_figure/drafts/expressions_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
+| Desain master stick figure | `characters/stick_figure/stick_figure_master.png` | needed |
+| 10 ekspresi inti (`expression_<nama>.png`): deadpan, skeptical, annoyed, exhausted, confused, shocked, angry, disgusted, worried, smug | `characters/stick_figure/expressions/` | needed |
+| 7 kostum resmi awal (`outfit_<nama>.png`): casual_red_shirt, hoodie, police, scientist, jacket, samurai, superhero | `characters/stick_figure/outfits/` | needed |
+| Pose | `characters/stick_figure/poses/` | needed (daftar pose TBD) |
