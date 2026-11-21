@@ -1,0 +1,44 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "pen",
+  "status": "draft",
+  "description": "Ballpoint pen; anchor at the tip.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 12,
+    "h": 70
+  },
+  "anchor": {
+    "x": 6,
+    "y": 70
+  },
+  "grip": {
+    "x": 6,
+    "y": 30
+  },
+  "shapes": [
+    {
+      "type": "roundRect",
+      "x": 2,
+      "y": 0,
+      "w": 8,
+      "h": 56,
+      "r": 3,
+      "fill": "#3D5A80",
+      "stroke": "#3B2C25",
+      "lineWidth": 2.5
+    },
+    {
+      "type": "polygon",
+      "points": [
+        2,
+        56,
+        10,
+        56,
+        6,
+        70
+      ],
+      "fill": "#2B2B2B"
+    }
+  ]
+}

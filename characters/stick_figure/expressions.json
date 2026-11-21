@@ -1,0 +1,25 @@
+{
+  "schema": "curious-mind/expressions@1",
+  "_doc": "Facial marks only — expressions never change head shape or design. eyes: dot|wide|happy|closed|squint|sad. brows: [left, right] degrees (+ = inner end up) or null; brow_raise px. mouth: smile|small_smile|flat|frown|o|open_smile|grin|wobble|smirk. extras: blush|sweat|tear|sparkle.",
+  "expressions": {
+    "neutral":     {"eyes": "dot", "brows": [0, 0], "brow_raise": 0, "mouth": "small_smile", "extras": []},
+    "happy":       {"eyes": "dot", "brows": [4, 4], "brow_raise": 2, "mouth": "smile"},
+    "joyful":      {"eyes": "happy", "brows": [6, 6], "brow_raise": 4, "mouth": "open_smile", "extras": ["blush"]},
+    "grin":        {"eyes": "happy", "brows": [4, 4], "brow_raise": 3, "mouth": "grin"},
+    "calm":        {"eyes": "closed", "brows": [2, 2], "mouth": "small_smile"},
+    "curious":     {"eyes": "dot", "brows": [12, -5], "brow_raise": 3, "mouth": "small_smile"},
+    "thinking":    {"eyes": "dot", "brows": [-6, 12], "brow_raise": 2, "mouth": "flat"},
+    "surprised":   {"eyes": "wide", "brows": [6, 6], "brow_raise": 8, "mouth": "o"},
+    "shocked":     {"eyes": "wide", "brows": [10, 10], "brow_raise": 11, "mouth": "o", "extras": ["sweat"]},
+    "amazed":      {"eyes": "wide", "brows": [6, 6], "brow_raise": 8, "mouth": "open_smile", "extras": ["sparkle"]},
+    "worried":     {"eyes": "dot", "brows": [18, 18], "brow_raise": 2, "mouth": "wobble", "extras": ["sweat"]},
+    "anxious":     {"eyes": "dot", "brows": [20, 20], "brow_raise": 3, "mouth": "wobble"},
+    "sad":         {"eyes": "sad", "brows": [20, 20], "mouth": "frown"},
+    "crying":      {"eyes": "closed", "brows": [22, 22], "mouth": "frown", "extras": ["tear"]},
+    "determined":  {"eyes": "squint", "brows": [-16, -16], "mouth": "flat"},
+    "annoyed":     {"eyes": "squint", "brows": [-14, -14], "mouth": "flat"},
+    "smug":        {"eyes": "squint", "brows": [-6, 8], "mouth": "smirk"},
+    "embarrassed": {"eyes": "happy", "brows": [14, 14], "mouth": "wobble", "extras": ["blush", "sweat"]},
+    "sleepy":      {"eyes": "closed", "brows": [0, 0], "mouth": "flat"}
+  }
+}

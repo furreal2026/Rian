@@ -1,0 +1,87 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "phone",
+  "status": "draft",
+  "description": "Smartphone. states: screen_on | notify (red badge) | screen_off | back (face-down). No readable UI text.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 40,
+    "h": 72
+  },
+  "anchor": {
+    "x": 20.0,
+    "y": 72
+  },
+  "grip": {
+    "x": 20,
+    "y": 50
+  },
+  "shapes": [
+    {
+      "type": "roundRect",
+      "x": 0,
+      "y": 0,
+      "w": 40,
+      "h": 72,
+      "r": 8,
+      "fill": "#2E2F3A",
+      "stroke": "#3B2C25",
+      "lineWidth": 3
+    },
+    {
+      "type": "roundRect",
+      "x": 4,
+      "y": 6,
+      "w": 32,
+      "h": 58,
+      "r": 4,
+      "fill": "#6FB7B1",
+      "state": "screen_on"
+    },
+    {
+      "type": "circle",
+      "x": 30,
+      "y": 12,
+      "r": 4,
+      "fill": "#E5574B",
+      "state": "notify"
+    },
+    {
+      "type": "roundRect",
+      "x": 4,
+      "y": 6,
+      "w": 32,
+      "h": 58,
+      "r": 4,
+      "fill": "#6FB7B1",
+      "state": "notify"
+    },
+    {
+      "type": "circle",
+      "x": 30,
+      "y": 12,
+      "r": 5,
+      "fill": "#E5574B",
+      "state": "notify"
+    },
+    {
+      "type": "roundRect",
+      "x": 4,
+      "y": 6,
+      "w": 32,
+      "h": 58,
+      "r": 4,
+      "fill": "#3A3C48",
+      "state": "screen_off"
+    },
+    {
+      "type": "circle",
+      "x": 12,
+      "y": 12,
+      "r": 4,
+      "fill": "#4B4D5A",
+      "state": "back"
+    }
+  ],
+  "default_state": "screen_on"
+}

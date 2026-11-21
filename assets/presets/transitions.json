@@ -1,0 +1,16 @@
+{
+  "_doc": "Transition presets (pipeline/src/lib/transitions.mjs). Window is centred on the cut. Tempo from Camera Guide §6: very fast 0.15–0.35 s, standard 0.30–0.50 s, dramatic 0.50–0.80 s. Fade/dip only for emotional beats or time jumps (Camera Guide §5, Master §9).",
+  "cut":            {"type": "cut"},
+  "match_cut":      {"type": "match_cut"},
+  "smash":          {"type": "smash_cut", "duration": 0.2, "punch": 0.08},
+  "smash_flash":    {"type": "smash_cut", "duration": 0.2, "punch": 0.1, "flash": true},
+  "whip_fast":      {"type": "whip_pan", "duration": 0.26},
+  "whip_standard":  {"type": "whip_pan", "duration": 0.4},
+  "whip_up":        {"type": "whip_pan", "duration": 0.32, "direction": "up"},
+  "push_slide":     {"type": "push", "duration": 0.4},
+  "snap_zoom":      {"type": "snap_zoom", "duration": 0.3},
+  "push_through":   {"type": "push_through", "duration": 0.45},
+  "object_wipe":    {"type": "object_wipe", "duration": 0.5},
+  "iris":           {"type": "iris", "duration": 0.6},
+  "time_jump_dip":  {"type": "dip", "duration": 0.7}
+}

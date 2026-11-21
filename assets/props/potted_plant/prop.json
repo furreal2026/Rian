@@ -1,0 +1,85 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "potted_plant",
+  "status": "draft",
+  "description": "Potted plant with gently swaying leaves.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 120,
+    "h": 170
+  },
+  "anchor": {
+    "x": 60.0,
+    "y": 170
+  },
+  "grip": {
+    "x": 60.0,
+    "y": 85.0
+  },
+  "shapes": [
+    {
+      "type": "path",
+      "d": "M60 110 C30 80 10 60 20 30 C40 50 52 70 60 110 Z",
+      "fill": "#6A994E",
+      "stroke": "#3B2C25",
+      "lineWidth": 3,
+      "sway": {
+        "amp": 0.04,
+        "speed": 0.3
+      },
+      "origin": {
+        "x": 60,
+        "y": 110
+      }
+    },
+    {
+      "type": "path",
+      "d": "M60 110 C90 80 110 56 104 24 C82 46 68 70 60 110 Z",
+      "fill": "#A7C957",
+      "stroke": "#3B2C25",
+      "lineWidth": 3,
+      "sway": {
+        "amp": 0.04,
+        "speed": 0.33,
+        "phase": 1
+      },
+      "origin": {
+        "x": 60,
+        "y": 110
+      }
+    },
+    {
+      "type": "path",
+      "d": "M60 112 C56 70 60 30 66 4 C76 40 70 80 60 112 Z",
+      "fill": "#7FB069",
+      "stroke": "#3B2C25",
+      "lineWidth": 3,
+      "sway": {
+        "amp": 0.03,
+        "speed": 0.28,
+        "phase": 2
+      },
+      "origin": {
+        "x": 60,
+        "y": 112
+      }
+    },
+    {
+      "type": "path",
+      "d": "M28 108 L92 108 L84 168 L36 168 Z",
+      "fill": "#D17A4A",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    },
+    {
+      "type": "rect",
+      "x": 24,
+      "y": 102,
+      "w": 72,
+      "h": 14,
+      "fill": "#E08E5B",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    }
+  ]
+}

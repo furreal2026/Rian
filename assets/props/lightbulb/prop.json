@@ -1,0 +1,82 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "lightbulb",
+  "status": "draft",
+  "description": "Idea light bulb icon (metaphor graphic, screen overlay).",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 80,
+    "h": 110
+  },
+  "anchor": {
+    "x": 40,
+    "y": 55
+  },
+  "grip": {
+    "x": 40.0,
+    "y": 55.0
+  },
+  "shapes": [
+    {
+      "type": "circle",
+      "x": 40,
+      "y": 40,
+      "r": 52,
+      "fill": {
+        "radial": [
+          40,
+          40,
+          8,
+          40,
+          40,
+          60
+        ],
+        "stops": [
+          [
+            0,
+            "rgba(255,228,140,0.7)"
+          ],
+          [
+            1,
+            "rgba(255,228,140,0)"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "path",
+      "d": "M40 4 C62 4 76 20 76 40 C76 56 64 64 58 76 L22 76 C16 64 4 56 4 40 C4 20 18 4 40 4 Z",
+      "fill": "#FFD36E",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    },
+    {
+      "type": "path",
+      "d": "M28 30 C34 22 46 22 50 30",
+      "stroke": "#FFF5D6",
+      "lineWidth": 4
+    },
+    {
+      "type": "roundRect",
+      "x": 24,
+      "y": 78,
+      "w": 32,
+      "h": 10,
+      "r": 3,
+      "fill": "#B8B8C4",
+      "stroke": "#3B2C25",
+      "lineWidth": 3
+    },
+    {
+      "type": "roundRect",
+      "x": 26,
+      "y": 88,
+      "w": 28,
+      "h": 10,
+      "r": 3,
+      "fill": "#9A9AA8",
+      "stroke": "#3B2C25",
+      "lineWidth": 3
+    }
+  ]
+}

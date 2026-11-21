@@ -1,0 +1,33 @@
+{
+  "_status": "proposal \u2014 pending owner approval (TECHNICAL_SPECS \u00a78 font/size/position/colour still TBD)",
+  "cm_shorts_v1": {
+    "font": "Nunito 900 (assets/fonts/Nunito.ttf, OFL-1.1)",
+    "font_size": 68,
+    "line_height": 1.12,
+    "max_width": 820,
+    "max_lines": 2,
+    "max_words": 6,
+    "min_duration": 0.45,
+    "center_x": 500,
+    "center_y": 1430,
+    "color": "#FFFFFF",
+    "highlight_color": "#FFD36E",
+    "outline": 12,
+    "outline_color": "#1E2235",
+    "shadow_color": "rgba(10,12,24,0.45)",
+    "shadow_blur": 14,
+    "shadow_offset": 5,
+    "pop_in": 0.14,
+    "_placement_note": "Centre sits left of the Shorts action rail. The renderer picks the first slot (low \u2192 high \u2192 mid) whose band does not cover an on-screen character's body; a scene may force one with \"caption_slot\".",
+    "slots": {
+      "low": 1430,
+      "high": 430,
+      "mid": 1250
+    },
+    "slot_order": [
+      "low",
+      "high",
+      "mid"
+    ]
+  }
+}

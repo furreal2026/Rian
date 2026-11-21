@@ -1,0 +1,209 @@
+{
+  "schema": "curious-mind/poses@1",
+  "_doc": "Joint angles in degrees. 0 = limb hanging straight down; positive rotates toward screen-right. Shoulder angles are relative to the torso; elbow/knee angles are relative to the upper segment. anchor: feet (lowest foot on ground) | hip (actor point = seat). behind: arms drawn behind the torso. Procedural actions (walk, run, wave, bounce, nod, shake_head, nervous) layer on top \u2014 see pipeline/src/lib/character.mjs.",
+  "poses": {
+    "stand": {
+      "lean": 0,
+      "head_tilt": 0,
+      "l_sh": -10,
+      "l_el": 6,
+      "r_sh": 10,
+      "r_el": -6,
+      "l_hip": -5,
+      "l_knee": 0,
+      "r_hip": 5,
+      "r_knee": 0,
+      "lift": 0,
+      "squash": 0,
+      "anchor": "feet"
+    },
+    "stand_relaxed": {
+      "l_sh": -6,
+      "l_el": 4,
+      "r_sh": 6,
+      "r_el": -4,
+      "head_tilt": 3
+    },
+    "wave": {
+      "r_sh": 125,
+      "r_el": 40,
+      "head_tilt": 4
+    },
+    "point_right": {
+      "r_sh": 95,
+      "r_el": -4,
+      "lean": 2
+    },
+    "point_up": {
+      "r_sh": 130,
+      "r_el": 42
+    },
+    "present": {
+      "r_sh": 70,
+      "r_el": 18,
+      "l_sh": -20,
+      "l_el": 10
+    },
+    "think": {
+      "r_sh": 22,
+      "r_el": 170,
+      "l_sh": 28,
+      "l_el": 70,
+      "head_tilt": -6
+    },
+    "hold_phone": {
+      "r_sh": 10,
+      "r_el": 135,
+      "head_tilt": 2
+    },
+    "hold_phone_both": {
+      "r_sh": 12,
+      "r_el": 150,
+      "l_sh": -12,
+      "l_el": -150
+    },
+    "sip": {
+      "r_sh": 20,
+      "r_el": 168,
+      "head_tilt": -3
+    },
+    "hold_cup": {
+      "r_sh": 14,
+      "r_el": 110
+    },
+    "arms_crossed": {
+      "l_sh": 32,
+      "l_el": 102,
+      "r_sh": -32,
+      "r_el": -102
+    },
+    "hands_on_hips": {
+      "l_sh": -40,
+      "l_el": 56,
+      "r_sh": 40,
+      "r_el": -56
+    },
+    "shrug": {
+      "l_sh": -55,
+      "l_el": -105,
+      "r_sh": 55,
+      "r_el": 105,
+      "head_tilt": 6
+    },
+    "cheer": {
+      "l_sh": -128,
+      "l_el": -28,
+      "r_sh": 128,
+      "r_el": 28,
+      "lift": 6
+    },
+    "shock": {
+      "l_sh": -25,
+      "l_el": -150,
+      "r_sh": 25,
+      "r_el": 150,
+      "squash": -0.03
+    },
+    "facepalm": {
+      "r_sh": 15,
+      "r_el": 172,
+      "head_tilt": 9,
+      "l_sh": -6,
+      "l_el": 4
+    },
+    "sad_slump": {
+      "l_sh": -3,
+      "l_el": 2,
+      "r_sh": 3,
+      "r_el": -2,
+      "head_tilt": -5,
+      "squash": -0.04,
+      "lean": -2
+    },
+    "reach_up": {
+      "r_sh": 135,
+      "r_el": 32,
+      "lean": -3,
+      "l_sh": -18,
+      "l_el": 6
+    },
+    "lean_in": {
+      "lean": 7,
+      "head_tilt": 8,
+      "l_sh": -14,
+      "r_sh": 28,
+      "r_el": 40
+    },
+    "listen": {
+      "head_tilt": 10,
+      "l_sh": -8,
+      "r_sh": 8
+    },
+    "sit_side": {
+      "anchor": "hip",
+      "l_hip": 80,
+      "l_knee": -80,
+      "r_hip": 88,
+      "r_knee": -88,
+      "l_sh": 25,
+      "l_el": 30,
+      "r_sh": 45,
+      "r_el": 30,
+      "behind": [
+        "l"
+      ]
+    },
+    "sit_side_phone": {
+      "anchor": "hip",
+      "l_hip": 80,
+      "l_knee": -80,
+      "r_hip": 88,
+      "r_knee": -88,
+      "l_sh": 20,
+      "l_el": 40,
+      "r_sh": 18,
+      "r_el": 128,
+      "behind": [
+        "l"
+      ]
+    },
+    "sit_side_sip": {
+      "anchor": "hip",
+      "l_hip": 80,
+      "l_knee": -80,
+      "r_hip": 88,
+      "r_knee": -88,
+      "l_sh": 25,
+      "l_el": 30,
+      "r_sh": 20,
+      "r_el": 168,
+      "behind": [
+        "l"
+      ]
+    },
+    "sit_side_write": {
+      "anchor": "hip",
+      "l_hip": 80,
+      "l_knee": -80,
+      "r_hip": 88,
+      "r_knee": -88,
+      "l_sh": 55,
+      "l_el": 25,
+      "r_sh": 62,
+      "r_el": 28,
+      "lean": 5,
+      "head_tilt": 6,
+      "behind": [
+        "l"
+      ]
+    },
+    "walk": {
+      "l_sh": -6,
+      "l_el": 6,
+      "r_sh": 6,
+      "r_el": -6,
+      "l_hip": 0,
+      "r_hip": 0
+    }
+  }
+}

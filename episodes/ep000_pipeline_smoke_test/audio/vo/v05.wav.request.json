@@ -1,0 +1,9 @@
+{
+  "kind": "speech",
+  "provider": "espeak-ng",
+  "purpose": "TECHNICAL FIXTURE ONLY — robotic placeholder for pipeline tests; never publish",
+  "input_sha256": "8dc8316a78e74adde04075e97ac6af86e9f8b15273e0e5023197af403e55e6ea",
+  "input_text": "So what would you actually do with it?",
+  "status": "complete",
+  "requested_at": "2026-11-21T23:21:45.853Z"
+}

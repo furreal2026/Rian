@@ -1,0 +1,24 @@
+{
+  "schema": "curious-mind/character-rig@1",
+  "id": "stick_figure",
+  "status": "candidate_master",
+  "status_note": "Candidate master design for owner approval (Master Guide §3/§14: the approved master design is still TBD). Do not treat as approved until recorded in docs/decisions/CHANGELOG.md.",
+  "design_source": "A4 Cozy Storytelling character anchor (third_party/kaomei-stickman-video-director/references/cozy-storytelling.md), reimplemented as a code rig. No Milo traits.",
+  "design_anchor_prompt": "One minimalist 2D cartoon protagonist with a white filled circular head, two small dark oval eyes, simple eyebrow strokes and a short curved mouth. The torso is a slim closed tapered shape with solid white fill inside its dark outline. Both arms and both legs are dark single-line strokes with constant medium weight; hands are small dark rounded shapes and feet are short dark rounded strokes. No hair or clothing accessories. Keep the same head-to-body proportions, white head and torso fill, and outline weight in every shot. Exactly two arms and two legs exist.",
+  "units": "pixels at scale 1 on a 1080-wide frame; origin = ground point under the hips, +y down",
+  "colors": {
+    "fill": "#FFFFFF",
+    "line": "#1F2236",
+    "shade": "rgba(70, 80, 125, 0.10)",
+    "cheek": "#F4A39A",
+    "shadow": "rgba(35, 25, 40, 0.26)"
+  },
+  "line": {"outline": 6, "limb": 8, "face": 4.5},
+  "head": {"r": 56},
+  "torso": {"length": 150, "top_w": 40, "bottom_w": 58, "neck_overlap": 10},
+  "arm": {"upper": 76, "lower": 70, "hand_r": 9.5, "shoulder_drop": 20, "shoulder_inset": 3},
+  "leg": {"upper": 88, "lower": 86, "foot": 24, "hip_spread": 11},
+  "face": {"eye_rx": 5.5, "eye_ry": 8.5, "eye_spacing": 0.34, "eye_y": -0.06, "mouth_y": 0.36, "mouth_w": 0.3, "brow_y": -0.36, "brow_len": 0.2, "turn": 0.16},
+  "walk": {"stride": 128},
+  "proportions_summary": "Total height ≈ 426 px at scale 1 (head Ø 112, torso 150, legs 174): head ≈ 26% of height."
+}

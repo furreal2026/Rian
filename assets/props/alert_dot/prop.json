@@ -1,0 +1,29 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "alert_dot",
+  "status": "draft",
+  "description": "Soft red anxiety dot (A4 metaphor graphic; only on its timed beat).",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 40,
+    "h": 40
+  },
+  "anchor": {
+    "x": 20,
+    "y": 20
+  },
+  "grip": {
+    "x": 20.0,
+    "y": 20.0
+  },
+  "shapes": [
+    {
+      "type": "circle",
+      "x": 20,
+      "y": 20,
+      "r": 18,
+      "fill": "#E5574B",
+      "alpha": 0.85
+    }
+  ]
+}

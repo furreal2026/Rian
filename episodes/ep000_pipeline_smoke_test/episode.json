@@ -1,0 +1,559 @@
+{
+  "schema": "curious-mind/episode@1",
+  "id": "ep000_pipeline_smoke_test",
+  "title": "What if you could pause the world for one minute? (pipeline smoke test)",
+  "purpose": "TECHNICAL TEST of the Code Engine. Narration is an espeak-ng fixture voice and must never be published. Story is a placeholder, not an approved script.",
+  "format": "shorts_9x16",
+  "style": "a4_cozy_code",
+  "voice": {
+    "provider": {
+      "engine": "espeak-ng",
+      "voice": "en-us",
+      "status": "technical-fixture"
+    },
+    "lines": [
+      {
+        "id": "v01",
+        "scene": "s01",
+        "offset": 0.35,
+        "path": "audio/vo/v01.wav",
+        "text": "What if you could pause the whole world for one minute?"
+      },
+      {
+        "id": "v02",
+        "scene": "s02",
+        "offset": 0.2,
+        "path": "audio/vo/v02.wav",
+        "text": "Everyone freezes. Cars, birds, even your neighbour's sneeze."
+      },
+      {
+        "id": "v03",
+        "scene": "s03",
+        "offset": 0.25,
+        "path": "audio/vo/v03.wav",
+        "text": "Sounds fun, until you notice something."
+      },
+      {
+        "id": "v04",
+        "scene": "s04",
+        "offset": 0.2,
+        "path": "audio/vo/v04.wav",
+        "text": "One minute for the world is still one minute of *your* life."
+      },
+      {
+        "id": "v05",
+        "scene": "s05",
+        "offset": 0.3,
+        "path": "audio/vo/v05.wav",
+        "text": "So what would you *actually* do with it?"
+      }
+    ]
+  },
+  "captions": {
+    "preset": "cm_shorts_v1",
+    "enabled": true
+  },
+  "music": {
+    "id": "bgm-carefree",
+    "gain": 0.09,
+    "fade_in": 0.3,
+    "fade_out": 1.2,
+    "duck": true
+  },
+  "ambience": [
+    {
+      "id": "kresiek-amb-outside-amb-outdoor1-loop",
+      "scene": "s01",
+      "gain": 0.07
+    },
+    {
+      "id": "kresiek-amb-outside-amb-outdoor1-loop",
+      "scene": "s02",
+      "gain": 0.05
+    }
+  ],
+  "sfx": [
+    {
+      "id": "isaiah-birds-birds-isaiah658-0",
+      "scene": "s01",
+      "at": 0.0,
+      "duration": 2.5,
+      "gain": 0.12,
+      "note": "birds over establishing shot"
+    },
+    {
+      "id": "artisticdude-swishes-swish-1",
+      "scene": "s02",
+      "at": -0.14,
+      "gain": 0.5,
+      "note": "whip pan"
+    },
+    {
+      "id": "kenney-impact-footstep-concrete-000",
+      "scene": "s02",
+      "at": 0.4,
+      "gain": 0.35
+    },
+    {
+      "id": "kenney-impact-footstep-concrete-000",
+      "scene": "s02",
+      "at": 0.9,
+      "gain": 0.35
+    },
+    {
+      "id": "kenney-impact-footstep-concrete-000",
+      "scene": "s02",
+      "at": 1.4,
+      "gain": 0.35
+    },
+    {
+      "id": "record-scratch-160909-raccoonanimator-scratch-speed",
+      "scene": "s02",
+      "at": 1.9,
+      "gain": 0.4,
+      "note": "the world freezes"
+    },
+    {
+      "id": "owlish-home-202-phone-phone1",
+      "scene": "s03",
+      "at": 0.15,
+      "duration": 0.9,
+      "gain": 0.35,
+      "note": "phone notification"
+    },
+    {
+      "id": "artisticdude-swishes-swish-10",
+      "scene": "s04",
+      "at": -0.12,
+      "gain": 0.4,
+      "note": "snap zoom"
+    },
+    {
+      "id": "rubberduck-water-40-bubble-01",
+      "scene": "s05",
+      "at": 0.55,
+      "gain": 0.45,
+      "note": "idea bulb pops in"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s01",
+      "duration": "auto",
+      "pad": 0.25,
+      "purpose": "Hook: establish the everyday world, pose the question",
+      "environment": "street/sidewalk_morning",
+      "lighting": "golden_afternoon",
+      "camera": {
+        "preset": "aerial_descend",
+        "at": {
+          "x": 1250,
+          "y": 1750
+        },
+        "zoom": 1.0
+      },
+      "actors": [
+        {
+          "id": "rian",
+          "character": "stick_figure",
+          "facing": 1,
+          "path": [
+            {
+              "t": 0,
+              "x": 900,
+              "y": 2350
+            },
+            {
+              "t": 4.5,
+              "x": 1500,
+              "y": 2350,
+              "ease": "linear"
+            }
+          ],
+          "pose": [
+            {
+              "t": 0,
+              "pose": "walk"
+            }
+          ],
+          "action": [
+            {
+              "t": 0,
+              "action": "walk"
+            }
+          ],
+          "expression": [
+            {
+              "t": 0,
+              "expr": "happy"
+            },
+            {
+              "t": 2.0,
+              "expr": "curious"
+            }
+          ]
+        }
+      ],
+      "transition_out": {
+        "preset": "whip_fast",
+        "type": "whip_pan"
+      }
+    },
+    {
+      "id": "s02",
+      "duration": "auto",
+      "pad": 0.2,
+      "purpose": "Premise: show the freeze in action",
+      "environment": "street/sidewalk_morning",
+      "lighting": "golden_afternoon",
+      "camera": {
+        "at": {
+          "x": 1300,
+          "y": 1850
+        },
+        "zoom": 1.15,
+        "follow": {
+          "actor": "rian",
+          "axis": "x",
+          "lag": 0.2,
+          "offset": {
+            "x": 60
+          }
+        }
+      },
+      "actors": [
+        {
+          "id": "rian",
+          "character": "stick_figure",
+          "facing": 1,
+          "path": [
+            {
+              "t": 0,
+              "x": 1100,
+              "y": 2350
+            },
+            {
+              "t": 1.9,
+              "x": 1800,
+              "y": 2350,
+              "ease": "linear"
+            },
+            {
+              "t": 2.25,
+              "x": 1860,
+              "y": 2350,
+              "ease": "easeOutCubic"
+            }
+          ],
+          "pose": [
+            {
+              "t": 0,
+              "pose": "walk"
+            },
+            {
+              "t": 2.0,
+              "pose": "shock",
+              "blend": 0.15
+            }
+          ],
+          "action": [
+            {
+              "t": 0,
+              "action": "walk"
+            },
+            {
+              "t": 1.95,
+              "action": "idle"
+            }
+          ],
+          "expression": [
+            {
+              "t": 0,
+              "expr": "curious"
+            },
+            {
+              "t": 2.0,
+              "expr": "surprised"
+            }
+          ]
+        }
+      ],
+      "transition_out": {
+        "type": "smash_cut",
+        "duration": 0.2,
+        "punch": 0.09
+      }
+    },
+    {
+      "id": "s03",
+      "duration": "auto",
+      "pad": 0.3,
+      "purpose": "Complication: something is off",
+      "environment": "home/cozy_bedroom",
+      "lighting": "warm_morning",
+      "camera": {
+        "preset": "push_in",
+        "at": {
+          "x": 810,
+          "y": 1720
+        },
+        "zoom": 1.0
+      },
+      "actors": [
+        {
+          "id": "rian",
+          "character": "stick_figure",
+          "x": 810,
+          "y": 2210,
+          "facing": 0,
+          "pose": [
+            {
+              "t": 0,
+              "pose": "hold_phone"
+            }
+          ],
+          "expression": [
+            {
+              "t": 0,
+              "expr": "neutral"
+            },
+            {
+              "t": 1.0,
+              "expr": "worried"
+            }
+          ],
+          "gaze": [
+            {
+              "t": 0,
+              "x": 0.6,
+              "y": 0.6
+            }
+          ],
+          "props": [
+            {
+              "prop": "phone",
+              "hand": "r",
+              "state": "notify",
+              "scale": 0.9
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "prop": "alert_dot",
+          "screen": true,
+          "x": 690,
+          "y": 900,
+          "from": 0.9,
+          "keys": [
+            {
+              "t": 0.9,
+              "scale": 0,
+              "alpha": 0
+            },
+            {
+              "t": 1.1,
+              "scale": 1,
+              "alpha": 1,
+              "ease": "easeOutBack"
+            }
+          ]
+        },
+        {
+          "prop": "alert_triangle",
+          "screen": true,
+          "x": 800,
+          "y": 820,
+          "from": 1.1,
+          "keys": [
+            {
+              "t": 1.1,
+              "scale": 0,
+              "angle": -0.4
+            },
+            {
+              "t": 1.3,
+              "scale": 1,
+              "angle": 0,
+              "ease": "easeOutBack"
+            }
+          ]
+        },
+        {
+          "prop": "alert_dot",
+          "screen": true,
+          "x": 860,
+          "y": 960,
+          "from": 1.3,
+          "scale": 0.6,
+          "keys": [
+            {
+              "t": 1.3,
+              "scale": 0
+            },
+            {
+              "t": 1.5,
+              "scale": 0.6,
+              "ease": "easeOutBack"
+            }
+          ]
+        }
+      ],
+      "transition_out": {
+        "type": "snap_zoom",
+        "duration": 0.3,
+        "focus": {
+          "x": 0.5,
+          "y": 0.6
+        }
+      }
+    },
+    {
+      "id": "s04",
+      "duration": "auto",
+      "pad": 0.35,
+      "purpose": "Insight: emotional close-up on the realisation",
+      "environment": "home/cozy_bedroom",
+      "lighting": "warm_morning",
+      "camera": {
+        "preset": "emotional_close",
+        "at": {
+          "x": 810,
+          "y": 1860
+        },
+        "zoom": 3.4
+      },
+      "actors": [
+        {
+          "id": "rian",
+          "character": "stick_figure",
+          "x": 810,
+          "y": 2210,
+          "facing": 0,
+          "pose": [
+            {
+              "t": 0,
+              "pose": "think"
+            }
+          ],
+          "expression": [
+            {
+              "t": 0,
+              "expr": "thinking"
+            },
+            {
+              "t": 1.6,
+              "expr": "amazed"
+            }
+          ]
+        }
+      ],
+      "transition_out": {
+        "type": "push_through",
+        "duration": 0.45
+      }
+    },
+    {
+      "id": "s05",
+      "duration": "auto",
+      "pad": 0.9,
+      "purpose": "Payoff + closing question",
+      "environment": "abstract/warm_idea_space",
+      "camera": {
+        "preset": "pull_back_reveal",
+        "at": {
+          "x": 810,
+          "y": 1820
+        },
+        "zoom": 1.05
+      },
+      "actors": [
+        {
+          "id": "rian",
+          "character": "stick_figure",
+          "x": 810,
+          "y": 2150,
+          "facing": 0,
+          "pose": [
+            {
+              "t": 0,
+              "pose": "stand"
+            },
+            {
+              "t": 0.55,
+              "pose": "cheer",
+              "blend": 0.2
+            }
+          ],
+          "action": [
+            {
+              "t": 0,
+              "action": "idle"
+            },
+            {
+              "t": 0.6,
+              "action": "bounce",
+              "speed": 1.6,
+              "amount": 0.6
+            }
+          ],
+          "expression": [
+            {
+              "t": 0,
+              "expr": "curious"
+            },
+            {
+              "t": 0.55,
+              "expr": "joyful"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "prop": "lightbulb",
+          "x": 810,
+          "y": 1590,
+          "from": 0.5,
+          "keys": [
+            {
+              "t": 0.5,
+              "scale": 0,
+              "y": 1640
+            },
+            {
+              "t": 0.8,
+              "scale": 1.3,
+              "y": 1590,
+              "ease": "easeOutBack"
+            }
+          ]
+        },
+        {
+          "prop": "question_orb",
+          "x": 600,
+          "y": 1500,
+          "from": 1.0,
+          "keys": [
+            {
+              "t": 1.0,
+              "scale": 0,
+              "alpha": 0
+            },
+            {
+              "t": 1.3,
+              "scale": 1.7,
+              "alpha": 1,
+              "ease": "easeOutBack"
+            },
+            {
+              "t": 4,
+              "y": 1440
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

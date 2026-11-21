@@ -1,0 +1,84 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "desk_lamp",
+  "status": "draft",
+  "description": "Desk lamp; state 'on' adds warm glow.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 110,
+    "h": 170
+  },
+  "anchor": {
+    "x": 55.0,
+    "y": 170
+  },
+  "grip": {
+    "x": 55.0,
+    "y": 85.0
+  },
+  "shapes": [
+    {
+      "type": "circle",
+      "x": 78,
+      "y": 70,
+      "r": 70,
+      "fill": {
+        "radial": [
+          78,
+          70,
+          5,
+          78,
+          70,
+          80
+        ],
+        "stops": [
+          [
+            0,
+            "rgba(255,214,140,0.55)"
+          ],
+          [
+            1,
+            "rgba(255,214,140,0)"
+          ]
+        ]
+      },
+      "state": "on"
+    },
+    {
+      "type": "ellipse",
+      "x": 40,
+      "y": 164,
+      "rx": 34,
+      "ry": 8,
+      "fill": "#5C4B6E",
+      "stroke": "#3B2C25",
+      "lineWidth": 3
+    },
+    {
+      "type": "line",
+      "x1": 40,
+      "y1": 160,
+      "x2": 30,
+      "y2": 90,
+      "stroke": "#5C4B6E",
+      "lineWidth": 7
+    },
+    {
+      "type": "line",
+      "x1": 30,
+      "y1": 90,
+      "x2": 64,
+      "y2": 46,
+      "stroke": "#5C4B6E",
+      "lineWidth": 7
+    },
+    {
+      "type": "path",
+      "d": "M50 30 L96 52 L84 74 L44 48 Z",
+      "fill": "#F2CC8F",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    }
+  ],
+  "default_state": "on"
+}

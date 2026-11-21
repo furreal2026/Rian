@@ -2,6 +2,38 @@
 
 Sesuai Master Guide bagian 14: catat setiap keputusan baru beserta tanggal revisinya.
 
+## 2026-11-21 — Integrasi Kaomei Stickman Video Director · A4 Cozy Storytelling (branch `claude/kaomei-stickman-integration-6qtlo3`)
+
+Keputusan pemilik proyek (dari brief tugas):
+- **A4 Cozy Storytelling disetujui sebagai arah visual baru**: lingkungan sehari-hari penuh warna, cahaya hangat sinematik lembut, karakter stickman minimalis ekspresif, close-up emosional, wide shot sinematik, interaksi alami.
+- Kaomei Stickman Video Director menjadi dasar sistem produksi video utama.
+- Format prioritas: YouTube Shorts 9:16.
+
+Keputusan arsitektur (usulan implementasi, lihat `docs/CURIOUS_MIND_VIDEO_PIPELINE.md` §1):
+- A4 (gaya Model Engine) diadaptasi ke **Code Engine** milik Curious Mind: rig karakter vektor + environment berlapis + kamera 2.5D. Model gambar/TTS hanya dipakai untuk membuat aset sekali, dengan receipt.
+- Subset referensi Kaomei disalin ke `third_party/kaomei-stickman-video-director/` (MIT, commit `9431d3707bde52ba8eb17f31886b0892c763eeba`). Repo upstream (≈826 MB) **tidak** disalin utuh.
+- 23 rekaman audio berlisensi (2 musik CC BY 4.0, SFX CC0/CC BY 3.0) diekspor dari pustaka audio Kaomei beserta bukti lisensinya ke `assets/audio/library/`.
+
+Ditambahkan (tidak ada file lama yang ditimpa atau dihapus):
+- `pipeline/` (renderer, CLI, tes), `.claude/skills/curious-mind-video/`, `docs/CURIOUS_MIND_VIDEO_PIPELINE.md`, `THIRD_PARTY_NOTICES.md`.
+- Aset draft: rig `characters/stick_figure/` (status `candidate_master`), 3 environment, 11 props, preset kamera/transisi/cahaya/subtitle/format, `assets/registry.json`.
+- Episode uji teknis `episodes/ep000_pipeline_smoke_test/` (suara fixture espeak — bukan untuk publikasi).
+- `.gitignore` untuk `node_modules/` dan `episodes/*/output/`.
+
+Diubah: `README.md` (struktur & mulai cepat), `assets/ASSET_REGISTRY.md` (daftar aset baru), `docs/specs/TECHNICAL_SPECS.md` (hanya menambah §13 usulan; nilai TBD tidak diisi).
+
+### Konflik / keputusan yang menunggu pemilik (Master §14)
+
+| # | Isu | Status |
+|---|---|---|
+| 7 | Master §4 & Environment §1 menyebut “energi komedi, outline tegas, warna cerah”; A4 menekankan kehangatan lembut dan cahaya sinematik. Tidak bertentangan langsung, tetapi teks Master Guide belum menyebut A4. | Teks Master Guide **tidak diubah**. Perlu keputusan: perbarui Master §4 atau tambahkan lampiran A4. |
+| 8 | Camera Guide mengutamakan gerak cepat/snappy; referensi A4 lebih tenang. Brief meminta transisi cepat dan kamera dinamis. | Pipeline memakai visual A4 + tata bahasa kamera Curious Mind yang cepat (preset tersedia untuk keduanya). Perlu konfirmasi ritme default. |
+| 9 | Desain karakter master masih TBD (Master §3). Rig `stick_figure` mengikuti anchor karakter A4 (kepala putih bulat, torso putih, tungkai gelap, tanpa ciri Milo). | Status `candidate_master` — **belum disetujui**. Setujui atau minta revisi lewat `characters/stick_figure/reference/*.png`. |
+| 10 | Spesifikasi ekspor, subtitle, loudness (TECHNICAL_SPECS §2, §8, §9) masih TBD; pipeline butuh nilai default. | Dipakai sebagai **usulan** di `assets/presets/formats.json` & `captions.json` (1080×1920, 30 fps, H.264 CRF 18, AAC 192k, −14 LUFS, Nunito 900). TECHNICAL_SPECS tidak diisi. |
+| 11 | Suara narator belum dipilih (provider, model, nama voice). Kaomei: satu suara tetap per video, tanpa instruksi gaya. | Menunggu pilihan pemilik + kunci API yang valid. |
+| 12 | Kunci Gemini yang tersimpan di environment cloud ditolak Google (`API_KEY_INVALID`). | Generasi gambar/TTS belum bisa diuji. Perbarui secret di pengaturan environment. |
+| 13 | Narasi bahasa apa? (Master tidak menyebut; subtitle TBD.) | Episode uji memakai bahasa Inggris. Perlu keputusan bahasa default (EN / ID / keduanya). |
+
 ## 2026-11-22 — Restrukturisasi repository (branch `restructure/curious-mind-docs`)
 
 Disetujui oleh pemilik proyek. Isi standar produksi **tidak diubah**.

@@ -1,0 +1,24 @@
+{
+  "_status": "proposal — pending owner approval (TECHNICAL_SPECS §2 still lists these as TBD)",
+  "shorts_9x16": {
+    "label": "YouTube Shorts / Reels / TikTok vertical",
+    "width": 1080, "height": 1920, "fps": 30,
+    "max_duration": 180,
+    "encode": {"codec": "libx264", "preset": "medium", "crf": 18, "pix_fmt": "yuv420p", "audio": "aac 192k 48kHz"},
+    "draft": {"scale": 0.5, "fps": 15, "encode": {"preset": "veryfast", "crf": 26}},
+    "loudness": {"I": -14, "TP": -1.5, "LRA": 11},
+    "ui_overlay_zones": [
+      {"label": "status/top bar", "x": 0, "y": 0, "w": 1080, "h": 150},
+      {"label": "action rail (like/comment/share)", "x": 930, "y": 880, "w": 150, "h": 820},
+      {"label": "title, channel, music ticker", "x": 0, "y": 1560, "w": 1080, "h": 360}
+    ]
+  },
+  "long_16x9": {
+    "label": "YouTube long-form (scaffold only — not yet tested in this pipeline)",
+    "width": 1920, "height": 1080, "fps": 30,
+    "encode": {"codec": "libx264", "preset": "medium", "crf": 18, "pix_fmt": "yuv420p", "audio": "aac 192k 48kHz"},
+    "draft": {"scale": 0.5, "fps": 15, "encode": {"preset": "veryfast", "crf": 26}},
+    "loudness": {"I": -14, "TP": -1.5, "LRA": 11},
+    "ui_overlay_zones": []
+  }
+}

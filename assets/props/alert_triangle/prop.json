@@ -1,0 +1,35 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "alert_triangle",
+  "status": "draft",
+  "description": "Outline red triangle anxiety icon.",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 48,
+    "h": 44
+  },
+  "anchor": {
+    "x": 24,
+    "y": 24
+  },
+  "grip": {
+    "x": 24.0,
+    "y": 22.0
+  },
+  "shapes": [
+    {
+      "type": "polygon",
+      "points": [
+        24,
+        2,
+        46,
+        42,
+        2,
+        42
+      ],
+      "stroke": "#E5574B",
+      "lineWidth": 5,
+      "alpha": 0.85
+    }
+  ]
+}

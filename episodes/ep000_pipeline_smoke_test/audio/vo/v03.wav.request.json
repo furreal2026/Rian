@@ -1,0 +1,9 @@
+{
+  "kind": "speech",
+  "provider": "espeak-ng",
+  "purpose": "TECHNICAL FIXTURE ONLY — robotic placeholder for pipeline tests; never publish",
+  "input_sha256": "430ea88d3bec6faff1a3f1fb041109dbb63589c031c9566888931a69c4a9b573",
+  "input_text": "Sounds fun, until you notice something.",
+  "status": "complete",
+  "requested_at": "2026-11-21T23:21:45.708Z"
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "curious-mind/prop@1",
+  "id": "notebook",
+  "status": "draft",
+  "description": "Open notebook seen from above-front. state 'written' shows scribble strokes (no letters).",
+  "source": "code-drawn vector (this file is the editable source)",
+  "size": {
+    "w": 110,
+    "h": 80
+  },
+  "anchor": {
+    "x": 55.0,
+    "y": 80
+  },
+  "grip": {
+    "x": 55,
+    "y": 40
+  },
+  "shapes": [
+    {
+      "type": "roundRect",
+      "x": 0,
+      "y": 6,
+      "w": 110,
+      "h": 72,
+      "r": 5,
+      "fill": "#E07A5F",
+      "stroke": "#3B2C25",
+      "lineWidth": 4
+    },
+    {
+      "type": "roundRect",
+      "x": 6,
+      "y": 0,
+      "w": 98,
+      "h": 70,
+      "r": 4,
+      "fill": "#FBF6EC",
+      "stroke": "#3B2C25",
+      "lineWidth": 3
+    },
+    {
+      "type": "line",
+      "x1": 55,
+      "y1": 2,
+      "x2": 55,
+      "y2": 68,
+      "stroke": "#D9CBB4",
+      "lineWidth": 2
+    },
+    {
+      "type": "path",
+      "d": "M16 22 C26 16 34 28 46 20",
+      "stroke": "#7B8BA8",
+      "lineWidth": 2.5,
+      "state": "written"
+    },
+    {
+      "type": "path",
+      "d": "M16 38 C30 32 36 44 48 36",
+      "stroke": "#7B8BA8",
+      "lineWidth": 2.5,
+      "state": "written"
+    }
+  ]
+}

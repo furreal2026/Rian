@@ -1,0 +1,36 @@
+{
+  "_doc": "A4 Cozy Storytelling lighting looks (pipeline/src/lib/lighting.mjs). Warm, gentle, cinematic; screen-space so every environment can reuse them.",
+  "warm_morning": {
+    "grade": {"color": "#FFB46A", "alpha": 0.16, "blend": "soft-light"},
+    "gradient": {"from_to": [0, 0, 1, 1], "colors": ["#FFE3B0", "#5B4A78"], "alpha": 0.22, "blend": "soft-light"},
+    "rays": {"origin": {"x": 0.05, "y": -0.05}, "angle": 32, "count": 4, "spread": 0.1, "width": 0.045, "alpha": 0.12, "color": "#FFE7B5", "blur": 26},
+    "motes": {"count": 22, "alpha": 0.3, "color": "#FFF0CC"},
+    "vignette": {"alpha": 0.32, "color": "#2B1D12"}
+  },
+  "golden_afternoon": {
+    "grade": {"color": "#FF9E4F", "alpha": 0.2, "blend": "soft-light"},
+    "gradient": {"from_to": [1, 0, 0, 1], "colors": ["#FFD08A", "#3E3A66"], "alpha": 0.26, "blend": "soft-light"},
+    "rays": {"origin": {"x": 0.95, "y": -0.05}, "angle": -30, "count": 5, "spread": 0.09, "width": 0.05, "alpha": 0.14, "color": "#FFD9A0", "blur": 30},
+    "motes": {"count": 18, "alpha": 0.28, "color": "#FFE7C2"},
+    "vignette": {"alpha": 0.34, "color": "#2B1A10"}
+  },
+  "cozy_lamp_evening": {
+    "grade": {"color": "#FF9A55", "alpha": 0.22, "blend": "soft-light"},
+    "gradient": {"from_to": [0.2, 0.3, 1, 1], "colors": ["#FFC27A", "#1E2448"], "alpha": 0.4, "blend": "soft-light"},
+    "motes": {"count": 12, "alpha": 0.22, "color": "#FFD9A8"},
+    "vignette": {"alpha": 0.45, "color": "#140F1C"}
+  },
+  "soft_overcast": {
+    "grade": {"color": "#9DB4C8", "alpha": 0.14, "blend": "soft-light"},
+    "gradient": {"from_to": [0, 0, 0, 1], "colors": ["#E8EEF2", "#4A5468"], "alpha": 0.18, "blend": "soft-light"},
+    "vignette": {"alpha": 0.26, "color": "#1A2030"}
+  },
+  "night_window_glow": {
+    "grade": {"color": "#5A6FB0", "alpha": 0.22, "blend": "soft-light"},
+    "gradient": {"from_to": [0, 0.4, 1, 0.6], "colors": ["#FFB870", "#1A2350"], "alpha": 0.38, "blend": "soft-light"},
+    "vignette": {"alpha": 0.5, "color": "#0C0E1E"}
+  },
+  "neutral_soft": {
+    "vignette": {"alpha": 0.18, "color": "#2A2420"}
+  }
+}
