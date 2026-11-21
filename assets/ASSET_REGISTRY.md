@@ -30,7 +30,7 @@ Tujuan (dari Master §4 dan Environment §11): cari dan pakai aset yang sudah ad
 | Item | Lokasi | Status |
 |---|---|---|
 | Spesifikasi master character (V1.0) | `characters/stick_figure/MASTER_CHARACTER.md` | draft, menunggu persetujuan |
-| Reference sheet visual | `characters/stick_figure/references/curious_mind_reference_sheet_v01.png` | available (acuan visual, bukan aset produksi) |
+| Reference sheet visual | `characters/stick_figure/references/curious_mind_reference_sheet.png` | available (acuan visual, bukan aset produksi) |
 | Draft master character sheet | `characters/stick_figure/drafts/stick_figure_master_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
 | Draft 10 ekspresi inti | `characters/stick_figure/drafts/expressions_sheet_draft.png` | in_progress (draft, menunggu persetujuan) |
 | Desain master stick figure | `characters/stick_figure/stick_figure_master.png` | needed |

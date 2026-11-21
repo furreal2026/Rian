@@ -2,9 +2,9 @@
 
 Status: draft, menunggu persetujuan pemilik proyek. Belum ada aset final.
 Draft visual: [`drafts/stick_figure_master_sheet_draft.png`](drafts/stick_figure_master_sheet_draft.png) · [`drafts/expressions_sheet_draft.png`](drafts/expressions_sheet_draft.png)
-Referensi visual utama: [`references/curious_mind_reference_sheet_v01.png`](references/curious_mind_reference_sheet_v01.png)
+Referensi visual utama: [`references/curious_mind_reference_sheet.png`](references/curious_mind_reference_sheet.png)
 
-![Reference sheet](references/curious_mind_reference_sheet_v01.png)
+![Reference sheet](references/curious_mind_reference_sheet.png)
 
 ## Character Identity
 
