@@ -13,3 +13,17 @@ Character & Environment models untuk video animasi.
 3. Baru render final setelah disetujui
 
 Tooling pendukung: Remotion, HyperFrames, Lemo-Opuscar (repo terpisah).
+Rian/
+
+# Curious Mind — Documentation
+
+Folder ini berisi dokumen panduan dan standar produksi Curious Mind.
+
+## Isi Folder
+
+- CURIOUS_MIND_MASTER_GUIDE.md
+- CURIOUS_MIND_ENVIRONMENT.md
+- CURIOUS_MIND_CAMERA_TRANSITIONS.md
+- EPISODE_PRODUCTION_TEMPLATE.md
+
+Gunakan Master Guide sebagai acuan utama produksi Curious Mind.
