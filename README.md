@@ -1,42 +1,70 @@
 # Rian
-Character & Environment models untuk video animasi.
+
+Character & Environment models untuk video animasi **Curious Mind**.
+
+Curious Mind adalah kanal hiburan-edukasi berbasis pertanyaan "What If?". Repository ini menyimpan dokumen standar produksi, model karakter, environment, aset, dan referensi.
+
+## Mulai dari sini
+
+Acuan utama produksi: [`docs/CURIOUS_MIND_MASTER_GUIDE.md`](docs/CURIOUS_MIND_MASTER_GUIDE.md).
+
+Dokumen teknis tidak boleh bertentangan dengan Master Guide. Jika ada konflik, tandai dan minta keputusan pemilik proyek (lihat Master Guide bagian 14).
 
 ## Struktur
-- `characters/<nama>/` — model karakter (model sheet, turnaround, ekspresi, kode/aset)
-- `environments/<nama>/` — model environment (layout, palet warna, props)
-- `references/` — referensi visual dan moodboard
-- `docs/` — catatan desain dan keputusan
+
+```text
+Rian/
+├── README.md
+├── docs/
+│   ├── CURIOUS_MIND_MASTER_GUIDE.md          # acuan utama
+│   ├── CURIOUS_MIND_ENVIRONMENT.md           # panduan environment & aset visual
+│   ├── CURIOUS_MIND_CAMERA_TRANSITIONS.md    # panduan kamera & transisi
+│   ├── templates/
+│   │   └── STORYBOARD_TEMPLATE.md            # template storyboard gabungan
+│   ├── specs/
+│   │   └── TECHNICAL_SPECS.md                # spesifikasi teknis (banyak TBD)
+│   ├── decisions/
+│   │   └── CHANGELOG.md                      # catatan keputusan & revisi bertanggal
+│   └── archive/
+│       └── curious_mind_production_guides.zip  # arsip lama, jangan dihapus
+├── characters/
+│   └── stick_figure/                         # model karakter utama
+├── environments/
+│   ├── home/  street/  public_places/
+│   └── nature/  science_fantasy/  abstract/
+├── assets/
+│   └── ASSET_REGISTRY.md                     # registri aset tersedia & dibutuhkan
+├── references/                               # referensi visual dan moodboard
+└── episodes/                                 # satu folder per episode (lihat TBD di bawah)
+```
+
+Folder kosong ditandai dengan `.gitkeep`.
+
+## Dokumen
+
+| Dokumen | Fungsi |
+|---|---|
+| `docs/CURIOUS_MIND_MASTER_GUIDE.md` | Brand, prinsip editorial, aturan karakter, identitas visual, workflow, QC |
+| `docs/CURIOUS_MIND_ENVIRONMENT.md` | Kategori environment, standar aset reusable, layering, penamaan file |
+| `docs/CURIOUS_MIND_CAMERA_TRANSITIONS.md` | Ukuran shot, sudut, gerakan kamera, transisi, tempo |
+| `docs/templates/STORYBOARD_TEMPLATE.md` | Format storyboard gabungan dari Master Guide dan Camera Guide |
+| `docs/specs/TECHNICAL_SPECS.md` | Spesifikasi teknis; nilai yang belum diputuskan ditandai TBD |
+| `docs/decisions/CHANGELOG.md` | Riwayat keputusan, revisi, dan konflik yang menunggu keputusan |
+| `assets/ASSET_REGISTRY.md` | Daftar aset yang sudah ada dan yang belum tersedia |
 
 ## Alur kerja
+
 1. Konsep → demo / gambar awal (preview ringan, bukan render final)
 2. Persetujuan dari pemilik proyek
 3. Baru render final setelah disetujui
 
-Tooling pendukung: Remotion, HyperFrames, Lemo-Opuscar (repo terpisah).
-Rian/
+Alur produksi lengkap (Phase A–G) ada di Master Guide bagian 11.
 
-# Curious Mind — Documentation
+## Tooling pendukung
 
-Folder ini berisi dokumen panduan dan standar produksi Curious Mind.
+Remotion, HyperFrames, Lemo-Opuscar (repo terpisah). Cara pemakaiannya untuk Curious Mind belum didokumentasikan (TBD, lihat `docs/specs/TECHNICAL_SPECS.md`).
 
-## Isi Folder
+## Catatan terbuka
 
-- CURIOUS_MIND_MASTER_GUIDE.md
-- CURIOUS_MIND_ENVIRONMENT.md
-- CURIOUS_MIND_CAMERA_TRANSITIONS.md
-- EPISODE_PRODUCTION_TEMPLATE.md
-
-Gunakan Master Guide sebagai acuan utama produksi Curious Mind.
-docs/
-├── CURIOUS_MIND_MASTER_GUIDE.md
-├── CURIOUS_MIND_ENVIRONMENT.md
-└── CURIOUS_MIND_CAMERA_TRANSITIONS.md
-Rian/
-├── README.md
-├── docs/
-│   ├── CURIOUS_MIND_MASTER_GUIDE.md
-│   ├── CURIOUS_MIND_ENVIRONMENT.md
-│   └── CURIOUS_MIND_CAMERA_TRANSITIONS.md
-├── characters/
-├── environments/
-└── references/
+- `EPISODE_PRODUCTION_TEMPLATE.md` disebut di README lama tetapi belum pernah ada di repository. Status: TBD, menunggu keputusan pemilik proyek.
+- Detail lain yang belum diputuskan tercatat di `docs/decisions/CHANGELOG.md`.
