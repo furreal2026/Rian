@@ -30,6 +30,20 @@ Disetujui oleh pemilik proyek.
 - Plate dikirim berbingkai persis frame master (tanpa overscan) → opsi A: gerakan kamera dijaga di dalam bingkai; manifest tidak diubah.
 - Tes 10 detik memakai beat Brief Scene 02 "Stop!" di courtyard (`config/pilot_01_courtyard_test_10s.json`); courtyard bukan lokasi trotoar Scene 01, jadi ini tes pipeline, bukan potongan episode.
 
+## 2026-11-22 — Desain karakter Rian v2 (wajah, ekspresi, leher)
+
+Disetujui oleh pemilik proyek (expression sheet v2 "Sudah bagus", lalu "Ya buat desain rig nya").
+
+- Referensi persetujuan: `output/character_revision_v2_TEST/rian_expression_sheet_v2_TEST.png` (dan `.svg`).
+- Wajah digambar ulang di `pilot/PILOT_01_STOP_TIME/rig/character_art.py`: garis tinta lancip yang bersih, kelopak atas tebal menutup ±½ mata, pupil tertahan di bawah kelopak, alis lebih tipis dekat kelopak, mulut garis pendek. Outline kepala lingkaran konstan 6,4. Kepala samping memakai bahasa visual yang sama.
+- Ekspresi dasar/identitas: **Neutral = `deadpan`** (alias `neutral`).
+- Set ekspresi di `stick_figure_rig.json` (skema v2): `deadpan`, `deadpan_up` (dipertahankan untuk config yang ada), `skeptical`, `annoyed`, `exhausted`, `confused` (tanda "?"), `shocked` (tanda "!!"), `angry`, `disgusted`, `worried`, `smug`. Nama lama tetap berlaku, jadi config episode tidak perlu diubah.
+- Kantung mata abu hanya pada `exhausted` (sebelumnya di semua ekspresi dengan kelopak turun).
+- **Leher pendek 8 unit** terlihat di antara kerah dan kepala (bagian dari sprite kepala, ikut berputar dengan `head`). Sendi rig tidak berubah; `units_height` 560 → 568 sehingga `character.height` di config tetap berarti tinggi total karakter (badan tampil ±1,4% lebih kecil pada tinggi config yang sama).
+- Badan, kaus, lengan, kaki, pose, dan walk cycle tidak diubah.
+- Tes: `test_rig.py` diperbarui (H = 568) dan ditambah tes set ekspresi v2 serta leher. Bukti render: `output/rig_v2_qc_TEST/`.
+- Outfit Polisi/Hoodie (`output/character_revision_v2_TEST/rian_outfits_v2_TEST.png`) masih referensi TEST, belum masuk rig.
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

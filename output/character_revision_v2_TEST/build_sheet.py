@@ -125,11 +125,8 @@ def eye(side, e):
         top = [(ex + rx * math.cos(a), ey - ry * math.sin(a)) for a in [math.pi * (0.12 + 0.76 * k / 20) for k in range(21)]]
         out.append(taper(top, 4.2, 6.6, 4.2, smooth=False))
     else:
-        arc = [(ex + rx * math.cos(a), ey + ry * math.sin(a)) for a in [k * 2 * math.pi / 180 for k in range(181)]]
+        arc = [(ex + rx * math.cos(a), ey + ry * math.sin(a)) for a in [-math.pi / 2 + k * 2 * math.pi / 240 for k in range(241)]]
         arc = [p for p in arc if p[1] >= lid_y(p[0]) - 0.3]
-        arc.sort(key=lambda p: math.atan2(p[1] - ey, p[0] - ex))
-        # keep the contiguous lower arc ordered left->right
-        arc = sorted(arc, key=lambda p: p[0]) if arc else arc
         if len(arc) > 2:
             low = [p for p in arc if p[1] >= ey - ry * 0.98]
             out.append(taper(low, 3.0, 4.4, 3.0, smooth=False, power=0.3))

@@ -1,8 +1,8 @@
 {
   "name": "stick_figure",
   "character_name": "Rian",
-  "description": "Curious Mind main character, modular cut-out rig. Units: head radius = 100, ground contact at y = 0, y points down. Geometry and palette follow characters/stick_figure/MASTER_CHARACTER.md (draft V2, branch assets/character-master-v1).",
-  "units_height": 560,
+  "description": "Curious Mind main character, modular cut-out rig. Units: head radius = 100, ground contact at y = 0, y points down. Geometry and palette follow characters/stick_figure/MASTER_CHARACTER.md (draft V2, branch assets/character-master-v1). Face design v2 (2026-11-22, owner-approved expression sheet): see docs/decisions/CHANGELOG.md.",
+  "units_height": 568,
   "palette": {
     "ink": "#1D1D21",
     "skin": "#FFFFFF",
@@ -10,10 +10,11 @@
     "shirt_shadow": "#B8352F",
     "shirt_fold": "#9E2B27",
     "mouth": "#6E2020",
-    "eye_bag": "#D8D8DE",
+    "eye_bag": "#C9C9D1",
+    "tongue": "#B9484A",
     "shadow": "#000000"
   },
-  "line_widths": {"head_outline": 6.4, "limb": 6.6, "shirt_outline": 5.6, "lid": 11.0, "brow": 9.5, "eye_outline": 3.2, "mouth": 4.6},
+  "line_widths": {"head_outline": 6.4, "limb": 6.6, "shirt_outline": 5.6, "neck": 6.6, "lid": 11.0, "brow": 7.6, "eye_outline": 4.4, "eye_outline_open": 4.2, "mouth": 5.4},
   "params": ["hips", "hips_dx", "hips_dy", "torso", "head",
              "shoulder_r", "elbow_r", "wrist_r", "shoulder_l", "elbow_l", "wrist_l",
              "hip_r", "knee_r", "ankle_r", "hip_l", "knee_l", "ankle_l"],
@@ -61,12 +62,21 @@
       ]
     }
   },
+  "face": {"neck": 8, "eye_x": 40, "eye_y": -10, "eye_rx": 29, "eye_ry": 22, "side_eye_rx": 15, "pupil": 12.5, "mouth_y": 46,
+           "note": "Head-centred units (head radius 100). The head sprite pivot stays at the neck joint; neck = visible neck length between the shirt collar and the head."},
+  "expression_aliases": {"neutral": "deadpan"},
   "expressions": {
-    "deadpan":     {"lid": 0.50, "pupil": 11.5, "gaze": [0.0, 0.30],  "brow_y": -38, "brow_tilt": [4, -4],   "brow_raise": [0, 0],  "mouth": "line"},
-    "deadpan_up":  {"lid": 0.36, "pupil": 11.5, "gaze": [0.05, -0.35], "brow_y": -42, "brow_tilt": [3, -3],  "brow_raise": [0, 0],  "mouth": "line"},
-    "skeptical":   {"lid": 0.52, "pupil": 11.5, "gaze": [0.25, 0.25], "brow_y": -38, "brow_tilt": [6, 10],   "brow_raise": [0, 14], "mouth": "line_tilt"},
-    "shocked":     {"lid": 0.00, "pupil": 7.0,  "gaze": [0.0, 0.0],   "brow_y": -54, "brow_tilt": [-6, 6],   "brow_raise": [0, 0],  "mouth": "open"},
-    "smug":        {"lid": 0.58, "pupil": 11.5, "gaze": [0.3, 0.25],  "brow_y": -38, "brow_tilt": [4, -8],   "brow_raise": [0, 4],  "mouth": "smirk"}
+    "deadpan":    {"lid_in": 0.47, "lid_out": 0.47, "gaze": [0.12, 0.62], "brow_dy": 12.5, "brow_in": 0.0, "brow_out": -1.5, "brow_arch": 2.2, "mouth": "line"},
+    "deadpan_up": {"lid_in": 0.36, "lid_out": 0.36, "gaze": [0.05, -0.75], "brow_dy": 15.0, "brow_in": 0.0, "brow_out": -1.5, "brow_arch": 2.2, "mouth": "line"},
+    "skeptical":  {"lid_in": [0.56, 0.36], "lid_out": [0.56, 0.36], "gaze": [0.55, 0.45], "brow_dy": [12.0, 18.0], "brow_in": [-1.0, 2.0], "brow_out": [-1.0, 6.0], "brow_arch": [1.5, 6.5], "mouth": "line_tilt"},
+    "annoyed":    {"lid_in": 0.58, "lid_out": 0.4, "gaze": [0.35, 0.55], "brow_dy": 13.0, "brow_in": -4.0, "brow_out": 2.0, "brow_arch": 0.5, "lid_arch": 1.0, "mouth": "frown_small"},
+    "exhausted":  {"lid_in": 0.6, "lid_out": 0.7, "gaze": [0.0, 0.75], "brow_dy": 10.0, "brow_in": 2.5, "brow_out": -3.5, "brow_arch": 2.2, "lid_arch": 3.0, "bags": true, "lid_w": 7.8, "mouth": "flat_low"},
+    "confused":   {"gaze": [0.5, -0.45], "brow_dy": [10.0, 17.0], "brow_in": [1.0, 4.0], "brow_out": [-2.5, 5.0], "brow_arch": [2.0, 6.0], "rx": 24, "ry": 21, "pupil": 9.0, "brow_w": 5.6, "mouth": "squiggle", "mark": "?"},
+    "shocked":    {"gaze": [0.0, 0.0], "brow_dy": 17.0, "brow_in": 3.0, "brow_out": 1.0, "brow_arch": 6.0, "rx": 25, "ry": 23.5, "pupil": 6.2, "brow_w": 5.8, "dy": -2.0, "mouth": "open", "mark": "!!"},
+    "angry":      {"lid_in": 0.56, "lid_out": 0.3, "gaze": [0.0, 0.5], "brow_dy": 13.0, "brow_in": -7.0, "brow_out": 4.0, "brow_arch": -0.5, "lid_arch": 0.5, "brow_w": 8.6, "brow_w0": 6.0, "mouth": "grimace"},
+    "disgusted":  {"lid_in": [0.56, 0.5], "lid_out": [0.5, 0.42], "gaze": [0.6, 0.5], "brow_dy": [11.5, 14.0], "brow_in": [-3.5, -0.5], "brow_out": [0.0, 1.0], "brow_arch": [0.5, 2.0], "mouth": "disgust"},
+    "worried":    {"lid_in": 0.26, "lid_out": 0.34, "gaze": [0.5, 0.25], "brow_dy": 12.0, "brow_in": 8.5, "brow_out": -3.0, "brow_arch": 1.0, "lid_arch": -0.5, "lid_w": 6.8, "flick": 1.0, "mouth": "worried"},
+    "smug":       {"lid_in": 0.55, "lid_out": 0.53, "gaze": [0.5, 0.6], "brow_dy": [11.0, 14.0], "brow_in": [0.0, 1.5], "brow_out": [-2.0, 2.5], "brow_arch": [2.0, 3.5], "lid_arch": 3.0, "mouth": "smirk"}
   },
   "parts_override_dir": "parts",
   "parts_override_note": "Optional: put approved PNG parts in pilot/PILOT_01_STOP_TIME/rig/parts/<sprite_name>.png plus parts/parts.json {\"<sprite_name>\": {\"pivot_px\": [x, y], \"px_per_unit\": k}} to replace the procedural art without changing the rig."
