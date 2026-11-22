@@ -1,0 +1,46 @@
+{
+  "video": "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2.mp4",
+  "probe": {
+    "codec": "h264",
+    "profile": "High",
+    "pix_fmt": "yuv420p",
+    "width": 1920,
+    "height": 1080,
+    "display_aspect_ratio": null,
+    "fps": 24.0,
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "24/1",
+    "frames": 240,
+    "stream_duration": 10.0,
+    "format_duration": 10.0,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "size_bytes": 12582796,
+    "bit_rate": 10066236
+  },
+  "checks": {
+    "resolution": true,
+    "fps": true,
+    "frame_count": true,
+    "duration": true,
+    "codec_h264": true,
+    "pix_fmt_yuv420p": true,
+    "container_mp4": true,
+    "aspect_16_9": true
+  },
+  "all_pass": true,
+  "extracted_frames": [
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0000.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0069.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0070.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0122.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0125.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0126.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0129.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0181.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0186.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0187.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0192.png",
+    "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/frames/frame_0239.png"
+  ],
+  "contact_sheet": "pilot/PILOT_01_STOP_TIME/output/pilot_01_courtyard_test_10s_v2_qc/contact_sheet.png"
+}

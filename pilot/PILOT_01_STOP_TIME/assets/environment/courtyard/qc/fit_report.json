@@ -1,0 +1,171 @@
+{
+  "layer4_far_background": {
+    "layer": "layer4_far_background",
+    "source": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_far_rgba.png",
+    "source_size": [
+      1672,
+      941
+    ],
+    "target_content": [
+      1920,
+      1080
+    ],
+    "offset_px": [
+      266,
+      207
+    ],
+    "stretch_x_percent": 0.053,
+    "scale": 1.1477,
+    "crop_px": [
+      0,
+      0
+    ],
+    "output": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_far_rgba_fit.png",
+    "canvas": [
+      2389,
+      1372
+    ],
+    "check": {
+      "mode": "RGBA",
+      "size": [
+        2389,
+        1372
+      ],
+      "bits": 8,
+      "icc_profile": false,
+      "format": "PNG",
+      "min_size": [
+        2389,
+        1372
+      ],
+      "pass": true
+    }
+  },
+  "layer3_background": {
+    "layer": "layer3_background",
+    "source": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_rgba_pass2.png",
+    "source_size": [
+      1670,
+      941
+    ],
+    "target_content": [
+      1920,
+      1080
+    ],
+    "offset_px": [
+      535,
+      393
+    ],
+    "stretch_x_percent": 0.173,
+    "scale": 1.1477,
+    "crop_px": [
+      0,
+      0
+    ],
+    "output": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_rgba_pass2_fit.png",
+    "canvas": [
+      2846,
+      1587
+    ],
+    "check": {
+      "mode": "RGBA",
+      "size": [
+        2846,
+        1587
+      ],
+      "bits": 8,
+      "icc_profile": false,
+      "format": "PNG",
+      "min_size": [
+        2846,
+        1587
+      ],
+      "pass": true
+    }
+  },
+  "layer2_midground": {
+    "layer": "layer2_midground",
+    "source": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_mid_rgba_pass5.png",
+    "source_size": [
+      1672,
+      941
+    ],
+    "target_content": [
+      1920,
+      1080
+    ],
+    "offset_px": [
+      1426,
+      997
+    ],
+    "stretch_x_percent": 0.053,
+    "scale": 1.1477,
+    "crop_px": [
+      0,
+      0
+    ],
+    "output": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_mid_rgba_pass5_fit.png",
+    "canvas": [
+      4383,
+      2304
+    ],
+    "check": {
+      "mode": "RGBA",
+      "size": [
+        4383,
+        2304
+      ],
+      "bits": 8,
+      "icc_profile": false,
+      "format": "PNG",
+      "min_size": [
+        4383,
+        2304
+      ],
+      "pass": true
+    }
+  },
+  "layer1_foreground": {
+    "layer": "layer1_foreground",
+    "source": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_fg_rgba_pass2.png",
+    "source_size": [
+      1715,
+      917
+    ],
+    "target_content": [
+      1920,
+      1080
+    ],
+    "offset_px": [
+      2126,
+      1462
+    ],
+    "scale": 1.1778,
+    "stretch_x_percent": 0.0,
+    "crop_px": [
+      100,
+      0
+    ],
+    "crop_note": "centre crop of the axis that exceeds the frame (aspect differs from 16:9 by more than the stretch limit)",
+    "output": "pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_fg_rgba_pass2_fit.png",
+    "canvas": [
+      5620,
+      2879
+    ],
+    "check": {
+      "mode": "RGBA",
+      "size": [
+        5620,
+        2879
+      ],
+      "bits": 8,
+      "icc_profile": false,
+      "format": "PNG",
+      "min_size": [
+        5620,
+        2879
+      ],
+      "pass": true
+    }
+  }
+}

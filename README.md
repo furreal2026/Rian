@@ -25,6 +25,7 @@ Rian/
 │   │   └── TECHNICAL_SPECS.md                # spesifikasi teknis (banyak TBD)
 │   ├── decisions/
 │   │   └── CHANGELOG.md                      # catatan keputusan & revisi bertanggal
+│   ├── production/                           # dokumen produksi episode (brief, storyboard)
 │   └── archive/
 │       └── curious_mind_production_guides.zip  # arsip lama, jangan dihapus
 ├── characters/
@@ -34,6 +35,10 @@ Rian/
 │   └── nature/  science_fantasy/  abstract/
 ├── assets/
 │   └── ASSET_REGISTRY.md                     # registri aset tersedia & dibutuhkan
+├── pilot/
+│   └── PILOT_01_STOP_TIME/                   # Pilot 01: config, rig, camera, compositor, transitions, tests, assets (lihat README-nya)
+├── tools/
+│   └── render/                               # mesin render Python + FFmpeg (CLI, encode, QC)
 ├── references/                               # referensi visual dan moodboard
 └── episodes/                                 # satu folder per episode (lihat TBD di bawah)
 ```

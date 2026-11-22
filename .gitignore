@@ -1,0 +1,5 @@
+# render outputs and generated TEST assets (per episode)
+pilot/*/output/
+episodes/*/output/
+__pycache__/
+*.pyc

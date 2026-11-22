@@ -1,0 +1,12 @@
+{
+  "_doc": "Pose library for the stick_figure rig. Angles in degrees, added to each part's rest angle. Positive = clockwise on screen. Unlisted params are 0. Poses are authored for the view in 'view' (mirroring is done with the character's 'flip').",
+  "stand":        {"view": "front", "angles": {}},
+  "stand_relaxed":{"view": "front", "angles": {"hips": 1, "torso": -1, "head": 2, "shoulder_r": 2, "shoulder_l": -3, "elbow_r": -4, "elbow_l": 5}},
+  "look_up":      {"view": "front", "angles": {"torso": -2, "head": -6, "hips_dy": 0}},
+  "snap_ready":   {"view": "front", "angles": {"torso": 3, "head": 5, "shoulder_r": 66, "elbow_r": 104, "wrist_r": 10, "shoulder_l": -2, "elbow_l": 4}},
+  "snap":         {"view": "front", "angles": {"torso": 4, "head": 6, "shoulder_r": 62, "elbow_r": 122, "wrist_r": 32, "shoulder_l": -2, "elbow_l": 4, "hips_dy": 3}},
+  "snap_hold":    {"view": "front", "angles": {"torso": 2, "head": 3, "shoulder_r": 58, "elbow_r": 112, "wrist_r": 20, "shoulder_l": -2, "elbow_l": 4}},
+  "hands_down":   {"view": "front", "angles": {"torso": 0, "head": -2, "shoulder_r": 4, "elbow_r": -2}},
+  "smug_stand":   {"view": "front", "angles": {"hips": 2, "torso": -3, "head": -7, "shoulder_r": -4, "elbow_r": -6, "shoulder_l": 4, "elbow_l": 6, "hip_l": -4, "knee_l": 4}},
+  "side_stand":   {"view": "side",  "angles": {}}
+}

@@ -1,0 +1,73 @@
+{
+  "name": "stick_figure",
+  "character_name": "Rian",
+  "description": "Curious Mind main character, modular cut-out rig. Units: head radius = 100, ground contact at y = 0, y points down. Geometry and palette follow characters/stick_figure/MASTER_CHARACTER.md (draft V2, branch assets/character-master-v1).",
+  "units_height": 560,
+  "palette": {
+    "ink": "#1D1D21",
+    "skin": "#FFFFFF",
+    "shirt": "#D9463F",
+    "shirt_shadow": "#B8352F",
+    "shirt_fold": "#9E2B27",
+    "mouth": "#6E2020",
+    "eye_bag": "#D8D8DE",
+    "shadow": "#000000"
+  },
+  "line_widths": {"head_outline": 6.4, "limb": 6.6, "shirt_outline": 5.6, "lid": 11.0, "brow": 9.5, "eye_outline": 3.2, "mouth": 4.6},
+  "params": ["hips", "hips_dx", "hips_dy", "torso", "head",
+             "shoulder_r", "elbow_r", "wrist_r", "shoulder_l", "elbow_l", "wrist_l",
+             "hip_r", "knee_r", "ankle_r", "hip_l", "knee_l", "ankle_l"],
+  "views": {
+    "front": {
+      "parts": [
+        {"name": "shadow",      "parent": "root",        "joint": [0, 0],      "rest": 0,   "param": null,         "sprite": "shadow",        "z": 0},
+        {"name": "hips",        "parent": "root",        "joint": [0, -214],   "rest": 0,   "param": "hips",       "sprite": null,            "z": 1, "translate_params": ["hips_dx", "hips_dy"]},
+        {"name": "thigh_r",     "parent": "hips",        "joint": [-20, 0],    "rest": 3,   "param": "hip_r",      "sprite": "leg_thigh",     "z": 10},
+        {"name": "shin_r",      "parent": "thigh_r",     "joint": [0, 107],    "rest": -2,  "param": "knee_r",     "sprite": "leg_shin",      "z": 10},
+        {"name": "foot_r",      "parent": "shin_r",      "joint": [0, 104],    "rest": -1,  "param": "ankle_r",    "sprite": "foot_front_r",  "z": 10},
+        {"name": "thigh_l",     "parent": "hips",        "joint": [20, 0],     "rest": -3,  "param": "hip_l",      "sprite": "leg_thigh",     "z": 11},
+        {"name": "shin_l",      "parent": "thigh_l",     "joint": [0, 107],    "rest": 2,   "param": "knee_l",     "sprite": "leg_shin",      "z": 11},
+        {"name": "foot_l",      "parent": "shin_l",      "joint": [0, 104],    "rest": 1,   "param": "ankle_l",    "sprite": "foot_front_l",  "z": 11},
+        {"name": "torso",       "parent": "hips",        "joint": [0, 0],      "rest": 0,   "param": "torso",      "sprite": "torso_front",   "z": 20},
+        {"name": "upper_arm_r", "parent": "torso",       "joint": [-52, -104], "rest": 12,  "param": "shoulder_r", "sprite": "upper_arm",     "z": 30},
+        {"name": "forearm_r",   "parent": "upper_arm_r", "joint": [0, 64],     "rest": -8,  "param": "elbow_r",    "sprite": "forearm",       "z": 31},
+        {"name": "hand_r",      "parent": "forearm_r",   "joint": [0, 64],     "rest": 0,   "param": "wrist_r",    "sprite": "hand",          "z": 32},
+        {"name": "upper_arm_l", "parent": "torso",       "joint": [52, -104],  "rest": -12, "param": "shoulder_l", "sprite": "upper_arm",     "z": 33},
+        {"name": "forearm_l",   "parent": "upper_arm_l", "joint": [0, 64],     "rest": 8,   "param": "elbow_l",    "sprite": "forearm",       "z": 34},
+        {"name": "hand_l",      "parent": "forearm_l",   "joint": [0, 64],     "rest": 0,   "param": "wrist_l",    "sprite": "hand",          "z": 35},
+        {"name": "head",        "parent": "torso",       "joint": [0, -146],   "rest": 0,   "param": "head",       "sprite": "head_front",    "z": 40}
+      ]
+    },
+    "side": {
+      "facing": "right",
+      "note": "Facing +x. The character's left side faces the camera (near = _l, far = _r).",
+      "parts": [
+        {"name": "shadow",      "parent": "root",        "joint": [0, 0],      "rest": 0,   "param": null,         "sprite": "shadow",        "z": 0},
+        {"name": "hips",        "parent": "root",        "joint": [0, -214],   "rest": 0,   "param": "hips",       "sprite": null,            "z": 1, "translate_params": ["hips_dx", "hips_dy"]},
+        {"name": "upper_arm_r", "parent": "torso",       "joint": [2, -104],   "rest": 0,   "param": "shoulder_r", "sprite": "upper_arm",     "z": 2},
+        {"name": "forearm_r",   "parent": "upper_arm_r", "joint": [0, 64],     "rest": -4,  "param": "elbow_r",    "sprite": "forearm",       "z": 3},
+        {"name": "hand_r",      "parent": "forearm_r",   "joint": [0, 64],     "rest": 0,   "param": "wrist_r",    "sprite": "hand",          "z": 4},
+        {"name": "thigh_r",     "parent": "hips",        "joint": [2, 0],      "rest": 0,   "param": "hip_r",      "sprite": "leg_thigh",     "z": 6},
+        {"name": "shin_r",      "parent": "thigh_r",     "joint": [0, 107],    "rest": 0,   "param": "knee_r",     "sprite": "leg_shin",      "z": 6},
+        {"name": "foot_r",      "parent": "shin_r",      "joint": [0, 104],    "rest": 0,   "param": "ankle_r",    "sprite": "foot_side",     "z": 6},
+        {"name": "thigh_l",     "parent": "hips",        "joint": [-2, 0],     "rest": 0,   "param": "hip_l",      "sprite": "leg_thigh",     "z": 8},
+        {"name": "shin_l",      "parent": "thigh_l",     "joint": [0, 107],    "rest": 0,   "param": "knee_l",     "sprite": "leg_shin",      "z": 8},
+        {"name": "foot_l",      "parent": "shin_l",      "joint": [0, 104],    "rest": 0,   "param": "ankle_l",    "sprite": "foot_side",     "z": 8},
+        {"name": "torso",       "parent": "hips",        "joint": [0, 0],      "rest": 0,   "param": "torso",      "sprite": "torso_side",    "z": 20},
+        {"name": "upper_arm_l", "parent": "torso",       "joint": [-2, -104],  "rest": 0,   "param": "shoulder_l", "sprite": "upper_arm",     "z": 30},
+        {"name": "forearm_l",   "parent": "upper_arm_l", "joint": [0, 64],     "rest": -4,  "param": "elbow_l",    "sprite": "forearm",       "z": 31},
+        {"name": "hand_l",      "parent": "forearm_l",   "joint": [0, 64],     "rest": 0,   "param": "wrist_l",    "sprite": "hand",          "z": 32},
+        {"name": "head",        "parent": "torso",       "joint": [0, -146],   "rest": 0,   "param": "head",       "sprite": "head_side",     "z": 40}
+      ]
+    }
+  },
+  "expressions": {
+    "deadpan":     {"lid": 0.50, "pupil": 11.5, "gaze": [0.0, 0.30],  "brow_y": -38, "brow_tilt": [4, -4],   "brow_raise": [0, 0],  "mouth": "line"},
+    "deadpan_up":  {"lid": 0.36, "pupil": 11.5, "gaze": [0.05, -0.35], "brow_y": -42, "brow_tilt": [3, -3],  "brow_raise": [0, 0],  "mouth": "line"},
+    "skeptical":   {"lid": 0.52, "pupil": 11.5, "gaze": [0.25, 0.25], "brow_y": -38, "brow_tilt": [6, 10],   "brow_raise": [0, 14], "mouth": "line_tilt"},
+    "shocked":     {"lid": 0.00, "pupil": 7.0,  "gaze": [0.0, 0.0],   "brow_y": -54, "brow_tilt": [-6, 6],   "brow_raise": [0, 0],  "mouth": "open"},
+    "smug":        {"lid": 0.58, "pupil": 11.5, "gaze": [0.3, 0.25],  "brow_y": -38, "brow_tilt": [4, -8],   "brow_raise": [0, 4],  "mouth": "smirk"}
+  },
+  "parts_override_dir": "parts",
+  "parts_override_note": "Optional: put approved PNG parts in pilot/PILOT_01_STOP_TIME/rig/parts/<sprite_name>.png plus parts/parts.json {\"<sprite_name>\": {\"pivot_px\": [x, y], \"px_per_unit\": k}} to replace the procedural art without changing the rig."
+}

@@ -1,0 +1,97 @@
+{
+  "title": "What If You Could Stop Time?",
+  "episode": "pilot_01_stop_time",
+  "status": "technical_layout",
+  "_doc": "Scene config read by tools/render (episode code in pilot/PILOT_01_STOP_TIME/). Times in seconds on one scene timeline. Shot boundaries are snapped to frames; a cut_on_action boundary is moved onto its character event. IMPORTANT: shot list/timing below is a TECHNICAL LAYOUT that exercises every required camera move and transition. pilot/PILOT_01_STOP_TIME_BRIEF.md was not found in the repository, so timings, framing and acting must be re-aligned to the approved brief/storyboard when it is added.",
+  "output": {"width": 1920, "height": 1080, "fps": 24, "duration": 10.0, "frame_world_width": 1920},
+  "environment": {"manifest": "../assets/environment/courtyard/manifest.json"},
+  "character": {
+    "rig": "../rig/stick_figure_rig.json",
+    "poses": "../rig/poses.json",
+    "height": 430,
+    "sprite_px_per_unit": 2.0,
+    "shadow": true,
+    "keys": [
+      {"t": 0.00, "x": 0, "y": 0, "view": "front", "flip": false, "pose": "stand", "expression": "deadpan"},
+      {"t": 1.00, "pose": "stand"},
+      {"t": 1.45, "pose": "look_up", "expression": "deadpan_up", "ease": "inOutSine"},
+      {"t": 2.05, "pose": "stand_relaxed", "expression": "deadpan", "ease": "inOutSine"},
+      {"t": 2.60, "pose": "snap_ready", "ease": "outBack"},
+      {"t": 2.92, "pose": "snap", "ease": "inQuad"},
+      {"t": 3.30, "pose": "snap_hold", "ease": "outCubic"},
+      {"t": 3.60, "expression": "skeptical"},
+      {"t": 4.25, "pose": "snap_hold"},
+      {"t": 4.70, "pose": "hands_down", "ease": "inOutCubic"},
+      {"t": 4.80, "expression": "smug"},
+      {"t": 5.25, "view": "side", "pose": "side_stand", "expression": "deadpan", "x": 0},
+      {"t": 5.35, "x": 0},
+      {"t": 7.60, "x": 760, "ease": "inOutSine"},
+      {"t": 7.80, "view": "front", "pose": "smug_stand", "expression": "deadpan"},
+      {"t": 8.40, "expression": "smug"}
+    ],
+    "cycles": [
+      {"type": "walk", "t0": 5.35, "t1": 7.60, "step_length": 190, "amp": 1.0, "blend": 0.15}
+    ],
+    "events": [
+      {"name": "snap", "t": 2.92}
+    ]
+  },
+  "shots": [
+    {
+      "id": "S01", "start": 0.0, "end": 2.92,
+      "framing": "wide", "camera_move": "tilt down + drift",
+      "description": "Tilt down from the upper courtyard to the character; he looks up, then raises his hand to snap.",
+      "camera": {
+        "keys": [
+          {"t": 0.0, "x": 0, "y": -1350, "zoom": 1.0},
+          {"t": 2.25, "y": -400, "ease": "inOutCubic"}
+        ],
+        "modifiers": [{"type": "drift", "amp_x": 14, "amp_y": 8, "amp_rot": 0.25, "freq": 0.18, "seed": 11}]
+      }
+    },
+    {
+      "id": "S02", "start": 2.92, "end": 5.25,
+      "framing": "medium close-up", "camera_move": "drift",
+      "description": "Cut on the snap. Medium close-up: the snap lands, time stops, deadpan reaction.",
+      "camera": {
+        "keys": [
+          {"t": 2.92, "x": -40, "y": -330, "zoom": 2.0},
+          {"t": 5.25, "x": -30, "y": -326, "zoom": 2.06, "ease": "linear"}
+        ],
+        "modifiers": [{"type": "drift", "amp_x": 10, "amp_y": 6, "amp_rot": 0.35, "freq": 0.22, "seed": 23}]
+      }
+    },
+    {
+      "id": "S03", "start": 5.25, "end": 7.80,
+      "framing": "medium wide (side)", "camera_move": "tracking",
+      "description": "Whip pan in. Tracking shot: he walks through the frozen courtyard.",
+      "camera": {
+        "keys": [
+          {"t": 5.25, "x": 0, "y": -300, "zoom": 1.3}
+        ],
+        "modifiers": [
+          {"type": "track", "axis": "x", "lag": 0.35, "strength": 1.0, "offset": [110, 0]},
+          {"type": "drift", "amp_x": 0, "amp_y": 6, "amp_rot": 0.2, "freq": 0.3, "seed": 37}
+        ]
+      }
+    },
+    {
+      "id": "S04", "start": 7.80, "end": 10.0,
+      "framing": "medium close-up -> wide", "camera_move": "pull back",
+      "description": "Leaf wipe in. Pull back from the character to reveal the frozen courtyard.",
+      "camera": {
+        "keys": [
+          {"t": 7.80, "x": 760, "y": -300, "zoom": 1.75},
+          {"t": 8.05, "x": 760, "y": -300, "zoom": 1.75},
+          {"t": 9.70, "x": 600, "y": -470, "zoom": 0.72, "ease": "inOutCubic"}
+        ],
+        "modifiers": [{"type": "drift", "amp_x": 8, "amp_y": 5, "amp_rot": 0.15, "freq": 0.2, "seed": 41}]
+      }
+    }
+  ],
+  "transitions": [
+    {"from": "S01", "to": "S02", "type": "cut_on_action", "event": "snap"},
+    {"from": "S02", "to": "S03", "type": "whip_pan", "duration": 0.34, "direction": "right", "distance": 2200, "samples": 7, "shutter": 0.75},
+    {"from": "S03", "to": "S04", "type": "leaf_wipe", "duration": 0.5, "asset": "leaf_wipe", "direction": "right_to_left", "length_frac": 2.3, "rotation": [-78, -102], "arc_frac": 0.1, "ease": "inOutSine"}
+  ]
+}
