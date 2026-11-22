@@ -1,0 +1,272 @@
+{
+  "title": "Rian pilot camera plan (10 s, courtyard test)",
+  "episode": "PILOT_01_STOP_TIME",
+  "status": "TEST / camera plan. Courtyard plates are a pipeline test, not the episode cut. Story order unchanged from the approved 10 s test; cameras follow the approved plan: 0-3 tilt down + drift, 3-6 lateral tracking, 6-8.75 blur cut-in, 8.75-10 high-angle wide.",
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "duration": 10.0,
+    "frame_world_width": 1920
+  },
+  "environment": {
+    "manifest": "../assets/environment/courtyard/manifest.json"
+  },
+  "character": {
+    "rig": "../rig/stick_figure_rig.json",
+    "poses": "../rig/poses.json",
+    "height": 300,
+    "sprite_px_per_unit": 2.0,
+    "shadow": true,
+    "cycles": [
+      {
+        "type": "walk",
+        "t0": 3.7,
+        "t1": 5.8,
+        "step_length": 190,
+        "amp": 1.0,
+        "blend": 0.15
+      }
+    ],
+    "events": [
+      {
+        "name": "snap",
+        "t": 2.92
+      }
+    ],
+    "keys": [
+      {
+        "t": 0.0,
+        "x": -120,
+        "y": -140,
+        "view": "front",
+        "flip": false,
+        "pose": "stand",
+        "expression": "deadpan"
+      },
+      {
+        "t": 0.9,
+        "pose": "stand"
+      },
+      {
+        "t": 1.4,
+        "pose": "look_up",
+        "expression": "deadpan_up",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 2.0,
+        "pose": "stand_relaxed",
+        "expression": "deadpan",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 2.5,
+        "pose": "snap_ready",
+        "ease": "outBack"
+      },
+      {
+        "t": 2.92,
+        "pose": "snap",
+        "ease": "inQuad"
+      },
+      {
+        "t": 3.25,
+        "pose": "snap_hold",
+        "ease": "outCubic",
+        "expression": "shocked"
+      },
+      {
+        "t": 3.5,
+        "view": "side",
+        "pose": "side_stand",
+        "expression": "skeptical",
+        "x": -120,
+        "ease": "inOutSine"
+      },
+      {
+        "t": 3.7,
+        "x": -120,
+        "expression": "deadpan"
+      },
+      {
+        "t": 5.8,
+        "x": 160,
+        "ease": "inOutSine"
+      },
+      {
+        "t": 6.0,
+        "view": "front",
+        "pose": "stand_relaxed",
+        "x": 160,
+        "expression": "deadpan_up"
+      },
+      {
+        "t": 7.2,
+        "pose": "stand_relaxed",
+        "expression": "deadpan_up"
+      },
+      {
+        "t": 7.6,
+        "expression": "shocked"
+      },
+      {
+        "t": 8.75,
+        "pose": "snap_hold",
+        "expression": "shocked",
+        "ease": "outCubic"
+      },
+      {
+        "t": 10.0,
+        "pose": "smug_stand",
+        "expression": "smug",
+        "ease": "inOutSine"
+      }
+    ]
+  },
+  "shots": [
+    {
+      "id": "S01",
+      "start": 0.0,
+      "end": 3.0,
+      "framing": "wide",
+      "camera_move": "tilt down + drift",
+      "description": "Courtyard: tilt down from the ivy wall to Rian, with camera drift.",
+      "camera": {
+        "preset": "tilt",
+        "start": 0.0,
+        "end": 3.0,
+        "shot": "wide",
+        "direction": "down",
+        "distance": 250,
+        "offset": [
+          0,
+          -250
+        ],
+        "also": [
+          {
+            "preset": "drift",
+            "amount": 1.0,
+            "seed": 5
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S02",
+      "start": 3.0,
+      "end": 6.0,
+      "framing": "wide (side)",
+      "camera_move": "lateral tracking",
+      "description": "Lateral tracking beside Rian as he walks through the frozen courtyard.",
+      "camera": {
+        "preset": "track_h",
+        "start": 3.0,
+        "end": 6.0,
+        "shot": "wide",
+        "lag": 0.35,
+        "track_offset": [
+          40,
+          0
+        ],
+        "also": [
+          {
+            "preset": "drift",
+            "amount": 0.6,
+            "seed": 8
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S03",
+      "start": 6.0,
+      "end": 8.75,
+      "framing": "medium -> close-up",
+      "camera_move": "cut-in with blur, slow push-in",
+      "description": "Blur cut-in to Rian's reaction, slow push-in to a close-up.",
+      "camera": {
+        "preset": "push_in",
+        "start": 6.0,
+        "end": 8.75,
+        "shot_from": "medium",
+        "shot_to": "close_up"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S04",
+      "start": 8.75,
+      "end": 10.0,
+      "framing": "high-angle wide",
+      "camera_move": "static high angle + drift",
+      "description": "High-angle wide shot closing the beat.",
+      "camera": {
+        "preset": "static",
+        "start": 8.75,
+        "shot": "high_angle",
+        "also": [
+          {
+            "preset": "drift",
+            "amount": 0.6,
+            "seed": 2
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      },
+      "clamp_margin": 6.0
+    }
+  ],
+  "transitions": [
+    {
+      "from": "S01",
+      "to": "S02",
+      "type": "cut_on_action",
+      "event": "snap"
+    },
+    {
+      "from": "S02",
+      "to": "S03",
+      "type": "blur",
+      "duration": 0.4,
+      "radius": 44
+    },
+    {
+      "from": "S03",
+      "to": "S04",
+      "type": "leaf_wipe",
+      "duration": 0.5,
+      "asset": "leaf_wipe",
+      "direction": "right_to_left",
+      "length_frac": 2.3,
+      "rotation": [
+        -78,
+        -102
+      ],
+      "arc_frac": 0.1,
+      "ease": "inOutSine"
+    }
+  ]
+}

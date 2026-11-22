@@ -61,6 +61,7 @@ class Environment:
     fx: dict[str, Path] = field(default_factory=dict)
     fx_source: dict[str, str] = field(default_factory=dict)
     ground_y: float = 0.0
+    _masks: dict = field(default_factory=dict, repr=False)
 
     @classmethod
     def load(cls, manifest_path: str | Path, test_dir: str | Path | None = None, allow_missing: bool = False) -> "Environment":
@@ -133,6 +134,83 @@ class Environment:
             return
         m = layer_matrix(cam, layer.parallax, self.reference, dst.width, dst.height, frame_world_width) @ np.linalg.inv(layer.world_to_px())
         draw_affine(dst, layer.image, m, resample=Image.BILINEAR)
+
+    # ------------------------------------------------------------ coverage
+    def painted_bounds(self, layer: Layer) -> tuple[float, float, float, float] | None:
+        """World rectangle where a layer actually has paint (bounding box of its non-transparent pixels), cached.
+
+        The plates are delivered on a larger transparent canvas than the area that was painted, so the canvas
+        (`Layer.world_bounds`) says nothing about what can be shown without a hole.
+        """
+        if layer.image is None:
+            return None
+        if layer.id not in self._masks:
+            a = layer.image.levels[1].split()[-1] if len(layer.image.levels) > 1 else layer.image.levels[0].split()[-1]
+            scale = layer.image.size[0] / a.size[0]
+            bb = a.point(lambda v: 255 if v >= 8 else 0).getbbox()
+            if bb is None:
+                self._masks[layer.id] = None
+            else:
+                x0, y0, x1, y1 = (bb[0] * scale, bb[1] * scale, bb[2] * scale, bb[3] * scale)
+                self._masks[layer.id] = (layer.position[0] + x0 * layer.world_per_px, layer.position[1] + y0 * layer.world_per_px,
+                                         layer.position[0] + x1 * layer.world_per_px, layer.position[1] + y1 * layer.world_per_px)
+        return self._masks[layer.id]
+
+    def _camera_limits(self, cam: CameraState, out_w: int, out_h: int, frame_world_width: float, inset: float = -1.5):
+        """Allowed camera-centre range (x0, x1, y0, y1) so every background/action-plane layer shows only painted area.
+
+        Returns (limits, feasible). `inset` < 0 tolerates that many world units of edge bleed (plate edges are anti-aliased).
+        Layers with parallax above 1 are foreground decoration and are ignored.
+        """
+        ref = self.reference
+        ppw = out_w / frame_world_width
+        r = np.radians(cam.rot)
+        lo_x, hi_x, lo_y, hi_y = -np.inf, np.inf, -np.inf, np.inf
+        feasible = True
+        for l in self.layers:
+            b = self.painted_bounds(l)
+            p = l.parallax
+            if b is None or p <= 1e-9 or p > 1.0 + 1e-9:
+                continue
+            z = ref.zoom * (cam.zoom / ref.zoom) ** p * cam.lens
+            hw, hh = out_w / 2 / (ppw * z), out_h / 2 / (ppw * z)
+            ehw = hw * abs(np.cos(r)) + hh * abs(np.sin(r)) + inset
+            ehh = hh * abs(np.cos(r)) + hw * abs(np.sin(r)) + inset
+            for axis, (c0, c1, e, ref_c) in enumerate(((b[0], b[2], ehw, ref.x), (b[1], b[3], ehh, ref.y))):
+                lo_c, hi_c = c0 + e, c1 - e
+                if lo_c > hi_c:
+                    feasible = False
+                    lo_c = hi_c = (c0 + c1) / 2
+                lo_cam, hi_cam = ref_c + (lo_c - ref_c) / p, ref_c + (hi_c - ref_c) / p
+                if axis == 0:
+                    lo_x, hi_x = max(lo_x, lo_cam), min(hi_x, hi_cam)
+                else:
+                    lo_y, hi_y = max(lo_y, lo_cam), min(hi_y, hi_cam)
+        if lo_x > hi_x:
+            feasible, lo_x, hi_x = False, (lo_x + hi_x) / 2, (lo_x + hi_x) / 2
+        if lo_y > hi_y:
+            feasible, lo_y, hi_y = False, (lo_y + hi_y) / 2, (lo_y + hi_y) / 2
+        return (lo_x, hi_x, lo_y, hi_y), feasible
+
+    def view_painted(self, cam: CameraState, out_w: int, out_h: int, frame_world_width: float = 1920.0) -> bool:
+        """True when the view at this camera shows only painted area on every background/action-plane layer."""
+        (lo_x, hi_x, lo_y, hi_y), feasible = self._camera_limits(cam, out_w, out_h, frame_world_width)
+        return feasible and lo_x - 1e-6 <= cam.x <= hi_x + 1e-6 and lo_y - 1e-6 <= cam.y <= hi_y + 1e-6
+
+    def clamp_camera(self, cam: CameraState, out_w: int, out_h: int, frame_world_width: float = 1920.0, margin: float = 0.0) -> tuple[CameraState, bool]:
+        """Move the camera centre the least amount needed so the view shows only painted area.
+
+        Returns (camera, feasible). Infeasible means no centre works at this zoom/lens/roll (the painted area is
+        smaller than the view): the camera is centred and the caller should zoom in or supply larger plates.
+        Missing plates: no-op.
+        `margin` (world units, default 0) keeps the view that far inside the painted edge, away from the soft alpha rim.
+        """
+        if not any(l.image is not None for l in self.layers):
+            return cam, True
+        (lo_x, hi_x, lo_y, hi_y), feasible = self._camera_limits(cam, out_w, out_h, frame_world_width, inset=-1.5 + float(margin))
+        x = float(np.clip(cam.x, lo_x, hi_x)) if np.isfinite(lo_x) else cam.x
+        y = float(np.clip(cam.y, lo_y, hi_y)) if np.isfinite(lo_y) else cam.y
+        return CameraState(x, y, cam.zoom, cam.rot, cam.lens), feasible
 
     def required_bounds(self, cams: list[CameraState], out_w: int, out_h: int, frame_world_width: float = 1920.0, margin: float = 64.0) -> dict[str, dict]:
         """For each layer, the world rectangle that must be painted to cover every camera in `cams`."""

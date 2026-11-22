@@ -9,6 +9,15 @@ whip_pan       Outgoing camera accelerates sideways, incoming camera decelerates
 leaf_wipe      Object wipe: a leaf sprite flies across the frame. Everything the leaf has
                swept over reveals shot B (union of the leaf's alpha along its path); the leaf
                is drawn on top. Needs the leaf asset (manifest fx 'leaf_wipe').
+foreground_wipe  The same wipe under its production name: any foreground object from the manifest's fx
+               list (`asset`), today the leaf. An ivy-specific asset does not exist yet.
+blur           Defocus transition: shot A blurs out, the cut is hidden at the blur peak, shot B comes into
+               focus. Params: duration, radius (px at 1920 wide), optional push (extra dolly on both sides).
+push_through   Camera-driven transition: the outgoing camera dollies in fast (through the layers, so the
+               parallax depth is felt), the incoming camera settles out from the same push. Sub-frame samples
+               give a radial blur. Params: duration, factor (dolly multiplier), samples, shutter.
+match_cut      Hard cut whose two framings are validated: the subject must land at the same screen position and
+               size on both sides of the cut (params tolerance_pos, tolerance_scale). A mismatch is a config error.
 """
 from __future__ import annotations
 
@@ -21,7 +30,8 @@ from PIL import Image, ImageChops
 from tools.render import mathx as mx
 from tools.render.raster import MipImage, draw_affine
 
-TYPES = ("cut", "cut_on_action", "whip_pan", "leaf_wipe")
+TYPES = ("cut", "cut_on_action", "whip_pan", "leaf_wipe", "foreground_wipe", "blur", "push_through", "match_cut")
+WINDOWED = ("whip_pan", "leaf_wipe", "foreground_wipe", "blur", "push_through")
 
 
 @dataclass
@@ -67,6 +77,38 @@ def box_blur_x(arr: np.ndarray, k: int) -> np.ndarray:
     padded = np.pad(arr, ((0, 0), (pad_l + 1, pad_r), (0, 0)), mode="edge")
     c = np.cumsum(padded, axis=1, dtype=np.float32)
     return (c[:, k:, :] - c[:, :-k, :]) / k
+
+
+# ------------------------------------------------------- blur / push-through
+def blur_state(w: Window, t: float, width_px: int) -> tuple[str, float, float]:
+    """(visible shot id, gaussian radius in output px, dolly multiplier) for the blur transition at time t."""
+    R = float(w.params.get("radius", 48.0)) * width_px / 1920.0
+    push = float(w.params.get("push", 0.0))
+    if t < w.boundary:
+        u = 0.0 if w.boundary <= w.t_in else (t - w.t_in) / (w.boundary - w.t_in)
+        e = mx.ease("inOutSine", min(1.0, max(0.0, u)))
+        return w.from_shot, R * e, 1.0 + push * e
+    v = 1.0 if w.t_out <= w.boundary else (t - w.boundary) / (w.t_out - w.boundary)
+    e = mx.ease("inOutSine", min(1.0, max(0.0, v)))
+    return w.to_shot, R * (1.0 - e), 1.0 + push * (1.0 - e)
+
+
+def blur_rgba(img: Image.Image, radius: float) -> Image.Image:
+    """Gaussian blur on premultiplied alpha (no dark/bright fringes at transparent edges)."""
+    from PIL import ImageFilter
+    if radius < 0.3:
+        return img
+    return img.convert("RGBa").filter(ImageFilter.GaussianBlur(radius)).convert("RGBA")
+
+
+def push_offset(w: Window, t: float) -> tuple[str, float]:
+    """(visible shot id, dolly multiplier) for the push-through transition at time t."""
+    k = float(w.params.get("factor", 2.4))
+    if t < w.boundary:
+        u = 0.0 if w.boundary <= w.t_in else (t - w.t_in) / (w.boundary - w.t_in)
+        return w.from_shot, 1.0 + (k - 1.0) * mx.ease("inCubic", min(1.0, max(0.0, u)))
+    v = 1.0 if w.t_out <= w.boundary else (t - w.boundary) / (w.t_out - w.boundary)
+    return w.to_shot, 1.0 + (k - 1.0) * (1.0 - mx.ease("outCubic", min(1.0, max(0.0, v))))
 
 
 # ---------------------------------------------------------------- leaf wipe

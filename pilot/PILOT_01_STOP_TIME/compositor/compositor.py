@@ -17,6 +17,7 @@ import numpy as np
 from PIL import Image
 
 from tools.render import mathx as mx
+from dataclasses import replace as _replace
 from ..camera.camera import Camera, CameraState, layer_matrix
 from .environment import Environment
 from ..rig.rig import Rig, walk_cycle
@@ -124,7 +125,7 @@ class Scene:
         self.character = CharacterTrack(ch, self.rig)
         self.shots: list[Shot] = []
         for s in self.cfg["shots"]:
-            cam = Camera(s["camera"], target_fn=self._char_target(s["camera"]), fps=self.fps)
+            cam = Camera(s["camera"], target_fn=self._char_target(s["camera"]), fps=self.fps, subject_height=self.character.height)
             self.shots.append(Shot(s["id"], float(s["start"]), float(s["end"]), cam, s))
         self.shots.sort(key=lambda s: s.start)
         self.windows = self._build_transitions()
@@ -162,13 +163,40 @@ class Scene:
                 boundary = self.snap(self.character.events[ev] + float(t.get("offset", 0.0)))
             a.end = boundary
             b.start = boundary
-            d = float(t.get("duration", 0.0)) if typ in ("whip_pan", "leaf_wipe") else 0.0
-            if typ in ("whip_pan", "leaf_wipe") and d <= 0:
+            d = float(t.get("duration", 0.0)) if typ in tr.WINDOWED else 0.0
+            if typ in tr.WINDOWED and d <= 0:
                 raise ConfigError(f"{typ} {a.id}->{b.id} needs a positive duration")
             t_in, t_out = self.snap(boundary - d / 2), self.snap(boundary + d / 2)
-            windows.append(tr.Window(typ, a.id, b.id, boundary, t_in, t_out, dict(t)))
+            params = dict(t)
+            if typ == "match_cut":
+                params["match"] = self._check_match_cut(a, b, boundary, params)
+            windows.append(tr.Window(typ, a.id, b.id, boundary, t_in, t_out, params))
         self.shots[-1].end = max(self.shots[-1].end, self.duration)
         return windows
+
+    def subject_screen(self, shot: Shot, t: float) -> tuple[float, float, float]:
+        """Screen position (px) of the character's centre and its height in px, for a shot's camera at time t."""
+        cam = self.camera_at(shot, t)
+        m = layer_matrix(cam, 1.0, self.env.reference, self.width, self.height, self.frame_world_width) @ self.character.root_matrix(t)
+        uh = self.rig.units_height
+        fx, fy = mx.apply(m, 0.0, 0.0)
+        tx, ty = mx.apply(m, 0.0, -uh)
+        return (fx + tx) / 2, (fy + ty) / 2, abs(fy - ty)
+
+    def _check_match_cut(self, a: Shot, b: Shot, boundary: float, params: dict) -> dict:
+        """A match cut must put the subject at the same place and size on both sides of the cut."""
+        ta, tb = boundary - 1.0 / self.fps, boundary
+        ax, ay, ah = self.subject_screen(a, ta)
+        bx, by, bh = self.subject_screen(b, tb)
+        pos = math.hypot(ax - bx, ay - by) / self.width
+        ratio = max(ah, bh) / max(1e-9, min(ah, bh))
+        tol_pos = float(params.get("tolerance_pos", 0.04))
+        tol_scale = float(params.get("tolerance_scale", 1.15))
+        res = {"pos_error_frac": round(pos, 4), "scale_ratio": round(ratio, 4), "tolerance_pos": tol_pos, "tolerance_scale": tol_scale}
+        if pos > tol_pos or ratio > tol_scale:
+            raise ConfigError(f"match_cut {a.id}->{b.id}: subject does not match across the cut ({res}). "
+                              "Adjust the cameras so the subject has the same screen position and size, or use another transition.")
+        return res
 
     def shot(self, sid: str) -> Shot:
         for s in self.shots:
@@ -189,19 +217,45 @@ class Scene:
         return None
 
     # -------------------------------------------------------- rendering
-    def camera_at(self, shot: Shot, t: float, dx: float = 0.0) -> CameraState:
-        return shot.camera.state(t).offset(dx, 0.0)
+    def camera_at(self, shot: Shot, t: float, dx: float = 0.0, zmul: float = 1.0) -> CameraState:
+        cam = shot.camera.state(t).offset(dx, 0.0)
+        if zmul != 1.0:
+            cam = _replace(cam, zoom=cam.zoom * zmul)
+        if shot.cfg.get("coverage") == "clamp":
+            # clamp last, so transition offsets (whip pan dx, push-through dolly) also stay on painted plates
+            cam, ok = self.env.clamp_camera(cam, self.width, self.height, self.frame_world_width, float(shot.cfg.get("clamp_margin", 0.0)))
+            if not ok:
+                self.coverage_log.append((shot.id, t))
+        return cam
 
-    def render_shot(self, shot: Shot, t: float, dx: float = 0.0) -> Image.Image:
-        """Render one shot at scene time t (camera x offset dx). Returns RGBA (alpha = plate coverage)."""
-        cam = self.camera_at(shot, t, dx)
+    def _dof_radius(self, shot: Shot, layer, cam: CameraState, t: float) -> float:
+        """Gaussian blur radius (output px) for a layer from the shot's depth-of-field settings (0 = sharp)."""
+        d = shot.cfg.get("dof")
+        if not d:
+            return 0.0
+        strength = float(d.get("strength", 8.0))
+        if d.get("keys"):
+            strength = float(mx.Track(d["keys"]).value(t, "strength", strength))
+        focus = float(d.get("focus", 1.0))
+        r = strength * abs(layer.parallax - focus) * math.sqrt(max(1e-6, cam.zoom * cam.lens)) * self.width / 1920.0
+        return min(r, float(d.get("max", 30.0)) * self.width / 1920.0)
+
+    def render_shot(self, shot: Shot, t: float, dx: float = 0.0, zmul: float = 1.0) -> Image.Image:
+        """Render one shot at scene time t (camera x offset dx, dolly multiplier zmul). Returns RGBA (alpha = plate coverage)."""
+        cam = self.camera_at(shot, t, dx, zmul)
         img = Image.new("RGBA", (self.width, self.height), (0, 0, 0, 0))
         drawn_char = False
         for layer in self.env.layers:
             if not drawn_char and layer.z > self.env.character_z:
                 self._draw_character(img, cam, t)
                 drawn_char = True
-            self.env.draw_layer(img, layer, cam, self.frame_world_width)
+            r = self._dof_radius(shot, layer, cam, t)
+            if r >= 0.5 and layer.image is not None:
+                tmp = Image.new("RGBA", img.size, (0, 0, 0, 0))
+                self.env.draw_layer(tmp, layer, cam, self.frame_world_width)
+                img.alpha_composite(tr.blur_rgba(tmp, r))
+            else:
+                self.env.draw_layer(img, layer, cam, self.frame_world_width)
         if not drawn_char:
             self._draw_character(img, cam, t)
         return img
@@ -223,7 +277,7 @@ class Scene:
         t = self.frame_time(i)
         w = self.window_at(t)
         info = {"frame": i, "t": round(t, 4), "transition": None}
-        if w is None or w.type in ("cut", "cut_on_action"):
+        if w is None or w.type in ("cut", "cut_on_action", "match_cut"):
             s = self.shot_at(t)
             info["shot"] = s.id
             return self.render_shot(s, t), info
@@ -254,7 +308,24 @@ class Scene:
             info["shot"] = "+".join(sorted(names))
             out = Image.fromarray(np.clip(acc + 0.5, 0, 255).astype(np.uint8), "RGBa").convert("RGBA")
             return out, info
-        if w.type == "leaf_wipe":
+        if w.type == "blur":
+            sid, radius, zmul = tr.blur_state(w, t, self.width)
+            info["shot"] = sid
+            info["blur_radius_px"] = round(radius, 2)
+            return tr.blur_rgba(self.render_shot(self.shot(sid), t, 0.0, zmul), radius), info
+        if w.type == "push_through":
+            samples = int(w.params.get("samples", 7))
+            shutter = float(w.params.get("shutter", 0.75))
+            acc, names = None, set()
+            for ts in tr.whip_sample_times(t, self.fps, samples, shutter):
+                sid, zmul = tr.push_offset(w, ts)
+                names.add(sid)
+                arr = np.asarray(self.render_shot(self.shot(sid), ts, 0.0, zmul).convert("RGBa"), dtype=np.float32)
+                acc = arr if acc is None else acc + arr
+            acc /= samples
+            info["shot"] = "+".join(sorted(names))
+            return Image.fromarray(np.clip(acc + 0.5, 0, 255).astype(np.uint8), "RGBa").convert("RGBA"), info
+        if w.type in ("leaf_wipe", "foreground_wipe"):
             leaf = self._leaf(w)
             u = (t - w.t_in) / (w.t_out - w.t_in)
             a = self.render_shot(self.shot(w.from_shot), t)
@@ -308,7 +379,14 @@ class Scene:
                     shot = self.shot(sid)
                     sid, dx = tr.whip_offset(w, ts, shot.camera.state(ts).zoom)
                     cams.append(self.camera_at(shot, ts, dx))
-            elif w is not None and w.type == "leaf_wipe":
+            elif w is not None and w.type == "push_through":
+                for ts in tr.whip_sample_times(t, self.fps, int(w.params.get("samples", 7)), float(w.params.get("shutter", 0.75))):
+                    sid, zmul = tr.push_offset(w, ts)
+                    cams.append(self.camera_at(self.shot(sid), ts, 0.0, zmul))
+            elif w is not None and w.type == "blur":
+                sid, _, zmul = tr.blur_state(w, t, self.width)
+                cams.append(self.camera_at(self.shot(sid), t, 0.0, zmul))
+            elif w is not None and w.type in ("leaf_wipe", "foreground_wipe"):
                 cams.append(self.camera_at(self.shot(w.from_shot), t))
                 cams.append(self.camera_at(self.shot(w.to_shot), t))
             else:

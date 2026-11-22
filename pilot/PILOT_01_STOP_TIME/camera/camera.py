@@ -16,9 +16,15 @@ the far background barely moves. Camera moves supported through keys and modifie
     pan       horizontal move of x between keys
     push/pull zoom keys (pull back = zoom decreasing)
     roll      `rot` keys (degrees)
+    lens      uniform zoom of every layer (no parallax change), unlike `zoom` which is a dolly (layers scale by zoom**p)
     drift     modifier: smooth deterministic noise on x / y / rot
-    track     modifier: follow the character root with exponential lag
+    shake     modifier: fast, enveloped shake with controllable intensity (impacts, handheld)
+    track     modifier: follow the character root with exponential lag (axis x, y or xy)
     offset    transient screen-space offsets (used by the whip-pan transition)
+
+A shot's camera can also be written as a preset (`{"preset": "push_in", "start": ..., "end": ...}`),
+resolved by `camera/presets.py` into keys and modifiers. There is no yaw/pitch: high and low angles are
+framings (position + zoom), not rotations of the view.
 """
 from __future__ import annotations
 
@@ -37,6 +43,7 @@ class CameraState:
     y: float
     zoom: float = 1.0
     rot: float = 0.0
+    lens: float = 1.0
 
     def offset(self, dx: float = 0.0, dy: float = 0.0) -> "CameraState":
         return replace(self, x=self.x + dx, y=self.y + dy)
@@ -52,16 +59,21 @@ class Reference:
 class Camera:
     """Camera of one shot. `keys` times are in scene seconds."""
 
-    def __init__(self, cfg: dict, target_fn: Callable[[float], tuple[float, float]] | None = None, fps: float = 24.0):
+    def __init__(self, cfg: dict, target_fn: Callable[[float], tuple[float, float]] | None = None, fps: float = 24.0,
+                 subject_height: float = 300.0):
+        if "preset" in cfg and "keys" not in cfg:
+            from .presets import resolve_preset
+            cfg = resolve_preset(cfg, target_fn, subject_height)
         if "keys" not in cfg or not cfg["keys"]:
             raise ValueError("camera needs at least one key")
+        self.cfg = cfg
         self.track = mx.Track(cfg["keys"], default_ease=cfg.get("ease", "inOutCubic"))
         self.modifiers = list(cfg.get("modifiers", []))
         self.target_fn = target_fn
         self.fps = fps
         self.t0 = float(min(k["t"] for k in cfg["keys"]))
         for m in self.modifiers:
-            if m["type"] not in ("drift", "track"):
+            if m["type"] not in ("drift", "track", "shake"):
                 raise ValueError(f"unknown camera modifier '{m['type']}'")
             if m["type"] == "track" and target_fn is None:
                 raise ValueError("track modifier needs a target")
@@ -72,11 +84,12 @@ class Camera:
             y=float(self.track.value(t, "y", 0.0)),
             zoom=float(self.track.value(t, "zoom", 1.0)),
             rot=float(self.track.value(t, "rot", 0.0)),
+            lens=float(self.track.value(t, "lens", 1.0)),
         )
 
     def state(self, t: float) -> CameraState:
         st = self.base(t)
-        x, y, zoom, rot = st.x, st.y, st.zoom, st.rot
+        x, y, zoom, rot, lens = st.x, st.y, st.zoom, st.rot, st.lens
         for m in self.modifiers:
             if m["type"] == "track":
                 tx, ty = self._tracked_target(t, m)
@@ -94,7 +107,16 @@ class Camera:
                 y += float(m.get("amp_y", 0.0)) * mx.smooth_noise(t, seed + 101, f)
                 rot += float(m.get("amp_rot", 0.0)) * mx.smooth_noise(t, seed + 202, f)
                 zoom *= 1.0 + float(m.get("amp_zoom", 0.0)) * mx.smooth_noise(t, seed + 303, f)
-        return CameraState(x, y, zoom, rot)
+            elif m["type"] == "shake":
+                k = shake_envelope(t, m)
+                if k > 0.0:
+                    seed = int(m.get("seed", 7))
+                    f = float(m.get("freq", 9.0))
+                    a = float(m.get("intensity", 1.0)) * k
+                    x += float(m.get("amp_x", 14.0)) * a * mx.smooth_noise(t, seed, f)
+                    y += float(m.get("amp_y", 10.0)) * a * mx.smooth_noise(t, seed + 101, f)
+                    rot += float(m.get("amp_rot", 0.35)) * a * mx.smooth_noise(t, seed + 202, f)
+        return CameraState(x, y, zoom, rot, lens)
 
     def _tracked_target(self, t: float, m: dict) -> tuple[float, float]:
         """Exponentially lagged target: d(c)/dt = (target - c) / lag, integrated from shot start."""
@@ -114,12 +136,31 @@ class Camera:
         return tx, ty
 
 
+def shake_envelope(t: float, m: dict) -> float:
+    """0..1 envelope of a shake modifier: `start`, `duration` (default: to the end of the shot), `attack`, `decay` (seconds).
+    The decay uses a smooth tail so an impact dies away instead of stopping."""
+    start = float(m.get("start", 0.0))
+    if t < start:
+        return 0.0
+    attack = max(1e-6, float(m.get("attack", 0.02)))
+    decay = max(1e-6, float(m.get("decay", 0.35)))
+    dur = m.get("duration")
+    up = min(1.0, (t - start) / attack)
+    if dur is None:
+        return up
+    end = start + float(dur)
+    if t >= end:
+        return 0.0
+    down = min(1.0, (end - t) / decay)
+    return up * mx.ease("smoothstep", down)
+
+
 def layer_matrix(cam: CameraState, parallax: float, ref: Reference, out_w: int, out_h: int, frame_world_width: float = 1920.0) -> np.ndarray:
     """3x3 matrix mapping world units on a plane with factor `parallax` to output pixels."""
     p = float(parallax)
     cx = ref.x + (cam.x - ref.x) * p
     cy = ref.y + (cam.y - ref.y) * p
-    z = ref.zoom * (cam.zoom / ref.zoom) ** p
+    z = ref.zoom * (cam.zoom / ref.zoom) ** p * cam.lens
     px_per_world = out_w / frame_world_width
     return (mx.translate(out_w / 2.0, out_h / 2.0) @ mx.scale(px_per_world) @ mx.rotate_deg(-cam.rot)
             @ mx.scale(z) @ mx.translate(-cx, -cy))

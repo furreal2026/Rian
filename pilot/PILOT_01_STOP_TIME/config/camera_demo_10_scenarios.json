@@ -1,0 +1,581 @@
+{
+  "title": "Rian camera system demo: 10 scenarios",
+  "episode": "PILOT_01_STOP_TIME",
+  "status": "DEMO / TEST. Real courtyard plates (accepted for tests), not a story cut. Ten camera scenarios, each shown on the real courtyard scene.",
+  "_doc": "Camera demonstration. Cameras use the presets in camera/presets.py; shots with coverage 'clamp' are kept inside the painted plate area; dof blurs layers by their distance from the action plane (parallax 1.0).",
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "duration": 24.4,
+    "frame_world_width": 1920
+  },
+  "environment": {
+    "manifest": "../assets/environment/courtyard/manifest.json"
+  },
+  "character": {
+    "rig": "../rig/stick_figure_rig.json",
+    "poses": "../rig/poses.json",
+    "height": 300,
+    "sprite_px_per_unit": 2.0,
+    "shadow": true,
+    "cycles": [
+      {
+        "type": "walk",
+        "t0": 7.8,
+        "t1": 9.6,
+        "step_length": 190,
+        "amp": 1.0,
+        "blend": 0.15
+      },
+      {
+        "type": "walk",
+        "t0": 22.4,
+        "t1": 24.0,
+        "step_length": 190,
+        "amp": 1.0,
+        "blend": 0.15
+      }
+    ],
+    "events": [
+      {
+        "name": "snap",
+        "t": 16.4
+      }
+    ],
+    "keys": [
+      {
+        "t": 0.0,
+        "x": -120,
+        "y": -140,
+        "view": "front",
+        "flip": false,
+        "pose": "stand_relaxed",
+        "expression": "deadpan"
+      },
+      {
+        "t": 3.2,
+        "expression": "skeptical"
+      },
+      {
+        "t": 4.0,
+        "expression": "deadpan"
+      },
+      {
+        "t": 4.6,
+        "pose": "look_up",
+        "expression": "deadpan_up",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 5.6,
+        "pose": "stand_relaxed",
+        "expression": "deadpan",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 7.6,
+        "x": -200,
+        "y": -140,
+        "view": "side",
+        "pose": "side_stand",
+        "ease": "step"
+      },
+      {
+        "t": 7.8,
+        "x": -200
+      },
+      {
+        "t": 9.6,
+        "x": 200,
+        "ease": "inOutSine"
+      },
+      {
+        "t": 9.9,
+        "x": -120,
+        "y": -140,
+        "view": "front",
+        "pose": "stand_relaxed",
+        "ease": "step"
+      },
+      {
+        "t": 10.3,
+        "y": -140,
+        "pose": "snap_ready",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 10.55,
+        "y": -290,
+        "ease": "outCubic"
+      },
+      {
+        "t": 10.9,
+        "y": -140,
+        "pose": "hands_down",
+        "ease": "inCubic"
+      },
+      {
+        "t": 11.5,
+        "pose": "stand_relaxed",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 16.0,
+        "pose": "snap_ready",
+        "ease": "outBack"
+      },
+      {
+        "t": 16.4,
+        "pose": "snap",
+        "ease": "inQuad"
+      },
+      {
+        "t": 16.7,
+        "pose": "snap_hold",
+        "ease": "outCubic",
+        "expression": "shocked"
+      },
+      {
+        "t": 17.9,
+        "pose": "smug_stand",
+        "expression": "smug",
+        "ease": "inOutSine"
+      },
+      {
+        "t": 20.4,
+        "pose": "snap_hold",
+        "expression": "shocked",
+        "ease": "outCubic"
+      },
+      {
+        "t": 22.2,
+        "x": -250,
+        "y": -140,
+        "view": "side",
+        "pose": "side_stand",
+        "expression": "deadpan",
+        "ease": "step"
+      },
+      {
+        "t": 22.4,
+        "x": -250
+      },
+      {
+        "t": 24.0,
+        "x": 150,
+        "ease": "inOutSine"
+      }
+    ]
+  },
+  "shots": [
+    {
+      "id": "S01",
+      "start": 0.0,
+      "end": 2.2,
+      "framing": "wide -> medium",
+      "camera_move": "push-in (dolly)",
+      "description": "1. Wide to medium: dolly-in toward Rian.",
+      "camera": {
+        "preset": "push_in",
+        "start": 0.0,
+        "end": 2.2,
+        "shot_from": "wide",
+        "shot_to": "medium"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S02",
+      "start": 2.2,
+      "end": 4.2,
+      "framing": "medium -> close-up",
+      "camera_move": "push-in (dolly)",
+      "description": "2. Medium to close-up; the skeptical look lands in the close-up.",
+      "camera": {
+        "preset": "push_in",
+        "start": 2.2,
+        "end": 4.2,
+        "shot_from": "medium",
+        "shot_to": "close_up"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S03",
+      "start": 4.2,
+      "end": 6.0,
+      "framing": "wide -> medium wide",
+      "camera_move": "push-in",
+      "description": "3a. Push-in after the blur transition.",
+      "camera": {
+        "preset": "push_in",
+        "start": 4.2,
+        "end": 6.0,
+        "shot": "wide",
+        "zoom_to": 2.0
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S04",
+      "start": 6.0,
+      "end": 7.6,
+      "framing": "medium wide -> wide",
+      "camera_move": "pull-back",
+      "description": "3b. Pull-back (dolly-out) from the push-in.",
+      "camera": {
+        "preset": "pull_back",
+        "start": 6.0,
+        "end": 7.6,
+        "zoom": 2.0,
+        "focus_frac": 0.55,
+        "zoom_to": 1.3
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S05",
+      "start": 7.6,
+      "end": 9.9,
+      "framing": "wide (side)",
+      "camera_move": "horizontal tracking",
+      "description": "4a. Horizontal tracking of Rian walking.",
+      "camera": {
+        "preset": "track_h",
+        "start": 7.6,
+        "end": 9.9,
+        "shot": "wide",
+        "lag": 0.35,
+        "track_offset": [
+          40,
+          0
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S06",
+      "start": 9.9,
+      "end": 11.5,
+      "framing": "medium",
+      "camera_move": "vertical tracking",
+      "description": "4b. Vertical tracking: the camera follows a hop.",
+      "camera": {
+        "preset": "track_v",
+        "start": 9.9,
+        "end": 11.5,
+        "shot": "medium",
+        "lag": 0.18,
+        "track_offset": [
+          0,
+          -186
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S07",
+      "start": 11.5,
+      "end": 13.3,
+      "framing": "wide",
+      "camera_move": "tilt down + drift",
+      "description": "5. Tilt down with camera drift.",
+      "camera": {
+        "preset": "tilt",
+        "start": 11.5,
+        "end": 13.3,
+        "shot": "wide",
+        "direction": "down",
+        "distance": 250,
+        "offset": [
+          0,
+          -250
+        ],
+        "also": [
+          {
+            "preset": "drift",
+            "amount": 1.0,
+            "seed": 5
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S08",
+      "start": 13.3,
+      "end": 15.3,
+      "framing": "wide",
+      "camera_move": "lateral truck (parallax)",
+      "description": "6. Lateral truck: four depths move at 1.5 / 1.0 / 0.35 / 0.15.",
+      "camera": {
+        "preset": "pan",
+        "start": 13.3,
+        "end": 15.3,
+        "zoom": 1.7,
+        "focus_frac": 0.55,
+        "direction": "right",
+        "distance": 760,
+        "offset": [
+          -260,
+          0
+        ],
+        "ease": "linear"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S09",
+      "start": 15.3,
+      "end": 16.4,
+      "framing": "medium",
+      "camera_move": "static",
+      "description": "7a. Rian readies the snap.",
+      "camera": {
+        "preset": "static",
+        "start": 15.3,
+        "shot": "medium"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S10",
+      "start": 16.4,
+      "end": 17.9,
+      "framing": "close-up",
+      "camera_move": "slow lens zoom",
+      "description": "7b. Cut on the snap (cut-on-action) into the close-up.",
+      "camera": {
+        "preset": "zoom_in",
+        "start": 16.4,
+        "end": 17.9,
+        "shot": "close_up",
+        "amount": 0.2
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S11",
+      "start": 17.9,
+      "end": 19.0,
+      "framing": "medium",
+      "camera_move": "static",
+      "description": "8a. Before the foreground wipe.",
+      "camera": {
+        "preset": "static",
+        "start": 17.9,
+        "shot": "medium"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S12",
+      "start": 19.0,
+      "end": 20.4,
+      "framing": "wide",
+      "camera_move": "static",
+      "description": "8b. After the foreground (leaf) wipe.",
+      "camera": {
+        "preset": "static",
+        "start": 19.0,
+        "shot": "wide"
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S13",
+      "start": 20.4,
+      "end": 22.2,
+      "framing": "close-up",
+      "camera_move": "camera shake (two intensities)",
+      "description": "9. Shake: intensity 0.5, then 1.6.",
+      "camera": {
+        "preset": "static",
+        "start": 20.4,
+        "shot": "close_up",
+        "also": [
+          {
+            "preset": "shake",
+            "start": 20.8,
+            "end": 21.4,
+            "intensity": 0.5,
+            "seed": 3
+          },
+          {
+            "preset": "shake",
+            "start": 21.5,
+            "end": 22.1,
+            "intensity": 1.6,
+            "seed": 9
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    },
+    {
+      "id": "S14",
+      "start": 22.2,
+      "end": 24.4,
+      "framing": "wide -> medium wide",
+      "camera_move": "push-in + tilt + track + drift",
+      "description": "10. Four movements at once in one shot.",
+      "camera": {
+        "preset": "push_in",
+        "start": 22.2,
+        "end": 24.4,
+        "shot": "wide",
+        "zoom_to": 1.9,
+        "also": [
+          {
+            "preset": "track_h",
+            "start": 22.2,
+            "end": 24.4,
+            "lag": 0.4,
+            "track_offset": [
+              30,
+              0
+            ]
+          },
+          {
+            "preset": "tilt",
+            "start": 22.2,
+            "end": 24.4,
+            "direction": "up",
+            "distance": 40
+          },
+          {
+            "preset": "drift",
+            "amount": 0.8,
+            "seed": 12
+          }
+        ]
+      },
+      "coverage": "clamp",
+      "dof": {
+        "focus": 1.0,
+        "strength": 8.0,
+        "max": 26
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "from": "S01",
+      "to": "S02",
+      "type": "match_cut"
+    },
+    {
+      "from": "S02",
+      "to": "S03",
+      "type": "blur",
+      "duration": 0.4,
+      "radius": 44
+    },
+    {
+      "from": "S04",
+      "to": "S05",
+      "type": "whip_pan",
+      "duration": 0.34,
+      "direction": "left",
+      "distance": 480,
+      "samples": 7,
+      "shutter": 0.75
+    },
+    {
+      "from": "S06",
+      "to": "S07",
+      "type": "push_through",
+      "duration": 0.5,
+      "factor": 2.4,
+      "samples": 15,
+      "shutter": 0.75
+    },
+    {
+      "from": "S09",
+      "to": "S10",
+      "type": "cut_on_action",
+      "event": "snap"
+    },
+    {
+      "from": "S11",
+      "to": "S12",
+      "type": "foreground_wipe",
+      "duration": 0.5,
+      "asset": "leaf_wipe",
+      "direction": "right_to_left",
+      "length_frac": 2.3,
+      "rotation": [
+        -78,
+        -102
+      ],
+      "arc_frac": 0.1,
+      "ease": "inOutSine"
+    }
+  ]
+}
