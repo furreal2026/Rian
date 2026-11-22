@@ -3,3 +3,6 @@ pilot/*/output/
 episodes/*/output/
 __pycache__/
 *.pyc
+# heavy render outputs under output/ (re-creatable with tools/render; keep PNG/JSON QC evidence)
+output/**/*.mp4
+output/**/frames/

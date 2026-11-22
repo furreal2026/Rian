@@ -66,7 +66,7 @@ class RigTests(unittest.TestCase):
         self.assertAlmostEqual(j["foot_r"][1], 0, delta=5)  # ankle; the foot stroke sits ~3 units lower
         self.assertLess(j["upper_arm_r"][0], 0)
         self.assertGreater(j["upper_arm_l"][0], 0)
-        self.assertEqual(H, 560)
+        self.assertEqual(H, 568)  # 560 + 8-unit visible neck (face design v2)
 
     def test_proportions_constant_across_poses(self):
         rng = random.Random(4)
@@ -115,6 +115,34 @@ class RigTests(unittest.TestCase):
             xs = np.nonzero(row)[0]
             widths.add(int(xs.max() - xs.min()))
         self.assertLessEqual(max(widths) - min(widths), 1, widths)
+
+    def test_expression_set_v2(self):
+        """All ten approved expressions (plus deadpan_up and the neutral alias) render, front and side, and differ."""
+        sheet = ["deadpan", "skeptical", "annoyed", "exhausted", "confused", "shocked", "angry", "disgusted", "worried", "smug"]
+        self.assertTrue(set(sheet + ["deadpan_up"]) <= set(self.rig.spec["expressions"]))
+        seen = {}
+        for name in sheet + ["deadpan_up", "neutral"]:
+            for view in ("head_front", "head_side"):
+                a = np.asarray(self.rig.sprite(f"{view}:{name}").levels[0].getchannel(3))
+                self.assertGreater(a.max(), 0, f"{view}:{name} empty")
+                if view == "head_front":
+                    seen[name] = np.asarray(self.rig.sprite(f"{view}:{name}").levels[0].convert("L"), dtype=np.int16)
+        self.assertTrue(np.array_equal(seen["neutral"], seen["deadpan"]))
+        for i, a in enumerate(sheet):
+            for b in sheet[i + 1:]:
+                diff = np.abs(seen[a] - seen[b]) > 64
+                self.assertGreater(diff.sum(), 150, f"{a} vs {b} too similar")
+
+    def test_neck_visible_and_head_top(self):
+        img = Image.new("RGBA", (800, 800), (0, 0, 0, 0))
+        self.rig.draw(img, "front", self.zero(), "deadpan", mx.translate(400, 700), include_shadow=False)
+        a = np.asarray(img.getchannel("A")) > 128
+        # neck: a thin ink line on the centre between the collar and the head bottom, gaps either side
+        self.assertTrue(a[700 - 363, 398:402].all())
+        self.assertFalse(a[700 - 363, 388:395].any())
+        self.assertFalse(a[700 - 363, 405:412].any())
+        top = np.nonzero(a.any(axis=1))[0].min()
+        self.assertAlmostEqual(700 - top, self.rig.units_height + 3.2, delta=3)  # head top incl. half outline
 
     def test_png_override_hook(self):
         self.assertEqual(self.rig.sprite_source("torso_front"), "procedural")
