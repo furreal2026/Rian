@@ -1,0 +1,87 @@
+{
+  "name": "courtyard",
+  "status": "awaiting_plates",
+  "_doc": "Layer manifest for the courtyard plates. Files are read from this folder. Coordinates are world units (1 unit = 1 px of a 1920-wide frame at camera zoom 1); y points down; the ground line where the character stands is y = 0. 'position' is the world coordinate of each plate's top-left pixel when the camera is at reference_camera. Recommended sizes/positions come from `python -m tools.render plate-spec` (see README.md here).",
+  "world_units_per_pixel": 1.0,
+  "reference_camera": {
+    "x": 0,
+    "y": -420,
+    "zoom": 1.0
+  },
+  "ground_y": 0,
+  "base_color": [
+    0,
+    0,
+    0
+  ],
+  "character_z": 25,
+  "layers": [
+    {
+      "id": "layer4_far_background",
+      "role": "background (far: sky, distant skyline)",
+      "file": "courtyard_bg_far.png",
+      "parallax": 0.15,
+      "z": 0,
+      "required": true,
+      "position": [
+        -1226,
+        -1167
+      ],
+      "min_size_px": [
+        2389,
+        1372
+      ]
+    },
+    {
+      "id": "layer3_background",
+      "role": "background (courtyard walls, far trees)",
+      "file": "courtyard_bg.png",
+      "parallax": 0.35,
+      "z": 10,
+      "required": true,
+      "position": [
+        -1495,
+        -1353
+      ],
+      "min_size_px": [
+        2846,
+        1587
+      ]
+    },
+    {
+      "id": "layer2_midground",
+      "role": "midground / action plane (ground, benches, planters)",
+      "file": "courtyard_mid.png",
+      "parallax": 1.0,
+      "z": 20,
+      "required": true,
+      "position": [
+        -2386,
+        -1957
+      ],
+      "min_size_px": [
+        4383,
+        2304
+      ]
+    },
+    {
+      "id": "layer1_foreground",
+      "role": "foreground (leaves, railing, framing elements)",
+      "file": "courtyard_fg.png",
+      "parallax": 1.5,
+      "z": 30,
+      "required": true,
+      "position": [
+        -3086,
+        -2422
+      ],
+      "min_size_px": [
+        5620,
+        2879
+      ]
+    }
+  ],
+  "fx": {
+    "leaf_wipe": "fx/leaf_wipe.png"
+  }
+}

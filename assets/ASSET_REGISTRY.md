@@ -23,7 +23,11 @@ Tujuan (dari Master §4 dan Environment §11): cari dan pakai aset yang sudah ad
 
 | Nama usulan | Kategori | Jenis | Dibutuhkan untuk (episode / shot) | Spesifikasi singkat | Status | Catatan |
 |---|---|---|---|---|---|---|
-| — | — | — | — | — | — | Belum ada kebutuhan tercatat |
+| `courtyard_bg_far.png` | public_places (courtyard) | environment (Layer 4, parallax 0.15) | pilot_01_stop_time / semua shot | PNG RGBA ≥ 2389×1372, lihat `pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/README.md` | needed | Plate final belum tersedia; render final BLOCKED |
+| `courtyard_bg.png` | public_places (courtyard) | environment (Layer 3, parallax 0.35) | pilot_01_stop_time / semua shot | PNG RGBA ≥ 2846×1587 | needed | idem |
+| `courtyard_mid.png` | public_places (courtyard) | environment (Layer 2, parallax 1.0, bidang karakter) | pilot_01_stop_time / semua shot | PNG RGBA ≥ 4383×2304, garis tanah y=0 | needed | idem |
+| `courtyard_fg.png` | public_places (courtyard) | environment (Layer 1, parallax 1.5) | pilot_01_stop_time / semua shot | PNG RGBA ≥ 5620×2879, area kosong transparan | needed | idem |
+| `fx/leaf_wipe.png` | public_places (courtyard) | efek (object wipe) | pilot_01_stop_time / transisi S03→S04 | PNG RGBA satu daun, sumbu panjang ≥ 2500 px | needed | Leaf wipe hanya teruji dengan daun UJI |
 
 ## Aset terkait karakter
 
