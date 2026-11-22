@@ -18,6 +18,18 @@ Temuan audit tentang kondisi sebelum restrukturisasi:
 - ZIP identik byte-per-byte dengan `CURIOUS_MIND_ENVIRONMENT.md` dan `CURIOUS_MIND_CAMERA_TRANSITIONS.md`; Master Guide tidak ada di dalam ZIP.
 - README lama berisi beberapa versi teks yang ditempel berurutan dan menyebut `EPISODE_PRODUCTION_TEMPLATE.md` yang tidak pernah ada.
 
+## 2026-11-22 — Pilot 01: pipeline, nama karakter, plate courtyard
+
+Disetujui oleh pemilik proyek.
+
+- Nama karakter utama: **Rian** (stick figure Curious Mind). Dicatat di `pilot/PILOT_01_STOP_TIME/rig/stick_figure_rig.json` (`character_name`).
+- Pipeline animasi Python + FFmpeg untuk Pilot 01 ditambahkan (`tools/render/`, `pilot/PILOT_01_STOP_TIME/`).
+- Brief storyboard Pilot 01 disimpan di `docs/production/PILOT_01_STOP_TIME_BRIEF.md`.
+- Pembagian layer courtyard: L4 langit/skyline; L3 atap, menara, pepohonan di belakang dinding, taman di balik gerbang; L2 dinding, gerbang, pintu lengkung, bangku, air mancur, pot, lantai (satu layer supaya sambungan dinding–lantai di 64% tidak terbelah parallax); L1 bingkai tepi saja.
+- Plate courtyard diterima apa adanya untuk tes 10 detik, termasuk L3/L2/L1 yang keying-nya BLOCKED (fringe magenta tersisa). Perbaikan yang disarankan: buat ulang sebagai PNG transparan atau di atas latar warna langit.
+- Plate dikirim berbingkai persis frame master (tanpa overscan) → opsi A: gerakan kamera dijaga di dalam bingkai; manifest tidak diubah.
+- Tes 10 detik memakai beat Brief Scene 02 "Stop!" di courtyard (`config/pilot_01_courtyard_test_10s.json`); courtyard bukan lokasi trotoar Scene 01, jadi ini tes pipeline, bukan potongan episode.
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

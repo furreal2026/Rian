@@ -75,14 +75,21 @@ def _overlay(rgba: Image.Image, mask: np.ndarray, color, out: Path, max_side=240
     img.save(out)
 
 
-def ingest(config: Path, inbox: Path) -> dict:
+def ingest(config: Path, inbox: Path, only: list[str] | None = None, tag: str = "") -> dict:
+    """`only`: restrict to these layer ids. `tag`: suffix for a new keying pass (e.g. "pass2"), so earlier
+    results are kept untouched: keyed/<stem>_rgba_<tag>.png and qc/<stem>_<tag>/."""
     mpath, man = _manifest(config)
     base = mpath.parent
+    regions_path = base / "key_regions.json"
+    key_regions = json.loads(regions_path.read_text(encoding="utf-8")) if regions_path.exists() else {}
+    sfx = f"_{tag}" if tag else ""
     results = {"manifest": str(mpath), "layers": {}, "extra": {}}
     for extra in EXTRA_SOURCES:
         p, st = archive(inbox, base, extra)
         results["extra"][extra] = {"archived": str(p) if p else None, "status": st}
     for it in _items(man):
+        if only and it["id"] not in only:
+            continue
         src, st = archive(inbox, base, it["file"])
         entry = {"file": it["file"], "archive": st, "source": str(src) if src else None}
         results["layers"][it["id"]] = entry
@@ -91,8 +98,8 @@ def ingest(config: Path, inbox: Path) -> dict:
             entry["reason"] = "source file not delivered"
             continue
         stem = Path(it["file"]).stem
-        out = base / "keyed" / f"{stem}_rgba.png"
-        qc = base / "qc" / stem
+        out = base / "keyed" / f"{stem}_rgba{sfx}.png"
+        qc = base / "qc" / f"{stem}{sfx}"
         qc.mkdir(parents=True, exist_ok=True)
         out.parent.mkdir(parents=True, exist_ok=True)
         if out.exists():
@@ -101,7 +108,8 @@ def ingest(config: Path, inbox: Path) -> dict:
             im.load()
         entry["source_info"] = {"mode": im.mode, "size": list(im.size), "icc_profile": "icc_profile" in im.info}
         if it["keyed"]:
-            rgba, rep, maps = ck.key_magenta(src, out)
+            opts = ck.KeyOptions(bg_regions=key_regions.get(it["file"], {}).get("bg_regions", []))
+            rgba, rep, maps = ck.key_magenta(src, out, opts)
             rgba.save(out)
             entry["key"] = {k: v for k, v in rep.__dict__.items() if k not in ("source", "output")}
             ck.detail_crops(im, rgba, maps["zone"], qc / f"{stem}_detail_crops.png")
@@ -124,19 +132,20 @@ def ingest(config: Path, inbox: Path) -> dict:
         entry["status"] = "NEEDS_REVIEW" if entry["format_check"]["pass"] else "BLOCKED"
         if not entry["format_check"]["pass"]:
             entry["reason"] = "format/size check failed"
-    (base / "qc" / "ingest_report.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
+    (base / "qc" / f"ingest_report{sfx}{'_' + '_'.join(only) if only else ''}.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
     return results
 
 
-def place(config: Path, layer_ids: list[str]) -> list[str]:
-    """Copy reviewed keyed/<stem>_rgba.png to the manifest file name. Refuses to overwrite a different placed file."""
+def place(config: Path, layer_ids: list[str], tags: dict[str, str] | None = None) -> list[str]:
+    """Copy reviewed keyed/<stem>_rgba[_tag].png to the manifest file name. Refuses to overwrite a different placed file."""
     mpath, man = _manifest(config)
     base = mpath.parent
     done = []
     for it in _items(man):
         if it["id"] not in layer_ids:
             continue
-        src = base / "keyed" / f"{Path(it['file']).stem}_rgba.png"
+        t = (tags or {}).get(it["id"], "")
+        src = base / "keyed" / f"{Path(it['file']).stem}_rgba{'_' + t if t else ''}.png"
         dst = base / it["file"]
         if not src.exists():
             raise FileNotFoundError(src)
@@ -191,3 +200,54 @@ def stack_preview(config: Path, out: Path, scene_cls, with_character: bool = Tru
 def mx_apply(m, x, y):
     v = m @ np.array([x, y, 1.0])
     return float(v[0]), float(v[1])
+
+
+def fit_to_reference_frame(config: Path, layer_id: str, src: Path, out: Path, stretch_max: float = 0.015) -> dict:
+    """Map a frame-sized plate (painted with the master framing) onto the manifest canvas.
+
+    The plate content is scaled (Lanczos, premultiplied alpha) to exactly the reference camera's
+    view on that layer (1920x1080 world units at zoom 1 / world_units_per_pixel) and pasted at the
+    pixel offset where that view lies inside the manifest canvas (manifest position + min_size_px
+    unchanged). The rest of the canvas stays transparent: no outpainting.
+    A width mismatch up to `stretch_max` is fixed by a horizontal stretch; a larger aspect mismatch is
+    fixed by cover-scaling and centre-cropping the long axis (reported).
+    """
+    mpath, man = _manifest(config)
+    cfg = json.loads(Path(config).read_text(encoding="utf-8"))
+    L = next(l for l in man["layers"] if l["id"] == layer_id)
+    wpp = float(L.get("world_units_per_pixel", man.get("world_units_per_pixel", 1.0)))
+    fw = float(cfg["output"].get("frame_world_width", cfg["output"]["width"]))
+    fh = fw * cfg["output"]["height"] / cfg["output"]["width"]
+    ref = man["reference_camera"]
+    tw, th = round(fw / wpp), round(fh / wpp)
+    ox = round((ref["x"] - fw / 2 - L["position"][0]) / wpp)
+    oy = round((ref["y"] - fh / 2 - L["position"][1]) / wpp)
+    with Image.open(src) as im:
+        img = im.convert("RGBA")
+    w, h = img.size
+    info = {"layer": layer_id, "source": str(src), "source_size": [w, h], "target_content": [tw, th], "offset_px": [ox, oy]}
+    need_w = h * tw / th
+    rgba = img.convert("RGBa")
+    if abs(need_w - w) / w <= stretch_max:
+        info["stretch_x_percent"] = round((need_w / w - 1) * 100, 3)
+        rgba = rgba.resize((tw, th), Image.LANCZOS)
+        info["scale"] = round(th / h, 4)
+        info["crop_px"] = [0, 0]
+    else:
+        s = max(tw / w, th / h)
+        sw, sh = round(w * s), round(h * s)
+        big = rgba.resize((sw, sh), Image.LANCZOS)
+        cx, cy = (sw - tw) // 2, (sh - th) // 2
+        rgba = big.crop((cx, cy, cx + tw, cy + th))
+        info.update({"scale": round(s, 4), "stretch_x_percent": 0.0, "crop_px": [sw - tw, sh - th],
+                     "crop_note": "centre crop of the axis that exceeds the frame (aspect differs from 16:9 by more than the stretch limit)"})
+    cw = max(L["min_size_px"][0], ox + tw)
+    ch = max(L["min_size_px"][1], oy + th)
+    canvas = Image.new("RGBA", (cw, ch), (0, 0, 0, 0))
+    canvas.paste(rgba.convert("RGBA"), (ox, oy))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    if out.exists():
+        raise FileExistsError(out)
+    canvas.save(out)
+    info.update({"output": str(out), "canvas": [cw, ch], "check": ck.check_output(out, min_size=tuple(L["min_size_px"]))})
+    return info

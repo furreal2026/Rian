@@ -2,6 +2,8 @@
 
 Pipeline animasi 2D Curious Mind: Python + FFmpeg. Tanpa Blender, tanpa layanan berbayar.
 
+Karakter utama: **Rian** (stick figure Curious Mind; rig `rig/stick_figure_rig.json`).
+
 | Target | Nilai |
 |---|---|
 | Durasi | 10 detik (240 frame) |
@@ -11,7 +13,7 @@ Pipeline animasi 2D Curious Mind: Python + FFmpeg. Tanpa Blender, tanpa layanan 
 
 > **Status:** pipeline teknis selesai dan teruji dengan **plate UJI**. Render final menunggu plate courtyard dan aset daun (lihat `assets/environment/courtyard/README.md` di folder ini).
 >
-> **Catatan storyboard:** brief pilot (`PILOT_01_STOP_TIME_BRIEF.md`) tidak ada di repository. Daftar shot di `config/pilot_01_stop_time.json` adalah **layout teknis** yang memakai semua gerakan kamera dan transisi yang diminta; timing, framing, dan akting harus disesuaikan dengan brief/storyboard resmi saat tersedia (cukup edit JSON, tanpa mengubah kode). Lokasi yang disiapkan untuk dokumen produksi: `docs/production/`.
+> **Storyboard:** brief pilot ada di `docs/production/PILOT_01_STOP_TIME_BRIEF.md` (9 menit 30 detik). Catatan lama: brief belum tersedia saat layout teknis dibuat. Daftar shot di `config/pilot_01_stop_time.json` adalah **layout teknis** yang memakai semua gerakan kamera dan transisi yang diminta; timing, framing, dan akting harus disesuaikan dengan brief/storyboard resmi saat tersedia (cukup edit JSON, tanpa mengubah kode). Lokasi yang disiapkan untuk dokumen produksi: `docs/production/`.
 
 ## Struktur direktori
 
@@ -96,6 +98,14 @@ python -m tools.render stills --config pilot\PILOT_01_STOP_TIME\config\pilot_01_
 python -m tools.render plate-spec --config pilot\PILOT_01_STOP_TIME\config\pilot_01_stop_time.json
 python -m tools.render qc --config pilot\PILOT_01_STOP_TIME\config\pilot_01_stop_time.json --video pilot\PILOT_01_STOP_TIME\output\pilot_01_stop_time.mp4
 ```
+
+### Tes 10 detik dengan plate courtyard
+
+```bat
+python tools\render\render.py pilot\PILOT_01_STOP_TIME --config pilot\PILOT_01_STOP_TIME\config\pilot_01_courtyard_test_10s.json
+```
+
+Beat cerita: Brief Scene 02 "Stop!" → awal Scene 03. Courtyard bukan lokasi trotoar di brief; ini tes pipeline + plate, bukan potongan episode.
 
 ## Memeriksa hasil
 

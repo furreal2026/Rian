@@ -1,0 +1,19 @@
+{
+  "_doc": "Declared background regions for magenta keying (source pixel coordinates of the file in source/). Inside a bbox, key-coloured pixels count as background even when enclosed by the object. Used for the sky seen through the gate opening and between the gate bars (owner decision: these must be transparent). Not part of the render manifest.",
+  "courtyard_mid.png": {
+    "bg_regions": [
+      {
+        "bbox": [
+          512,
+          325,
+          735,
+          615
+        ],
+        "inner": 14,
+        "note": "arched gate opening: sky above the gate, gaps between bars, ornament rings; pixels with dE<95 to the key are unmixed (measured: purple bleed dE 30-89, iron/stone dE>=103); despill_all: the iron gate has no legitimate purple, so purple-contaminated thin ornament pixels are despilled",
+        "unmix_below": 95,
+        "despill_all": true
+      }
+    ]
+  }
+}

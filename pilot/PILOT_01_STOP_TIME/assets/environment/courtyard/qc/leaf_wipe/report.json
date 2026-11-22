@@ -1,0 +1,70 @@
+{
+  "file": "fx/leaf_wipe.png",
+  "archive": "archived",
+  "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/fx/leaf_wipe.png",
+  "source_info": {
+    "mode": "RGB",
+    "size": [
+      1774,
+      887
+    ],
+    "icc_profile": false
+  },
+  "key": {
+    "size": [
+      1774,
+      887
+    ],
+    "source_mode": "RGB",
+    "source_icc": false,
+    "bg_sample_rgb": [
+      252,
+      3,
+      251
+    ],
+    "bg_sample_lab": [
+      59.62,
+      96.98,
+      -59.72
+    ],
+    "bg_spread_p99_5": 0.51,
+    "tol_inner": 4.0,
+    "tol_outer": 22.0,
+    "bg_fraction": 0.6705,
+    "partial_px": 13054,
+    "edge_px": 9473,
+    "partial_ratio": 0.998,
+    "feather_applied": false,
+    "despilled_px": 1079,
+    "object_px_made_transparent": 0,
+    "unconnected_transparent_px": 99,
+    "enclosed_bg_colour_islands": [],
+    "enclosed_bg_colour_area_px": 94,
+    "residual_fringe_px": 0,
+    "residual_fringe_ratio": 0.0,
+    "alpha_method": {
+      "edge_band_px": 15453,
+      "unmixed_with_local_object_colour": 15214,
+      "ramp_fallback": 239
+    },
+    "notes": []
+  },
+  "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/leaf_wipe_rgba.png",
+  "previews": [
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_white.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_black.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_gray50.png"
+  ],
+  "format_check": {
+    "mode": "RGBA",
+    "size": [
+      1774,
+      887
+    ],
+    "bits": 8,
+    "icc_profile": false,
+    "format": "PNG",
+    "min_long_axis": 2500,
+    "pass": false
+  }
+}

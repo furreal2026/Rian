@@ -193,8 +193,37 @@ def _edge_alpha(rgb, d, bg_core, band, alpha, bg_rgb, t_in, opts) -> dict:
     a[a >= opts.snap_opaque] = 1.0  # sensor/compression noise must not make object pixels translucent
     a[d[idx] < t_in] = np.minimum(a[d[idx] < t_in], 0.0)  # key-coloured pixels in the band stay clear
     alpha[idx] = a
-    return {"edge_band_px": int(len(c)), "unmixed_with_local_object_colour": int(proj_ok.sum()),
-            "ramp_fallback": int((~proj_ok).sum())}
+    info = {"edge_band_px": int(len(c)), "unmixed_with_local_object_colour": int(proj_ok.sum()),
+            "ramp_fallback": int((~proj_ok).sum()), "wide_band_mixed_px": 0}
+
+    # wide soft edge: some generators paint a magenta/object blend several px wide. Beyond the 2 px band,
+    # up to `wide_band` px from the background, a pixel gets graded alpha ONLY if it is a measured mix of the
+    # key and the clean local object colour (small residual from the key->object line). Clean reference
+    # colours exclude magenta-contaminated pixels, so legitimate pink/purple detail fails the residual test.
+    if opts.wide_band > opts.edge_band:
+        cf = rgb.astype(np.float32)
+        spill = np.minimum(cf[..., 0], cf[..., 2]) - cf[..., 1]
+        clean = ~dilate(bg_core, opts.edge_band) & (d >= t_in + opts.soft) & (spill < opts.clean_spill_max)
+        rw = opts.wide_ref_radius
+        cnt2 = box_mean(clean.astype(np.float32), rw)
+        wide = dilate(bg_core, opts.wide_band) & ~bg_core & ~band & (spill >= opts.clean_spill_max) & (cnt2 > 0.5)
+        wi = np.nonzero(wide)
+        if len(wi[0]):
+            cw = cf[wi]
+            Fw = np.zeros_like(cw)
+            for ch in range(3):
+                num = box_mean(np.where(clean, cf[..., ch], 0).astype(np.float32), rw)
+                Fw[:, ch] = num[wi] / np.maximum(cnt2[wi], 1e-6)
+            fbw = Fw - bg_rgb
+            nw = (fbw * fbw).sum(axis=1)
+            aw = np.clip(((cw - bg_rgb) * fbw).sum(axis=1) / np.maximum(nw, 1e-6), 0.0, 1.0)
+            resid = np.sqrt((((bg_rgb + aw[:, None] * fbw) - cw) ** 2).sum(axis=1))
+            ok = (nw > opts.min_contrast ** 2) & (resid < opts.mix_residual_max) & (aw < opts.snap_opaque)
+            alpha[wi[0][ok], wi[1][ok]] = aw[ok]
+            band[wi[0][ok], wi[1][ok]] = True
+            info["wide_band_mixed_px"] = int(ok.sum())
+            info["wide_band_rejected_px"] = int((~ok).sum())
+    return info
 
 
 # ------------------------------------------------------------------- keying
@@ -208,6 +237,10 @@ class KeyOptions:
     fg_radius: int = 4              # window for the local object colour used to unmix edge pixels
     min_contrast: float = 40.0      # RGB distance object-vs-key needed for unmixing (else ramp)
     snap_opaque: float = 0.95       # edge alpha at or above this is treated as fully opaque
+    wide_band: int = 8              # max px from background for measured key/object blends (0 = off)
+    wide_ref_radius: int = 6        # window for the clean local object colour
+    clean_spill_max: float = 20.0   # min(R,B)-G below this = not magenta-contaminated
+    mix_residual_max: float = 28.0  # RGB distance from the key->object line accepted as a blend
     edge_band: int = 2              # px from connected background where partial alpha is allowed
     despill_band: int = 3           # px from background where despill may act
     despill_ref_radius: int = 7     # window for the local interior reference
@@ -215,6 +248,9 @@ class KeyOptions:
     feather_if_partial_below: float = 0.35
     feather_radius: float = 0.8
     island_min_area: int = 64
+    # declared background regions (source px): key-coloured pixels inside each bbox count as background
+    # even when enclosed, e.g. the sky seen through a gate. [{"bbox": [x0, y0, x1, y1], "inner": 14}]
+    bg_regions: list = field(default_factory=list)
 
 
 @dataclass
@@ -242,6 +278,7 @@ class KeyReport:
     residual_fringe_px: int = 0
     residual_fringe_ratio: float = 0.0
     alpha_method: dict = field(default_factory=dict)
+    declared_region_bg_px: int = 0
     notes: list = field(default_factory=list)
 
 
@@ -282,9 +319,29 @@ def key_magenta(src: Path, out: Path, opts: KeyOptions | None = None) -> tuple[I
     # 2) graded matte, connected background only
     d = delta_e(lab, bg_lab)
     del lab
-    bg_core = connected_from(d < t_in, border((h, w)) & (d < t_in))
+    seeds = border((h, w)) & (d < t_in)
+    clear = d < t_in
+    region_mask = np.zeros((h, w), dtype=bool)
+    for reg in opts.bg_regions:
+        x0, y0, x1, y1 = reg["bbox"]
+        r_in = float(reg.get("inner", t_in))
+        sub = np.zeros((h, w), dtype=bool)
+        sub[y0:y1 + 1, x0:x1 + 1] = True
+        region_mask |= sub
+        clear |= sub & (d < r_in)
+        seeds |= sub & (d < r_in)
+    bg_core = connected_from(clear, seeds)
+    rep.declared_region_bg_px = int((bg_core & region_mask).sum())
     near = dilate(bg_core, opts.edge_band)
     band = near & ~bg_core
+    for reg in opts.bg_regions:
+        # inside a declared region every pixel closer to the key than `unmix_below` is a key/object mix
+        # (compression bleed in thin ornament): give it unmixed alpha, not only the 2 px edge band
+        if "unmix_below" in reg:
+            x0, y0, x1, y1 = reg["bbox"]
+            sub = np.zeros((h, w), dtype=bool)
+            sub[y0:y1 + 1, x0:x1 + 1] = True
+            band |= sub & ~bg_core & (d < float(reg["unmix_below"]))
     alpha = np.ones((h, w), dtype=np.float32)
     alpha[bg_core] = 0.0
     bg_rgb = np.median(rgb[ys[pick], xs[pick]], axis=0).astype(np.float32)
@@ -316,7 +373,16 @@ def key_magenta(src: Path, out: Path, opts: KeyOptions | None = None) -> tuple[I
     # without any interior reference (very thin detail) only correct pixels that are close to the key
     close_to_key = d < (t_out + 10)
     excess = s - np.maximum(s_ref, 0.0) - opts.despill_margin
-    fix = zone & (excess > 0) & (has_ref | close_to_key) & (out_rgb[..., 0] > out_rgb[..., 1]) & (out_rgb[..., 2] > out_rgb[..., 1])
+    region_all = np.zeros((h, w), dtype=bool)
+    for reg in opts.bg_regions:
+        if reg.get("despill_all"):
+            x0, y0, x1, y1 = reg["bbox"]
+            region_all[y0:y1 + 1, x0:x1 + 1] = True
+    # in a declared region whose object has no legitimate magenta/purple (e.g. an iron gate), thin edge
+    # pixels without an interior reference are still despilled against a neutral reference
+    excess = np.where(region_all, s - opts.despill_margin, excess)
+    fix = (zone | (region_all & (alpha > 0))) & (excess > 0) & (has_ref | close_to_key | region_all) \
+        & (out_rgb[..., 0] > out_rgb[..., 1]) & (out_rgb[..., 2] > out_rgb[..., 1])
     rep.despilled_px = int(fix.sum())
     ex = excess[fix]
     out_rgb[..., 0][fix] -= ex
@@ -337,7 +403,11 @@ def key_magenta(src: Path, out: Path, opts: KeyOptions | None = None) -> tuple[I
 
     # 6) checks
     # alpha < 1 is only allowed in the edge band next to the connected background
-    rep.object_px_made_transparent = int(((alpha < 1) & ~dilate(bg_core, opts.edge_band)).sum())
+    allowed = dilate(bg_core, max(opts.edge_band, opts.wide_band))
+    for reg in opts.bg_regions:
+        x0, y0, x1, y1 = reg["bbox"]
+        allowed[y0:y1 + 1, x0:x1 + 1] = True
+    rep.object_px_made_transparent = int(((alpha < 1) & ~allowed).sum())
     transparent = alpha <= 0
     rep.unconnected_transparent_px = int((transparent & ~bg_core).sum())
     s2 = np.minimum(out_rgb[..., 0], out_rgb[..., 2]) - out_rgb[..., 1]

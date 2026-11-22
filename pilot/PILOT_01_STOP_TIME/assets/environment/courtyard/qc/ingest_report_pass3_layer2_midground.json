@@ -1,0 +1,87 @@
+{
+  "manifest": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/manifest.json",
+  "layers": {
+    "layer2_midground": {
+      "file": "courtyard_mid.png",
+      "archive": "already archived (identical)",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_mid.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1672,
+          941
+        ],
+        "icc_profile": false
+      },
+      "key": {
+        "size": [
+          1672,
+          941
+        ],
+        "source_mode": "RGB",
+        "source_icc": false,
+        "bg_sample_rgb": [
+          249,
+          4,
+          251
+        ],
+        "bg_sample_lab": [
+          59.16,
+          96.59,
+          -60.6
+        ],
+        "bg_spread_p99_5": 0.66,
+        "tol_inner": 4.0,
+        "tol_outer": 22.0,
+        "bg_fraction": 0.3089,
+        "partial_px": 18711,
+        "edge_px": 11307,
+        "partial_ratio": 0.996,
+        "feather_applied": false,
+        "despilled_px": 2772,
+        "object_px_made_transparent": 997,
+        "unconnected_transparent_px": 16,
+        "enclosed_bg_colour_islands": [],
+        "enclosed_bg_colour_area_px": 30,
+        "residual_fringe_px": 273,
+        "residual_fringe_ratio": 0.00922,
+        "alpha_method": {
+          "edge_band_px": 24099,
+          "unmixed_with_local_object_colour": 16691,
+          "ramp_fallback": 7408
+        },
+        "declared_region_bg_px": 32839,
+        "notes": []
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_mid_rgba_pass3.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid_pass3/courtyard_mid_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid_pass3/courtyard_mid_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid_pass3/courtyard_mid_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1672,
+          941
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_size": [
+          4383,
+          2304
+        ],
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    }
+  },
+  "extra": {
+    "courtyard_master_ref.png": {
+      "archived": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_master_ref.png",
+      "status": "already archived (identical)"
+    }
+  }
+}

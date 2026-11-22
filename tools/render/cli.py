@@ -229,7 +229,8 @@ def cmd_qc(args) -> int:
 
 def cmd_ingest(args) -> int:
     from .plates import ingest
-    res = ingest(Path(args.config), Path(args.inbox))
+    only = [x.strip() for x in args.layers.split(",")] if args.layers else None
+    res = ingest(Path(args.config), Path(args.inbox), only, args.tag)
     for lid, e in res["layers"].items():
         print(f"[ingest] {lid:24s} {e.get('archive'):28s} -> {e.get('status')}  {e.get('reason', '')}")
     print(f"[ingest] report: {Path(res['manifest']).parent / 'qc' / 'ingest_report.json'}")
@@ -294,6 +295,8 @@ def main(argv=None) -> int:
     p = sub.add_parser("ingest-plates", help="archive originals, key magenta, verify (writes new files only)")
     p.add_argument("--config", required=True)
     p.add_argument("--inbox", required=True, help="folder containing the delivered PNGs (fx/leaf_wipe.png may be flat)")
+    p.add_argument("--layers", default=None, help="only these layer ids")
+    p.add_argument("--tag", default="", help="label for a new keying pass (keeps earlier results), e.g. pass2")
     p.set_defaults(fn=cmd_ingest)
 
     p = sub.add_parser("place-plates", help="copy reviewed keyed/*_rgba.png to the manifest file names")

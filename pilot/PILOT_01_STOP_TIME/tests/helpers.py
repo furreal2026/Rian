@@ -52,3 +52,18 @@ class TempDir:
 
     def __exit__(self, *a):
         self._td.cleanup()
+
+
+def pilot_config_without_final_plates(tmp: Path) -> Path:
+    """Copy of the pilot technical config + courtyard manifest in `tmp`, where no final plate files exist.
+    Lets tests exercise TEST-plate and BLOCKED behaviour now that the real courtyard plates are delivered."""
+    man_src = EPISODE / "assets" / "environment" / "courtyard" / "manifest.json"
+    (tmp / "env").mkdir(parents=True, exist_ok=True)
+    (tmp / "env" / "manifest.json").write_text(man_src.read_text(encoding="utf-8"), encoding="utf-8")
+    cfg = json.loads(PILOT.read_text(encoding="utf-8"))
+    cfg["environment"]["manifest"] = str(tmp / "env" / "manifest.json")
+    cfg["character"]["rig"] = str(RIG)
+    cfg["character"]["poses"] = str(POSES)
+    p = tmp / "pilot_no_final_plates.json"
+    p.write_text(json.dumps(cfg), encoding="utf-8")
+    return p

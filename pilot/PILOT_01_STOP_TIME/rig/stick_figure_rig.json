@@ -1,5 +1,6 @@
 {
   "name": "stick_figure",
+  "character_name": "Rian",
   "description": "Curious Mind main character, modular cut-out rig. Units: head radius = 100, ground contact at y = 0, y points down. Geometry and palette follow characters/stick_figure/MASTER_CHARACTER.md (draft V2, branch assets/character-master-v1).",
   "units_height": 560,
   "palette": {

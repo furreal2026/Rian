@@ -1,0 +1,648 @@
+{
+  "manifest": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/manifest.json",
+  "layers": {
+    "layer4_far_background": {
+      "file": "courtyard_bg_far.png",
+      "archive": "archived",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_bg_far.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1672,
+          941
+        ],
+        "icc_profile": false
+      },
+      "opaque_check": {
+        "min_alpha": 255,
+        "magenta_like_px": 0
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_far_rgba.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1672,
+          941
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_size": [
+          2389,
+          1372
+        ],
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    },
+    "layer3_background": {
+      "file": "courtyard_bg.png",
+      "archive": "archived",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_bg.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1670,
+          941
+        ],
+        "icc_profile": false
+      },
+      "key": {
+        "size": [
+          1670,
+          941
+        ],
+        "source_mode": "RGB",
+        "source_icc": false,
+        "bg_sample_rgb": [
+          251,
+          3,
+          251
+        ],
+        "bg_sample_lab": [
+          59.42,
+          96.81,
+          -60.01
+        ],
+        "bg_spread_p99_5": 0.53,
+        "tol_inner": 4.0,
+        "tol_outer": 22.0,
+        "bg_fraction": 0.696,
+        "partial_px": 11158,
+        "edge_px": 7628,
+        "partial_ratio": 0.998,
+        "feather_applied": false,
+        "despilled_px": 2031,
+        "object_px_made_transparent": 0,
+        "unconnected_transparent_px": 151,
+        "enclosed_bg_colour_islands": [
+          {
+            "area_px": 89,
+            "bbox": [
+              276,
+              313,
+              295,
+              323
+            ]
+          }
+        ],
+        "enclosed_bg_colour_area_px": 307,
+        "residual_fringe_px": 365,
+        "residual_fringe_ratio": 0.01943,
+        "alpha_method": {
+          "edge_band_px": 13057,
+          "unmixed_with_local_object_colour": 12712,
+          "ramp_fallback": 345
+        },
+        "notes": []
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_rgba.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1670,
+          941
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_size": [
+          2846,
+          1587
+        ],
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    },
+    "layer2_midground": {
+      "file": "courtyard_mid.png",
+      "archive": "archived",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_mid.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1672,
+          941
+        ],
+        "icc_profile": false
+      },
+      "key": {
+        "size": [
+          1672,
+          941
+        ],
+        "source_mode": "RGB",
+        "source_icc": false,
+        "bg_sample_rgb": [
+          249,
+          4,
+          251
+        ],
+        "bg_sample_lab": [
+          59.16,
+          96.59,
+          -60.6
+        ],
+        "bg_spread_p99_5": 0.66,
+        "tol_inner": 4.0,
+        "tol_outer": 22.0,
+        "bg_fraction": 0.288,
+        "partial_px": 5246,
+        "edge_px": 3471,
+        "partial_ratio": 0.998,
+        "feather_applied": false,
+        "despilled_px": 1682,
+        "object_px_made_transparent": 0,
+        "unconnected_transparent_px": 16,
+        "enclosed_bg_colour_islands": [
+          {
+            "area_px": 8642,
+            "bbox": [
+              523,
+              333,
+              723,
+              416
+            ]
+          },
+          {
+            "area_px": 954,
+            "bbox": [
+              523,
+              439,
+              533,
+              538
+            ]
+          },
+          {
+            "area_px": 954,
+            "bbox": [
+              712,
+              440,
+              722,
+              535
+            ]
+          },
+          {
+            "area_px": 923,
+            "bbox": [
+              593,
+              440,
+              602,
+              536
+            ]
+          },
+          {
+            "area_px": 916,
+            "bbox": [
+              607,
+              439,
+              617,
+              535
+            ]
+          },
+          {
+            "area_px": 907,
+            "bbox": [
+              683,
+              439,
+              692,
+              538
+            ]
+          },
+          {
+            "area_px": 853,
+            "bbox": [
+              538,
+              439,
+              547,
+              538
+            ]
+          },
+          {
+            "area_px": 852,
+            "bbox": [
+              579,
+              439,
+              588,
+              535
+            ]
+          },
+          {
+            "area_px": 835,
+            "bbox": [
+              697,
+              444,
+              707,
+              536
+            ]
+          },
+          {
+            "area_px": 815,
+            "bbox": [
+              552,
+              441,
+              561,
+              536
+            ]
+          },
+          {
+            "area_px": 784,
+            "bbox": [
+              670,
+              441,
+              679,
+              536
+            ]
+          },
+          {
+            "area_px": 718,
+            "bbox": [
+              630,
+              439,
+              640,
+              534
+            ]
+          },
+          {
+            "area_px": 700,
+            "bbox": [
+              645,
+              439,
+              653,
+              536
+            ]
+          },
+          {
+            "area_px": 607,
+            "bbox": [
+              658,
+              449,
+              666,
+              538
+            ]
+          },
+          {
+            "area_px": 445,
+            "bbox": [
+              566,
+              440,
+              575,
+              506
+            ]
+          },
+          {
+            "area_px": 444,
+            "bbox": [
+              538,
+              558,
+              547,
+              609
+            ]
+          },
+          {
+            "area_px": 443,
+            "bbox": [
+              683,
+              560,
+              692,
+              610
+            ]
+          },
+          {
+            "area_px": 441,
+            "bbox": [
+              607,
+              558,
+              617,
+              607
+            ]
+          },
+          {
+            "area_px": 437,
+            "bbox": [
+              593,
+              559,
+              602,
+              608
+            ]
+          },
+          {
+            "area_px": 429,
+            "bbox": [
+              579,
+              558,
+              588,
+              608
+            ]
+          },
+          {
+            "area_px": 416,
+            "bbox": [
+              553,
+              559,
+              561,
+              608
+            ]
+          },
+          {
+            "area_px": 415,
+            "bbox": [
+              712,
+              558,
+              722,
+              608
+            ]
+          },
+          {
+            "area_px": 399,
+            "bbox": [
+              645,
+              559,
+              653,
+              606
+            ]
+          },
+          {
+            "area_px": 391,
+            "bbox": [
+              698,
+              558,
+              707,
+              605
+            ]
+          },
+          {
+            "area_px": 369,
+            "bbox": [
+              523,
+              557,
+              533,
+              602
+            ]
+          },
+          {
+            "area_px": 362,
+            "bbox": [
+              631,
+              561,
+              640,
+              608
+            ]
+          },
+          {
+            "area_px": 346,
+            "bbox": [
+              670,
+              557,
+              678,
+              609
+            ]
+          },
+          {
+            "area_px": 325,
+            "bbox": [
+              658,
+              557,
+              665,
+              608
+            ]
+          },
+          {
+            "area_px": 273,
+            "bbox": [
+              566,
+              559,
+              574,
+              600
+            ]
+          },
+          {
+            "area_px": 189,
+            "bbox": [
+              566,
+              509,
+              574,
+              538
+            ]
+          }
+        ],
+        "enclosed_bg_colour_area_px": 26380,
+        "residual_fringe_px": 214,
+        "residual_fringe_ratio": 0.02455,
+        "alpha_method": {
+          "edge_band_px": 5988,
+          "unmixed_with_local_object_colour": 5936,
+          "ramp_fallback": 52
+        },
+        "notes": []
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_mid_rgba.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid/courtyard_mid_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid/courtyard_mid_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_mid/courtyard_mid_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1672,
+          941
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_size": [
+          4383,
+          2304
+        ],
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    },
+    "layer1_foreground": {
+      "file": "courtyard_fg.png",
+      "archive": "archived",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_fg.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1715,
+          917
+        ],
+        "icc_profile": false
+      },
+      "key": {
+        "size": [
+          1715,
+          917
+        ],
+        "source_mode": "RGB",
+        "source_icc": false,
+        "bg_sample_rgb": [
+          250,
+          9,
+          251
+        ],
+        "bg_sample_lab": [
+          59.46,
+          96.42,
+          -59.81
+        ],
+        "bg_spread_p99_5": 0.56,
+        "tol_inner": 4.0,
+        "tol_outer": 22.0,
+        "bg_fraction": 0.8192,
+        "partial_px": 11402,
+        "edge_px": 7629,
+        "partial_ratio": 0.999,
+        "feather_applied": false,
+        "despilled_px": 2373,
+        "object_px_made_transparent": 0,
+        "unconnected_transparent_px": 244,
+        "enclosed_bg_colour_islands": [
+          {
+            "area_px": 470,
+            "bbox": [
+              1634,
+              121,
+              1666,
+              160
+            ]
+          },
+          {
+            "area_px": 68,
+            "bbox": [
+              1235,
+              53,
+              1244,
+              64
+            ]
+          }
+        ],
+        "enclosed_bg_colour_area_px": 1448,
+        "residual_fringe_px": 405,
+        "residual_fringe_ratio": 0.02128,
+        "alpha_method": {
+          "edge_band_px": 13395,
+          "unmixed_with_local_object_colour": 13142,
+          "ramp_fallback": 253
+        },
+        "notes": []
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_fg_rgba.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_fg/courtyard_fg_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_fg/courtyard_fg_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_fg/courtyard_fg_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1715,
+          917
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_size": [
+          5620,
+          2879
+        ],
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    },
+    "fx:leaf_wipe": {
+      "file": "fx/leaf_wipe.png",
+      "archive": "archived",
+      "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/fx/leaf_wipe.png",
+      "source_info": {
+        "mode": "RGB",
+        "size": [
+          1774,
+          887
+        ],
+        "icc_profile": false
+      },
+      "key": {
+        "size": [
+          1774,
+          887
+        ],
+        "source_mode": "RGB",
+        "source_icc": false,
+        "bg_sample_rgb": [
+          252,
+          3,
+          251
+        ],
+        "bg_sample_lab": [
+          59.62,
+          96.98,
+          -59.72
+        ],
+        "bg_spread_p99_5": 0.51,
+        "tol_inner": 4.0,
+        "tol_outer": 22.0,
+        "bg_fraction": 0.6705,
+        "partial_px": 13054,
+        "edge_px": 9473,
+        "partial_ratio": 0.998,
+        "feather_applied": false,
+        "despilled_px": 1079,
+        "object_px_made_transparent": 0,
+        "unconnected_transparent_px": 99,
+        "enclosed_bg_colour_islands": [],
+        "enclosed_bg_colour_area_px": 94,
+        "residual_fringe_px": 0,
+        "residual_fringe_ratio": 0.0,
+        "alpha_method": {
+          "edge_band_px": 15453,
+          "unmixed_with_local_object_colour": 15214,
+          "ramp_fallback": 239
+        },
+        "notes": []
+      },
+      "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/leaf_wipe_rgba.png",
+      "previews": [
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_white.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_black.png",
+        "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/leaf_wipe/leaf_wipe_on_gray50.png"
+      ],
+      "format_check": {
+        "mode": "RGBA",
+        "size": [
+          1774,
+          887
+        ],
+        "bits": 8,
+        "icc_profile": false,
+        "format": "PNG",
+        "min_long_axis": 2500,
+        "pass": false
+      },
+      "status": "BLOCKED",
+      "reason": "format/size check failed"
+    }
+  },
+  "extra": {
+    "courtyard_master_ref.png": {
+      "archived": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_master_ref.png",
+      "status": "archived"
+    }
+  }
+}

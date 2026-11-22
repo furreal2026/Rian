@@ -1,0 +1,38 @@
+{
+  "file": "courtyard_bg_far.png",
+  "archive": "archived",
+  "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_bg_far.png",
+  "source_info": {
+    "mode": "RGB",
+    "size": [
+      1672,
+      941
+    ],
+    "icc_profile": false
+  },
+  "opaque_check": {
+    "min_alpha": 255,
+    "magenta_like_px": 0
+  },
+  "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_far_rgba.png",
+  "previews": [
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_white.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_black.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg_far/courtyard_bg_far_on_gray50.png"
+  ],
+  "format_check": {
+    "mode": "RGBA",
+    "size": [
+      1672,
+      941
+    ],
+    "bits": 8,
+    "icc_profile": false,
+    "format": "PNG",
+    "min_size": [
+      2389,
+      1372
+    ],
+    "pass": false
+  }
+}

@@ -9,7 +9,7 @@ from pilot.PILOT_01_STOP_TIME.transitions import transitions as tr
 from pilot.PILOT_01_STOP_TIME.compositor.compositor import ConfigError, Scene
 from tools.render.testassets import generate
 from pilot.PILOT_01_STOP_TIME.compositor.compositor import Scene as _Scene
-from pilot.PILOT_01_STOP_TIME.tests.helpers import EPISODE, PILOT
+from pilot.PILOT_01_STOP_TIME.tests.helpers import EPISODE, PILOT, TempDir, pilot_config_without_final_plates
 
 TEST_DIR = EPISODE / "output" / "test_assets"
 
@@ -25,7 +25,11 @@ class TransitionTests(unittest.TestCase):
     def setUpClass(cls):
         if not (TEST_DIR / "test_layout.json").exists():
             generate(PILOT, TEST_DIR, _Scene)
-        cls.scene = Scene(PILOT, test_plates=TEST_DIR, scale=0.5)
+        # final courtyard plates now exist next to the real manifest; these tests use the TEST assets,
+        # so they run on a manifest copy that has no final plate files beside it
+        cls._td = TempDir()
+        cls.cfg = pilot_config_without_final_plates(cls._td.__enter__())
+        cls.scene = Scene(cls.cfg, test_plates=TEST_DIR, scale=0.5)
         cls.w = {w.type: w for w in cls.scene.windows}
 
     # ------------------------------------------------------- cut on action
@@ -99,8 +103,12 @@ class TransitionTests(unittest.TestCase):
         _, after = self.scene.render_frame_rgba(round(w.t_out * 24))
         self.assertEqual(after["shot"], "S04")
 
+    @classmethod
+    def tearDownClass(cls):
+        cls._td.__exit__(None, None, None)
+
     def test_leaf_wipe_requires_asset(self):
-        sc = Scene(PILOT, allow_missing_plates=True, scale=0.25)
+        sc = Scene(self.cfg, allow_missing_plates=True, scale=0.25)
         with self.assertRaises(ConfigError):
             sc._leaf(sc.windows[2])
 

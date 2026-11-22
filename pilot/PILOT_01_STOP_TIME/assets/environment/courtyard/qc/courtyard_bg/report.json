@@ -1,0 +1,83 @@
+{
+  "file": "courtyard_bg.png",
+  "archive": "archived",
+  "source": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/source/courtyard_bg.png",
+  "source_info": {
+    "mode": "RGB",
+    "size": [
+      1670,
+      941
+    ],
+    "icc_profile": false
+  },
+  "key": {
+    "size": [
+      1670,
+      941
+    ],
+    "source_mode": "RGB",
+    "source_icc": false,
+    "bg_sample_rgb": [
+      251,
+      3,
+      251
+    ],
+    "bg_sample_lab": [
+      59.42,
+      96.81,
+      -60.01
+    ],
+    "bg_spread_p99_5": 0.53,
+    "tol_inner": 4.0,
+    "tol_outer": 22.0,
+    "bg_fraction": 0.696,
+    "partial_px": 11158,
+    "edge_px": 7628,
+    "partial_ratio": 0.998,
+    "feather_applied": false,
+    "despilled_px": 2031,
+    "object_px_made_transparent": 0,
+    "unconnected_transparent_px": 151,
+    "enclosed_bg_colour_islands": [
+      {
+        "area_px": 89,
+        "bbox": [
+          276,
+          313,
+          295,
+          323
+        ]
+      }
+    ],
+    "enclosed_bg_colour_area_px": 307,
+    "residual_fringe_px": 365,
+    "residual_fringe_ratio": 0.01943,
+    "alpha_method": {
+      "edge_band_px": 13057,
+      "unmixed_with_local_object_colour": 12712,
+      "ramp_fallback": 345
+    },
+    "notes": []
+  },
+  "output": "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/keyed/courtyard_bg_rgba.png",
+  "previews": [
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_white.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_black.png",
+    "/home/user/Rian/pilot/PILOT_01_STOP_TIME/assets/environment/courtyard/qc/courtyard_bg/courtyard_bg_on_gray50.png"
+  ],
+  "format_check": {
+    "mode": "RGBA",
+    "size": [
+      1670,
+      941
+    ],
+    "bits": 8,
+    "icc_profile": false,
+    "format": "PNG",
+    "min_size": [
+      2846,
+      1587
+    ],
+    "pass": false
+  }
+}

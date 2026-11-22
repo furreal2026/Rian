@@ -54,8 +54,12 @@ class CompositorTests(unittest.TestCase):
             self.assertTrue(np.array_equal(sc.render_frame(5), sc.render_frame(5)))
 
     def test_missing_plates_block_final_render(self):
-        with self.assertRaises(MissingPlateError):
-            Scene(PILOT)
+        # a manifest whose plate files do not exist (the courtyard plates are delivered now)
+        with TempDir() as tmp:
+            layers = {"layer4": {"file": "missing.png", "parallax": 0.15, "z": 0, "position": [0, 0]}}
+            p = synthetic_scene(tmp, layers, [{"id": "A", "start": 0, "end": 1, "camera": {"keys": [{"t": 0, "x": 0, "y": 0}]}}])
+            with self.assertRaises(MissingPlateError):
+                Scene(p)
 
     def test_pilot_timeline(self):
         sc = Scene(PILOT, allow_missing_plates=True)
