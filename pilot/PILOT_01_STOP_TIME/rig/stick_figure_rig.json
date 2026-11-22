@@ -14,9 +14,9 @@
     "tongue": "#B9484A",
     "shadow": "#000000"
   },
-  "line_widths": {"head_outline": 6.4, "limb": 6.6, "shirt_outline": 5.6, "neck": 6.6, "lid": 11.0, "brow": 7.6, "eye_outline": 4.4, "eye_outline_open": 4.2, "mouth": 5.4},
+  "line_widths": {"head_outline": 6.4, "arm": 13.0, "leg": 14.8, "hand_outline": 5.6, "foot": 12.6, "shirt_outline": 5.6, "neck": 8.6, "lid": 11.0, "brow": 7.6, "eye_outline": 4.4, "eye_outline_open": 4.2, "mouth": 5.4},
   "params": ["hips", "hips_dx", "hips_dy", "torso", "head",
-             "shoulder_r", "elbow_r", "wrist_r", "shoulder_l", "elbow_l", "wrist_l",
+             "clavicle_r", "shoulder_r", "elbow_r", "wrist_r", "clavicle_l", "shoulder_l", "elbow_l", "wrist_l",
              "hip_r", "knee_r", "ankle_r", "hip_l", "knee_l", "ankle_l"],
   "views": {
     "front": {
@@ -30,10 +30,12 @@
         {"name": "shin_l",      "parent": "thigh_l",     "joint": [0, 107],    "rest": 2,   "param": "knee_l",     "sprite": "leg_shin",      "z": 11},
         {"name": "foot_l",      "parent": "shin_l",      "joint": [0, 104],    "rest": 1,   "param": "ankle_l",    "sprite": "foot_front_l",  "z": 11},
         {"name": "torso",       "parent": "hips",        "joint": [0, 0],      "rest": 0,   "param": "torso",      "sprite": "torso_front",   "z": 20},
-        {"name": "upper_arm_r", "parent": "torso",       "joint": [-52, -104], "rest": 12,  "param": "shoulder_r", "sprite": "upper_arm",     "z": 30},
+        {"name": "clavicle_r",  "parent": "torso",       "joint": [-16, -136], "rest": 0,   "param": "clavicle_r", "sprite": "shoulder_cap_r", "z": 24},
+        {"name": "upper_arm_r", "parent": "clavicle_r",  "joint": [-36, 32],   "rest": 12,  "param": "shoulder_r", "sprite": "upper_arm",     "z": 30},
         {"name": "forearm_r",   "parent": "upper_arm_r", "joint": [0, 64],     "rest": -8,  "param": "elbow_r",    "sprite": "forearm",       "z": 31},
         {"name": "hand_r",      "parent": "forearm_r",   "joint": [0, 64],     "rest": 0,   "param": "wrist_r",    "sprite": "hand",          "z": 32},
-        {"name": "upper_arm_l", "parent": "torso",       "joint": [52, -104],  "rest": -12, "param": "shoulder_l", "sprite": "upper_arm",     "z": 33},
+        {"name": "clavicle_l",  "parent": "torso",       "joint": [16, -136],  "rest": 0,   "param": "clavicle_l", "sprite": "shoulder_cap_l", "z": 26},
+        {"name": "upper_arm_l", "parent": "clavicle_l",  "joint": [36, 32],    "rest": -12, "param": "shoulder_l", "sprite": "upper_arm",     "z": 33},
         {"name": "forearm_l",   "parent": "upper_arm_l", "joint": [0, 64],     "rest": 8,   "param": "elbow_l",    "sprite": "forearm",       "z": 34},
         {"name": "hand_l",      "parent": "forearm_l",   "joint": [0, 64],     "rest": 0,   "param": "wrist_l",    "sprite": "hand",          "z": 35},
         {"name": "head",        "parent": "torso",       "joint": [0, -146],   "rest": 0,   "param": "head",       "sprite": "head_front",    "z": 40}
@@ -41,11 +43,12 @@
     },
     "side": {
       "facing": "right",
-      "note": "Facing +x. The character's left side faces the camera (near = _l, far = _r).",
+      "note": "Facing +x. The character's left side faces the camera (near = _l, far = _r). The near arm draws in front of the head (z 41-43) so a raised arm stays visible.",
       "parts": [
         {"name": "shadow",      "parent": "root",        "joint": [0, 0],      "rest": 0,   "param": null,         "sprite": "shadow",        "z": 0},
         {"name": "hips",        "parent": "root",        "joint": [0, -214],   "rest": 0,   "param": "hips",       "sprite": null,            "z": 1, "translate_params": ["hips_dx", "hips_dy"]},
-        {"name": "upper_arm_r", "parent": "torso",       "joint": [2, -104],   "rest": 0,   "param": "shoulder_r", "sprite": "upper_arm",     "z": 2},
+        {"name": "clavicle_r",  "parent": "torso",       "joint": [0, -136],   "rest": 0,   "param": null,         "sprite": null,            "z": 1, "lift": {"param": "clavicle_r", "per_deg": [0.0, -0.5]}},
+        {"name": "upper_arm_r", "parent": "clavicle_r",  "joint": [2, 32],     "rest": 0,   "param": "shoulder_r", "sprite": "upper_arm",     "z": 2},
         {"name": "forearm_r",   "parent": "upper_arm_r", "joint": [0, 64],     "rest": -4,  "param": "elbow_r",    "sprite": "forearm",       "z": 3},
         {"name": "hand_r",      "parent": "forearm_r",   "joint": [0, 64],     "rest": 0,   "param": "wrist_r",    "sprite": "hand",          "z": 4},
         {"name": "thigh_r",     "parent": "hips",        "joint": [2, 0],      "rest": 0,   "param": "hip_r",      "sprite": "leg_thigh",     "z": 6},
@@ -55,13 +58,38 @@
         {"name": "shin_l",      "parent": "thigh_l",     "joint": [0, 107],    "rest": 0,   "param": "knee_l",     "sprite": "leg_shin",      "z": 8},
         {"name": "foot_l",      "parent": "shin_l",      "joint": [0, 104],    "rest": 0,   "param": "ankle_l",    "sprite": "foot_side",     "z": 8},
         {"name": "torso",       "parent": "hips",        "joint": [0, 0],      "rest": 0,   "param": "torso",      "sprite": "torso_side",    "z": 20},
-        {"name": "upper_arm_l", "parent": "torso",       "joint": [-2, -104],  "rest": 0,   "param": "shoulder_l", "sprite": "upper_arm",     "z": 30},
-        {"name": "forearm_l",   "parent": "upper_arm_l", "joint": [0, 64],     "rest": -4,  "param": "elbow_l",    "sprite": "forearm",       "z": 31},
-        {"name": "hand_l",      "parent": "forearm_l",   "joint": [0, 64],     "rest": 0,   "param": "wrist_l",    "sprite": "hand",          "z": 32},
+        {"name": "clavicle_l",  "parent": "torso",       "joint": [0, -136],   "rest": 0,   "param": null,         "sprite": "shoulder_cap_side", "z": 25, "lift": {"param": "clavicle_l", "per_deg": [0.0, -0.5]}},
+        {"name": "upper_arm_l", "parent": "clavicle_l",  "joint": [-2, 32],    "rest": 0,   "param": "shoulder_l", "sprite": "upper_arm",     "z": 41},
+        {"name": "forearm_l",   "parent": "upper_arm_l", "joint": [0, 64],     "rest": -4,  "param": "elbow_l",    "sprite": "forearm",       "z": 42},
+        {"name": "hand_l",      "parent": "forearm_l",   "joint": [0, 64],     "rest": 0,   "param": "wrist_l",    "sprite": "hand",          "z": 43},
         {"name": "head",        "parent": "torso",       "joint": [0, -146],   "rest": 0,   "param": "head",       "sprite": "head_side",     "z": 40}
       ]
     }
   },
+  "drivers": {
+    "_doc": "Added to the pose params before FK. value = gain * max(0, s*source - dead) (s = sign; sign 0 = |source|), capped at max, times sign (or +1 for sign 0). Raising an arm lifts its shoulder.",
+    "front": [{"target": "clavicle_r", "source": "shoulder_r", "sign": 1,  "gain": 0.2,  "dead": 25, "max": 24},
+              {"target": "clavicle_l", "source": "shoulder_l", "sign": -1, "gain": 0.2,  "dead": 25, "max": 24}],
+    "side":  [{"target": "clavicle_r", "source": "shoulder_r", "sign": 0,  "gain": 0.16, "dead": 35, "max": 22},
+              {"target": "clavicle_l", "source": "shoulder_l", "sign": 0,  "gain": 0.16, "dead": 35, "max": 22}]
+  },
+  "limits": {
+    "_doc": "Joint ranges (degrees, pose param) applied after drivers. Side view: elbows bend forward (negative), knees backward (positive).",
+    "front": {"clavicle_r": [-6, 30], "clavicle_l": [-30, 6]},
+    "side":  {"clavicle_r": [-6, 30], "clavicle_l": [-6, 30], "elbow_r": [-160, 8], "elbow_l": [-160, 8], "knee_r": [-4, 165], "knee_l": [-4, 165]}
+  },
+  "clavicle_compensate": {
+    "_doc": "Front view: the clavicle lifts the shoulder point but the arm keeps its authored direction (shoulder param -= clavicle angle).",
+    "front": {"clavicle_r": "shoulder_r", "clavicle_l": "shoulder_l"}
+  },
+  "ik": {
+    "_doc": "Two-bone IK chains (Rig.ik_two_bone). bend = sign of cross(target - root, mid - root) in screen space (y down): front legs bend knees outward, side legs forward; front arms elbows outward when hanging (override per key for raised arms).",
+    "front": {"leg_r": {"chain": ["thigh_r", "shin_r", "foot_r"], "bend": 1},  "leg_l": {"chain": ["thigh_l", "shin_l", "foot_l"], "bend": -1},
+              "arm_r": {"chain": ["upper_arm_r", "forearm_r", "hand_r"], "bend": 1}, "arm_l": {"chain": ["upper_arm_l", "forearm_l", "hand_l"], "bend": -1}},
+    "side":  {"leg_r": {"chain": ["thigh_r", "shin_r", "foot_r"], "bend": -1}, "leg_l": {"chain": ["thigh_l", "shin_l", "foot_l"], "bend": -1},
+              "arm_r": {"chain": ["upper_arm_r", "forearm_r", "hand_r"], "bend": 1}, "arm_l": {"chain": ["upper_arm_l", "forearm_l", "hand_l"], "bend": 1}}
+  },
+  "hand_shapes": ["open", "point", "grip"],
   "face": {"neck": 8, "eye_x": 40, "eye_y": -10, "eye_rx": 29, "eye_ry": 22, "side_eye_rx": 15, "pupil": 12.5, "mouth_y": 46,
            "note": "Head-centred units (head radius 100). The head sprite pivot stays at the neck joint; neck = visible neck length between the shirt collar and the head."},
   "expression_aliases": {"neutral": "deadpan"},

@@ -1,0 +1,133 @@
+{
+  "segments": [
+    {
+      "name": "01_bahu",
+      "frames": 168,
+      "seconds": 7.0,
+      "render_s": 18.4,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "02_siku_wrist",
+      "frames": 144,
+      "seconds": 6.0,
+      "render_s": 11.7,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "03_gestur",
+      "frames": 278,
+      "seconds": 11.6,
+      "render_s": 12.5,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "04_kaki",
+      "frames": 216,
+      "seconds": 9.0,
+      "render_s": 9.5,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "05_jalan",
+      "frames": 144,
+      "seconds": 6.0,
+      "render_s": 6.1,
+      "planted_footsteps": 10,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "06_lari",
+      "frames": 120,
+      "seconds": 5.0,
+      "render_s": 4.6,
+      "planted_footsteps": 11,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "07_duduk",
+      "frames": 240,
+      "seconds": 10.0,
+      "render_s": 10.9,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "08_berbaring_bangun",
+      "frames": 264,
+      "seconds": 11.0,
+      "render_s": 11.4,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09A_bicara",
+      "frames": 144,
+      "seconds": 6.0,
+      "render_s": 6.4,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09B_jalan_gestur",
+      "frames": 144,
+      "seconds": 6.0,
+      "render_s": 6.1,
+      "planted_footsteps": 9,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09C_duduk_gerak",
+      "frames": 120,
+      "seconds": 5.0,
+      "render_s": 5.7,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09D_baring_gerak",
+      "frames": 120,
+      "seconds": 5.0,
+      "render_s": 5.1,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09F_tangan_tubuh",
+      "frames": 144,
+      "seconds": 6.0,
+      "render_s": 6.5,
+      "planted_footsteps": 0,
+      "max_planted_ankle_spread_px": 0.0
+    },
+    {
+      "name": "09G_jalan_berhenti_tunjuk",
+      "frames": 168,
+      "seconds": 7.0,
+      "render_s": 7.4,
+      "planted_footsteps": 7,
+      "max_planted_ankle_spread_px": 0.0
+    }
+  ],
+  "video": {
+    "codec": "h264",
+    "profile": "High",
+    "pix_fmt": "yuv420p",
+    "width": 1920,
+    "height": 1080,
+    "display_aspect_ratio": null,
+    "fps": 24.0,
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "24/1",
+    "frames": 2414,
+    "stream_duration": 100.583333,
+    "format_duration": 100.583333,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "size_bytes": 6819396,
+    "bit_rate": 542387
+  }
+}

@@ -38,14 +38,15 @@ class RigTests(unittest.TestCase):
 
     def test_every_part_rotates_about_its_own_joint(self):
         for view in ("front", "side"):
-            base = self.rig.joint_positions(view, self.zero())
+            # pure FK property (drivers/limits are tested separately)
+            base = self.rig.joint_positions(view, self.zero(), raw=True)
             spec = {p["name"]: p for p in self.rig.views[view]["parts"]}
             for name in REQUIRED_PARTS:
                 param = spec[name]["param"]
                 self.assertIsNotNone(param, f"{name} has no rotation parameter")
                 pose = self.zero()
                 pose[param] = 37.0
-                moved = self.rig.joint_positions(view, pose)
+                moved = self.rig.joint_positions(view, pose, raw=True)
                 # its own pivot does not move
                 self.assertLess(dist(base[name], moved[name]), 1e-6, f"{view}/{name} pivot moved")
                 # its children's pivots rotate around it by exactly 37 degrees

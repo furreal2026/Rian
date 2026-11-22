@@ -33,7 +33,8 @@ Rian/
     ├── README.md                       # dokumen ini
     ├── config/pilot_01_stop_time.json  # storyboard pilot: shot, kamera, akting, transisi
     ├── rig/
-    │   ├── rig.py                      rig cut-out modular (FK, pose, walk cycle)
+    │   ├── rig.py                      rig cut-out modular (FK, driver bahu, batas sendi, IK)
+    │   ├── locomotion.py               walk/run berbasis IK, kaki tidak meluncur
     │   ├── character_art.py            gambar prosedural bagian rig (master character V2)
     │   ├── stick_figure_rig.json       hierarki, pivot sendi, z-order, palet, ekspresi
     │   └── poses.json                  pustaka pose
@@ -130,7 +131,19 @@ Lihat `assets/environment/courtyard/README.md` di folder ini (nama file, ukuran 
 
 ## Cara kerja
 
-**Rig** (`rig/stick_figure_rig.json`). Bagian terpisah: kepala, torso (kaus merah), lengan atas (dengan lengan kaus), lengan bawah, tangan, paha, betis, dan kaki, kiri dan kanan. Tiap bagian punya pivot di sendinya (leher/dagu, bahu, siku, pergelangan, pinggul, lutut, pergelangan kaki) dan diputar lewat parameter (`head`, `shoulder_r`, `elbow_r`, …). Ada dua view: `front` dan `side` (menghadap kanan; `flip: true` untuk menghadap kiri). Ekspresi: `deadpan`, `deadpan_up`, `skeptical`, `shocked`, `smug`. Gambar bagian rig dibuat prosedural dari geometri & palet master character draft V2. Bagian PNG yang disetujui dapat menggantikannya tanpa mengubah rig (`rig/parts/<sprite>.png` + `rig/parts/parts.json` berisi `pivot_px` dan `px_per_unit`).
+**Rig** (`rig/stick_figure_rig.json`, v3). Bagian terpisah: kepala, torso (kaus merah), klavikula/bahu (dengan shoulder cap kaus), lengan atas (dengan lengan kaus), lengan bawah, tangan, paha, betis, dan kaki, kiri dan kanan. Tiap bagian punya pivot di sendinya dan diputar lewat parameter (`head`, `clavicle_r`, `shoulder_r`, `elbow_r`, `wrist_r`, `hips`, `hip_r`, `knee_r`, `ankle_r`, …; `hips_dx/hips_dy` menggeser pinggul). Dua view: `front` dan `side` (menghadap kanan; `flip: true` untuk menghadap kiri). Ekspresi: 11 (lihat `expressions`). Gambar bagian rig prosedural (`rig/character_art.py`); PNG yang disetujui dapat menggantikannya (`rig/parts/<sprite>.png` + `rig/parts/parts.json`).
+
+Sebelum FK, pose melewati `Rig.effective_params`: driver (bahu ikut naik saat lengan diangkat, arah lengan tetap), batas sendi (side: siku ke depan, lutut ke belakang), kompensasi klavikula. IK dua tulang: `Rig.ik_two_bone`.
+
+Field key karakter (selain `t, x, y, view, flip, pose, angles, expression, ease`):
+- `hand_r` / `hand_l`: `open`, `point`, `grip`.
+- `z`: `{"hand_r": 45}` urutan gambar per part (mis. tangan di depan wajah).
+- `plant`: 0..1, kaki terkunci di lantai di posisi saat penguncian dimulai (key terakhir dengan `plant: 0`); `feet` untuk target manual.
+- `reach`: `{"r": [x, y, bobot, (bend)]}` target tangan (IK).
+
+`cycles`: `walk` / `run` (IK, kaki tidak meluncur; `step_length`, `amp`, `arms: "swing" | "pose"` supaya lengan bisa bergestur sambil berjalan) dan `walk_legacy` (walk lama). `secondary`: follow-through bahu→siku→pergelangan, torso→kepala (default aktif, `false` untuk mematikan). Easing antisipasi: `inBack`, `inOutBack`; overshoot: `outBack`.
+
+Pose (`rig/poses.json`, 51): gestur & lengan (`arms_up`, `arm_up_r`, `wave_a/b`, `point_side/up/down/across`, `point_fwd`, `arms_crossed`, `touch_chin`, `hand_head`, `scratch_head_a/b`, `hold_object`, `hold_both`, `talk_a/b/c`, `shrug`), kaki & tubuh (`weight_l/r`, `crouch`, `jump_air`, `land`, `leg_lift`, `leg_lift_front`, `legs_crossed`, `squat_deep`), duduk & berbaring (`sit_chair`, `sit_high`, `sit_lean_fwd`, `sit_cross`, `sit_floor`, `sit_to_stand`, `lie_back`, `lie_knees`, `lie_arms_up`, `lie_to_sit`). Pose kontak dibuat dengan IK oleh `output/rig_v3_motion_TEST/author_poses.py`.
 
 **Kamera** (per shot, `camera.keys` + `camera.modifiers`). Field key: `t, x, y, zoom, rot, ease`. Gerakan:
 - *tilt* = key `y`; *pan* = key `x`; *push/pull back* = key `zoom`; *roll* = `rot`.
