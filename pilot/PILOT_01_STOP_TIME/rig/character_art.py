@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import math
 
-from PIL import ImageColor
+from PIL import ImageColor, ImageFilter
 
 from tools.render.raster import Canvas, MipImage, catmull_rom
 
@@ -49,25 +49,38 @@ class StickFigureArt:
         c.ellipse(0, 2, 64, 7, fill=_rgba(self.pal["shadow"], 22))
         return c.to_mip()
 
-    def _limb(self, length, taper=(1.0, 0.94)):
-        w = self.lw["limb"]
-        c = self._canvas((-8, -8, 8, length + 8))
-        c.stroke([(0, 0), (0.6, length * 0.5), (0, length)], w, self.ink, taper=[taper[0], (taper[0] + taper[1]) / 2, taper[1]])
+    # Limbs v3: thicker solid ink with round caps. A segment's end width equals the next
+    # segment's start width, and every segment ends in a round cap centred on the joint pivot,
+    # so joints stay closed (no gaps or kinks) at any rotation.
+    def _limb(self, length, w0, w1, bow=0.6):
+        c = self._canvas((-10, -10, 10, length + 10))
+        c.stroke([(0, 0), (bow, length * 0.5), (0, length)], 1.0, self.ink, taper=[w0, (w0 + w1) / 2, w1])
         return c.to_mip()
 
+    def _arm_w(self):
+        return float(self.lw.get("arm", self.lw.get("limb", 6.6)))
+
+    def _leg_w(self):
+        return float(self.lw.get("leg", self.lw.get("limb", 6.6)))
+
     def _sprite_leg_thigh(self):
-        return self._limb(107, (1.05, 1.0))
+        w = self._leg_w()
+        return self._limb(107, w * 1.04, w * 0.98)
 
     def _sprite_leg_shin(self):
-        return self._limb(104, (1.0, 0.92))
+        w = self._leg_w()
+        return self._limb(104, w * 0.98, w * 0.86)
 
     def _sprite_forearm(self):
-        return self._limb(64, (0.98, 0.92))
+        w = self._arm_w()
+        return self._limb(64, w * 0.96, w * 0.86)
 
     def _foot(self, direction: int):
-        c = self._canvas((-28, -10, 28, 12))
+        c = self._canvas((-32, -12, 32, 14))
         d = direction
-        c.stroke([(0, -1), (d * 7, 2.6), (d * 15, 3.6), (d * 19, 3.0)], 7.5, self.ink, taper=[0.9, 1.2, 1.1, 0.8])
+        w = float(self.lw.get("foot", 7.5))
+        ankle = self._leg_w() * 0.86
+        c.stroke([(0, -1), (d * 7, 3.0), (d * 15, 4.2), (d * 21, 3.6)], 1.0, self.ink, taper=[ankle, w * 1.08, w * 1.02, w * 0.84])
         return c.to_mip()
 
     def _sprite_foot_front_r(self):
@@ -79,18 +92,33 @@ class StickFigureArt:
     def _sprite_foot_side(self):
         return self._foot(1)
 
-    def _sprite_hand(self):
-        c = self._canvas((-18, -8, 18, 30))
-        c.circle(0, 11, 11.5, fill=self.skin)
-        pts = [(0 + 11.5 * math.cos(a), 11 + 11.5 * math.sin(a)) for a in [i * 2 * math.pi / 40 for i in range(40)]]
-        tap = [0.85 + 0.35 * max(0.0, math.cos(i * 2 * math.pi / 40 - math.pi / 4)) for i in range(40)]
-        c.stroke(pts + [pts[0]], 4.8, self.ink, taper=tap + [tap[0]])
+    HAND_R = 14.0
+
+    def _sprite_hand(self, variant: str = "open"):
+        variant = variant or "open"
+        R = self.HAND_R
+        cy = R - 1.0
+        ow = float(self.lw.get("hand_outline", 4.8))
+        c = self._canvas((-22, -10, 22, 46))
+        # wrist stub: closes the joint between the forearm cap and the hand ring
+        c.stroke([(0, 0), (0, 3)], 1.0, self.ink, taper=[self._arm_w() * 0.86, self._arm_w() * 0.8])
+        if variant == "point":
+            # index finger along the hand axis (local +y), same ink/skin language as the hand
+            c.stroke([(0, cy), (0.8, cy + R + 10)], 7.0 + ow, self.ink)
+        c.circle(0, cy, R + ow / 2, fill=self.ink)
+        if variant == "point":
+            c.stroke([(0, cy), (0.8, cy + R + 10)], 7.0 - 0.2, self.skin)
+        c.circle(0, cy, R - ow / 2, fill=self.skin)
+        if variant == "grip":
+            # closed fingers: a short curved crease across the palm
+            pts = [(-R * 0.55, cy + 1.5), (-R * 0.15, cy + 4.5), (R * 0.3, cy + 4.0), (R * 0.6, cy + 1.0)]
+            c.stroke(catmull_rom(pts, 6), 3.0, self.ink, taper=[0.6] + [1.0] * 17 + [0.6])
         return c.to_mip()
 
     def _sprite_upper_arm(self):
-        w = self.lw["limb"]
+        w = self._arm_w()
         c = self._canvas((-26, -26, 26, 74))
-        c.stroke([(0, 0), (0.5, 32), (0, 64)], w, self.ink, taper=[1.0, 1.0, 0.98])
+        c.stroke([(0, -6), (0, 0), (0.5, 32), (0, 64)], 1.0, self.ink, taper=[w * 1.02, w * 1.02, w, w * 0.96])
         # short sleeve, belongs to the arm so it follows shoulder rotation
         sleeve = catmull_rom([(-14, -18), (0, -21), (14, -18), (17, 6), (19, 30), (0, 32), (-19, 30), (-17, 6)], 6, closed=True)
         fill = c.new_layer()
@@ -105,6 +133,50 @@ class StickFigureArt:
         c.paste_layer(fill)
         c.closed_stroke(sleeve, self.lw["shirt_outline"], self.ink)
         return c.to_mip()
+
+    # Shoulder caps: the shirt's shoulder region, drawn on the clavicle part so it rises with
+    # the shoulder. At rest it is pixel-identical to the torso underneath; the inner edge sits
+    # at the clavicle pivot so the seam does not open when it rotates.
+    _CAP_ZONE_R = [(-12, -170), (-90, -170), (-90, -92), (-44, -92), (-12, -126)]
+
+    def _shoulder_cap(self, pts, shade, collar, zone, pivot, bounds, lift_only=False):
+        px_, py_ = pivot
+        L = lambda q: [(x - px_, y - py_) for x, y in q]
+        c = self._canvas(bounds)
+        full = c.new_layer()
+        body = catmull_rom(L(pts), 6, closed=True)
+        fill = full.new_layer()
+        fill.polygon(body, fill=_rgba(self.pal["shirt"]))
+        bmask = fill.mask_of()
+        sh = full.new_layer()
+        sh.polygon(L(shade), fill=_rgba(self.pal["shirt_shadow"]))
+        fill.paste_layer(sh, bmask)
+        if collar:
+            fl = full.new_layer()
+            fl.stroke(catmull_rom(L(collar), 6), 4.0, _rgba(self.pal["shirt_fold"]))
+            fill.paste_layer(fl, bmask)
+        full.paste_layer(fill)
+        tap = [1.0 + 0.25 * max(0.0, ((x + px_) / 60.0)) for x, _ in body]
+        full.stroke(body + [body[0]], self.lw["shirt_outline"], self.ink, taper=tap + [tap[0]])
+        zl = c.new_layer()
+        zl.polygon(L(zone), fill=(255, 255, 255, 255))
+        # feathered seam (~4 units): resampling differences and the lift spread over a soft edge
+        soft = zl.mask_of().filter(ImageFilter.GaussianBlur(4.0 * self.ppu * self.ss))
+        c.paste_layer(full, soft)
+        return c.to_mip()
+
+    def _sprite_shoulder_cap_r(self):
+        return self._shoulder_cap(self.TORSO_FRONT, self.TORSO_FRONT_SHADE, self.TORSO_FRONT_COLLAR, self._CAP_ZONE_R,
+                                  (-16, -136), (-80, -40, 10, 50))
+
+    def _sprite_shoulder_cap_l(self):
+        zone = [(-x, y) for x, y in self._CAP_ZONE_R]
+        return self._shoulder_cap(self.TORSO_FRONT, self.TORSO_FRONT_SHADE, self.TORSO_FRONT_COLLAR, zone,
+                                  (16, -136), (-10, -40, 80, 50))
+
+    def _sprite_shoulder_cap_side(self):
+        zone = [(-40, -170), (44, -170), (44, -116), (-40, -116)]
+        return self._shoulder_cap(self.TORSO_SIDE, self.TORSO_SIDE_SHADE, None, zone, (0, -136), (-45, -40, 45, 25))
 
     def _shirt(self, outline_pts, shade_poly, folds, collar, bounds):
         c = self._canvas(bounds)
@@ -126,20 +198,21 @@ class StickFigureArt:
         c.stroke(body + [body[0]], self.lw["shirt_outline"], self.ink, taper=tap + [tap[0]])
         return c.to_mip()
 
+    TORSO_FRONT = [(-26, -149), (-12, -143), (0, -141), (12, -143), (26, -149), (46, -145), (57, -131), (58, -112),
+                   (52, -92), (50, -50), (53, -3), (0, 0), (-53, -3), (-50, -50), (-52, -92), (-58, -112), (-57, -131), (-46, -145)]
+    TORSO_FRONT_SHADE = [(30, -160), (80, -160), (80, 10), (36, 10), (40, -60)]
+    TORSO_FRONT_COLLAR = [(-22, -147), (-10, -138), (0, -136), (10, -138), (22, -147)]
+    TORSO_SIDE = [(-14, -150), (6, -151), (22, -144), (30, -124), (30, -96), (28, -50), (31, -3), (0, 0),
+                  (-29, -3), (-27, -50), (-28, -100), (-27, -130)]
+    TORSO_SIDE_SHADE = [(-40, -160), (-10, -160), (-14, 10), (-40, 10)]
+
     def _sprite_torso_front(self):
-        pts = [(-26, -149), (-12, -143), (0, -141), (12, -143), (26, -149), (46, -145), (57, -131), (58, -112),
-               (52, -92), (50, -50), (53, -3), (0, 0), (-53, -3), (-50, -50), (-52, -92), (-58, -112), (-57, -131), (-46, -145)]
-        shade = [(30, -160), (80, -160), (80, 10), (36, 10), (40, -60)]
         folds = [[(34, -20), (38, -10), (40, -2)], [(-30, -12), (-28, -4)], [(18, -74), (24, -60)]]
-        collar = [(-22, -147), (-10, -138), (0, -136), (10, -138), (22, -147)]
-        return self._shirt(pts, shade, folds, collar, (-72, -165, 72, 12))
+        return self._shirt(self.TORSO_FRONT, self.TORSO_FRONT_SHADE, folds, self.TORSO_FRONT_COLLAR, (-72, -165, 72, 12))
 
     def _sprite_torso_side(self):
-        pts = [(-14, -150), (6, -151), (22, -144), (30, -124), (30, -96), (28, -50), (31, -3), (0, 0),
-               (-29, -3), (-27, -50), (-28, -100), (-27, -130)]
-        shade = [(-40, -160), (-10, -160), (-14, 10), (-40, 10)]
         folds = [[(14, -24), (18, -6)], [(-12, -40), (-10, -24)]]
-        return self._shirt(pts, shade, folds, None, (-45, -165, 45, 12))
+        return self._shirt(self.TORSO_SIDE, self.TORSO_SIDE_SHADE, folds, None, (-45, -165, 45, 12))
 
     # -------------------------------------------------------------- heads
     # Face design v2 (owner-approved expression sheet, output/character_revision_v2_TEST/):

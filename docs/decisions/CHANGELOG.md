@@ -44,6 +44,23 @@ Disetujui oleh pemilik proyek (expression sheet v2 "Sudah bagus", lalu "Ya buat 
 - Tes: `test_rig.py` diperbarui (H = 568) dan ditambah tes set ekspresi v2 serta leher. Bukti render: `output/rig_v2_qc_TEST/`.
 - Outfit Polisi/Hoodie (`output/character_revision_v2_TEST/rian_outfits_v2_TEST.png`) masih referensi TEST, belum masuk rig.
 
+## 2026-11-22 — Rig full-body Rian v3 (bahu, lengan, kaki, IK, locomotion)
+
+Diminta pemilik proyek (tugas "Full-body character rig revision"). **Disetujui pemilik** ("Sudah bagus. Bikin rig nya"); rig v3 menjadi rig produksi Rian, termasuk lebar leher 8,6.
+
+- Identitas Rian tetap: kepala, wajah, 11 ekspresi, kaus merah, torso, palet, dan gaya ilustrasi tidak diubah.
+- Proporsi: lengan 6,6 → 13 unit (lengan bawah meruncing ke pergelangan), kaki 6,6 → 14,8 unit (betis meruncing ke ankle), telapak kaki lebih tebal, tangan r 11,5 → 14. Leher 6,6 → 8,6 unit supaya serasi dengan anggota tubuh yang lebih tebal (panjang leher v2 tetap 8 unit).
+- Sambungan: setiap segmen berakhir dengan ujung bulat di pivot sendi dan lebar ujungnya sama dengan awal segmen berikutnya, sehingga siku/lutut tidak bercelah di sudut berapa pun (diuji `test_joints_stay_closed_at_any_bend`).
+- Bahu: part baru `clavicle_r/l` (front: rotasi; side: angkat) membawa lengan atas dan "shoulder cap" kaus. Driver otomatis mengangkat bahu saat lengan naik melewati 25° (front) / 35° (side), maks 24°/22°; arah lengan yang di-pose tidak berubah (kompensasi). Bahu juga bisa digerakkan manual (`clavicle_r/l`, mis. shrug).
+- Batas sendi (side): siku menekuk ke depan, lutut ke belakang. Lengan dekat di view side digambar di depan kepala.
+- Tangan: bentuk `open` (default), `point`, `grip` per key (`hand_r`/`hand_l`); `z` override per key (mis. tangan di depan wajah).
+- IK dua tulang (`Rig.ik_two_bone`) untuk lengan dan kaki; key `plant` mengunci kaki di lantai (posisi dunia saat penguncian dimulai), key `reach` untuk target tangan.
+- Locomotion baru (`rig/locomotion.py`): `walk` dan `run` berbasis jarak + IK, heel-strike/toe-off, hip bob, ayunan lengan dengan overlap; kaki yang menapak terkunci (pergeseran 0,000 px di uji dan render). `walk_legacy` mempertahankan walk lama. Config yang sudah ada tetap jalan tanpa diubah.
+- Follow-through/overlap: secondary motion pegas (stateless) bahu→siku, siku→pergelangan, torso→kepala, pinggul→torso; default aktif, `"secondary": false` untuk mematikan. Easing baru `inBack` (antisipasi), `inOutBack`.
+- Pustaka pose: 9 → 51 pose (gestur, tunjuk, silang tangan, sentuh/garuk kepala, pegang objek, bicara, shrug, pindah berat, jongkok/lompat/mendarat, angkat/silang kaki, duduk di kursi/menggantung/bersila/lantai, berbaring, bangun). Pose kontak dihitung dengan IK lalu disimpan sebagai sudut (`output/rig_v3_motion_TEST/author_poses.py`).
+- Batasan desain yang tercatat: lengan Rian (128 unit) tidak mencapai puncak kepala (diameter 200), jadi "garuk kepala" menyentuh sisi/belakang kepala. Berbaring telentang: kepala besar bertumpu di lantai dan torso sedikit miring.
+- Bukti: `output/rig_v3_motion_TEST/` (perbandingan proporsi, video sebelum/sesudah, motion test 14 segmen, pustaka pose, render courtyard QC PASS). Tes: 59 dijalankan, OK (1 skip opsional).
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

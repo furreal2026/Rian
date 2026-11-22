@@ -62,6 +62,18 @@ def _back_out(t: float) -> float:
     return 1 + c3 * (t - 1) ** 3 + c1 * (t - 1) ** 2
 
 
+def _back_in(t: float) -> float:
+    c1 = 1.70158
+    return (c1 + 1) * t ** 3 - c1 * t ** 2
+
+
+def _back_in_out(t: float) -> float:
+    c2 = 1.70158 * 1.525
+    if t < 0.5:
+        return ((2 * t) ** 2 * ((c2 + 1) * 2 * t - c2)) / 2
+    return ((2 * t - 2) ** 2 * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2
+
+
 EASINGS = {
     "linear": lambda t: t,
     "step": lambda t: 0.0 if t < 1 else 1.0,
@@ -74,7 +86,9 @@ EASINGS = {
     "inOutSine": lambda t: -(math.cos(math.pi * t) - 1) / 2,
     "inExpo": lambda t: 0.0 if t == 0 else 2 ** (10 * t - 10),
     "outExpo": lambda t: 1.0 if t == 1 else 1 - 2 ** (-10 * t),
-    "outBack": _back_out,
+    "outBack": _back_out,          # overshoot / settle (follow-through)
+    "inBack": _back_in,            # small wind-up before the move (anticipation)
+    "inOutBack": _back_in_out,     # anticipation + overshoot
 }
 
 

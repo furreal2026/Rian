@@ -1,0 +1,92 @@
+{
+  "video": "output/rig_v3_motion_TEST/pilot_courtyard_10s_rig_v3_TEST.mp4",
+  "frames_written": 240,
+  "render_seconds": 49.68,
+  "plates": {
+    "layer4_far_background": "final",
+    "layer3_background": "final",
+    "layer2_midground": "final",
+    "layer1_foreground": "final"
+  },
+  "fx": {
+    "leaf_wipe": "final"
+  },
+  "timeline": [
+    {
+      "shot": "S01",
+      "start": 0.0,
+      "end": 2.9167,
+      "first_frame": 0,
+      "last_frame": 69,
+      "frames": 70,
+      "framing": "medium wide",
+      "camera_move": "tilt down + drift"
+    },
+    {
+      "shot": "S02",
+      "start": 2.9167,
+      "end": 5.25,
+      "first_frame": 70,
+      "last_frame": 125,
+      "frames": 56,
+      "framing": "medium close-up",
+      "camera_move": "drift"
+    },
+    {
+      "shot": "S03",
+      "start": 5.25,
+      "end": 7.7917,
+      "first_frame": 126,
+      "last_frame": 186,
+      "frames": 61,
+      "framing": "medium (side)",
+      "camera_move": "tracking"
+    },
+    {
+      "shot": "S04",
+      "start": 7.7917,
+      "end": 10.0,
+      "first_frame": 187,
+      "last_frame": 239,
+      "frames": 53,
+      "framing": "medium close-up -> master wide",
+      "camera_move": "pull back"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "S01",
+      "to": "S02",
+      "type": "cut_on_action",
+      "boundary_s": 2.9166666666666665,
+      "boundary_frame": 70,
+      "window_s": [
+        2.9166666666666665,
+        2.9166666666666665
+      ]
+    },
+    {
+      "from": "S02",
+      "to": "S03",
+      "type": "whip_pan",
+      "boundary_s": 5.25,
+      "boundary_frame": 126,
+      "window_s": [
+        5.083333333333333,
+        5.416666666666667
+      ]
+    },
+    {
+      "from": "S03",
+      "to": "S04",
+      "type": "leaf_wipe",
+      "boundary_s": 7.791666666666667,
+      "boundary_frame": 187,
+      "window_s": [
+        7.541666666666667,
+        8.041666666666666
+      ]
+    }
+  ],
+  "frames_with_plate_holes": []
+}
