@@ -1,0 +1,422 @@
+[
+ {
+  "id": "s01",
+  "shot": 1,
+  "kind": "narrator",
+  "start": 0.364,
+  "end": 6.09,
+  "dur": 5.726,
+  "fits": true,
+  "text": "It was supposed to be a normal night. Just Milo, his phone, and absolutely no plans to improve his life."
+ },
+ {
+  "id": "s02",
+  "shot": 2,
+  "kind": "narrator",
+  "start": 7.022,
+  "end": 12.22,
+  "dur": 5.198,
+  "fits": true,
+  "text": "He was scrolling through videos, the ancient human ritual of doing nothing while feeling extremely busy."
+ },
+ {
+  "id": "s03",
+  "shot": 3,
+  "kind": "narrator",
+  "start": 14.204,
+  "end": 20.021,
+  "dur": 5.817,
+  "fits": true,
+  "text": "Then his phone displayed something unusual. Not a message. Not an update. Something that looked… very wrong."
+ },
+ {
+  "id": "s04",
+  "shot": 4,
+  "kind": "narrator",
+  "start": 20.702,
+  "end": 25.39,
+  "dur": 4.688,
+  "fits": true,
+  "text": "A strange signal slipped through his earphones. And somehow, it felt like the room itself was listening."
+ },
+ {
+  "id": "s05",
+  "shot": 5,
+  "kind": "narrator",
+  "start": 26.222,
+  "end": 28.628,
+  "dur": 2.406,
+  "fits": true,
+  "text": "Milo tried to pull them out. A little too late."
+ },
+ {
+  "id": "s06",
+  "shot": 6,
+  "kind": "narrator",
+  "start": 29.309,
+  "end": 33.603,
+  "dur": 4.294,
+  "fits": true,
+  "text": "And then… nothing. The kind of nothing that usually means tomorrow is going to be complicated."
+ },
+ {
+  "id": "s07",
+  "shot": 7,
+  "kind": "narrator",
+  "start": 37.262,
+  "end": 42.763,
+  "dur": 5.501,
+  "fits": true,
+  "text": "The next morning, Milo woke up with a headache, a dead phone, and no memory of the weirdest part of his night."
+ },
+ {
+  "id": "s08",
+  "shot": 8,
+  "kind": "narrator",
+  "start": 43.445,
+  "end": 47.659,
+  "dur": 4.214,
+  "fits": true,
+  "text": "Then he heard a voice. Not from the street. Not from the phone. From inside someone else’s head."
+ },
+ {
+  "id": "s09",
+  "shot": 9,
+  "kind": "thought",
+  "start": 48.465,
+  "end": 51.137,
+  "dur": 2.672,
+  "fits": true,
+  "text": "Please don’t die again. I just bought those plants."
+ },
+ {
+  "id": "s10",
+  "shot": 10,
+  "kind": "narrator",
+  "start": 51.919,
+  "end": 57.951,
+  "dur": 6.032,
+  "fits": true,
+  "text": "He could hear thoughts. Actual thoughts. Which meant one thing: his brain had either upgraded… or completely given up."
+ },
+ {
+  "id": "s11",
+  "shot": 11,
+  "kind": "narrator",
+  "start": 58.782,
+  "end": 64.451,
+  "dur": 5.669,
+  "fits": true,
+  "text": "The neighbor waved politely. Meanwhile, her mind was busy remembering groceries and negotiating with a dying fern."
+ },
+ {
+  "id": "s12",
+  "shot": 12,
+  "kind": "narrator",
+  "start": 65.283,
+  "end": 70.849,
+  "dur": 5.566,
+  "fits": true,
+  "text": "Naturally, Milo did what any reasonable person would do after gaining a supernatural ability. He went outside to test it."
+ },
+ {
+  "id": "s13",
+  "shot": 13,
+  "kind": "narrator",
+  "start": 71.207,
+  "end": 80.077,
+  "dur": 8.87,
+  "fits": true,
+  "text": "One person was thinking about bread. Another was thinking about a missing key. A third was apparently thinking about lunch. Humanity was not mysterious. It was hungry."
+ },
+ {
+  "id": "s14",
+  "shot": 14,
+  "kind": "narrator",
+  "start": 80.772,
+  "end": 85.47,
+  "dur": 4.698,
+  "fits": true,
+  "text": "Then someone smiled at him. Milo smiled back. A perfectly normal social interaction."
+ },
+ {
+  "id": "s15",
+  "shot": 15,
+  "kind": "thought",
+  "start": 86.252,
+  "end": 89.002,
+  "dur": 2.75,
+  "fits": true,
+  "text": "Wait… why is he smiling? Do I have something on my face?"
+ },
+ {
+  "id": "s16",
+  "shot": 16,
+  "kind": "narrator",
+  "start": 89.859,
+  "end": 96.3,
+  "dur": 6.441,
+  "fits": true,
+  "text": "Milo suddenly became very aware of his own existence. Every step felt awkward. Every movement felt visible."
+ },
+ {
+  "id": "s17",
+  "shot": 17,
+  "kind": "narrator",
+  "start": 97.132,
+  "end": 103.968,
+  "dur": 6.836,
+  "fits": true,
+  "text": "But most people were too busy thinking about themselves to study him. That’s the spotlight effect: we often imagine we’re the center of everyone’s attention."
+ },
+ {
+  "id": "s18",
+  "shot": 18,
+  "kind": "narrator",
+  "start": 104.8,
+  "end": 110.893,
+  "dur": 6.093,
+  "fits": true,
+  "text": "And then he discovered something even stranger. People could say one thing… while thinking something completely different."
+ },
+ {
+  "id": "s19",
+  "shot": 19,
+  "kind": "narrator",
+  "start": 111.725,
+  "end": 118.894,
+  "dur": 7.169,
+  "fits": true,
+  "text": "At a café, the cashier said, ’Have a wonderful day.’ Her thoughts were mostly about the long line and the coffee machine making a suspicious noise."
+ },
+ {
+  "id": "s20",
+  "shot": 20,
+  "kind": "narrator",
+  "start": 119.575,
+  "end": 126.974,
+  "dur": 7.399,
+  "fits": true,
+  "text": "People manage the impressions they give others. They try to be polite, friendly, and appropriate. Their private thoughts, however, are not always polished."
+ },
+ {
+  "id": "s21",
+  "shot": 21,
+  "kind": "narrator",
+  "start": 127.855,
+  "end": 131.601,
+  "dur": 3.746,
+  "fits": true,
+  "text": "At first, reading minds felt like having the world’s most exclusive information."
+ },
+ {
+  "id": "s22",
+  "shot": 22,
+  "kind": "narrator",
+  "start": 132.284,
+  "end": 137.078,
+  "dur": 4.795,
+  "fits": true,
+  "text": "But the more people he passed, the more thoughts arrived. One after another. Then all at once."
+ },
+ {
+  "id": "s23",
+  "shot": 23,
+  "kind": "thought",
+  "start": 138.12,
+  "end": 141.937,
+  "dur": 3.817,
+  "fits": true,
+  "text": "Did I lock the door? What’s for dinner? I should call Mom. Why is that song still playing in my head?"
+ },
+ {
+  "id": "s24",
+  "shot": 24,
+  "kind": "narrator",
+  "start": 144.427,
+  "end": 148.752,
+  "dur": 4.325,
+  "fits": true,
+  "text": "His brain had become a browser with forty-seven tabs open… and every tab was playing audio."
+ },
+ {
+  "id": "s25",
+  "shot": 25,
+  "kind": "narrator",
+  "start": 149.534,
+  "end": 158.266,
+  "dur": 8.732,
+  "fits": true,
+  "text": "The human brain filters information constantly. Attention helps us focus on what matters and ignore the rest. Milo’s new power seemed to have removed the filter."
+ },
+ {
+  "id": "s26",
+  "shot": 26,
+  "kind": "narrator",
+  "start": 159.098,
+  "end": 163.364,
+  "dur": 4.266,
+  "fits": true,
+  "text": "He wasn’t just hearing people. He was trying to process too much information at the same time."
+ },
+ {
+  "id": "s27",
+  "shot": 27,
+  "kind": "narrator",
+  "start": 164.045,
+  "end": 166.854,
+  "dur": 2.809,
+  "fits": true,
+  "text": "For the first time, Milo wished he could go back to not knowing."
+ },
+ {
+  "id": "s28",
+  "shot": 28,
+  "kind": "narrator",
+  "start": 167.735,
+  "end": 171.083,
+  "dur": 3.348,
+  "fits": true,
+  "text": "Then he spotted a cat. Surely, a cat’s mind would be simpler."
+ },
+ {
+  "id": "s29",
+  "shot": 29,
+  "kind": "narrator",
+  "start": 171.765,
+  "end": 175.038,
+  "dur": 3.273,
+  "fits": true,
+  "text": "He focused. He listened. He waited for the secrets of the universe."
+ },
+ {
+  "id": "s30",
+  "shot": 30,
+  "kind": "narrator",
+  "start": 175.82,
+  "end": 180.7,
+  "dur": 4.88,
+  "fits": true,
+  "text": "The cat’s entire universe appeared to involve food, comfort, and a door that someone had failed to open."
+ },
+ {
+  "id": "s31",
+  "shot": 31,
+  "kind": "narrator",
+  "start": 181.382,
+  "end": 186.794,
+  "dur": 5.412,
+  "fits": true,
+  "text": "Milo had crossed dimensions, survived a mysterious signal, and been defeated by an animal that didn’t even acknowledge him."
+ },
+ {
+  "id": "s32",
+  "shot": 32,
+  "kind": "narrator",
+  "start": 189.219,
+  "end": 191.858,
+  "dur": 2.639,
+  "fits": true,
+  "text": "As the day slowed down, Milo began to understand something."
+ },
+ {
+  "id": "s33",
+  "shot": 33,
+  "kind": "narrator",
+  "start": 192.54,
+  "end": 199.101,
+  "dur": 6.561,
+  "fits": true,
+  "text": "A thought is not always a belief. A passing worry is not a plan. And a strange thought doesn’t automatically reveal who someone is."
+ },
+ {
+  "id": "s34",
+  "shot": 34,
+  "kind": "narrator",
+  "start": 199.782,
+  "end": 207.864,
+  "dur": 8.082,
+  "fits": true,
+  "text": "People’s minds are messy. They contain memories, guesses, fears, jokes, and random nonsense. Understanding someone takes more than collecting their private thoughts."
+ },
+ {
+  "id": "s35",
+  "shot": 35,
+  "kind": "narrator",
+  "start": 208.546,
+  "end": 213.523,
+  "dur": 4.977,
+  "fits": true,
+  "text": "Real understanding comes from paying attention, asking, listening, and sometimes simply helping."
+ },
+ {
+  "id": "s36",
+  "shot": 36,
+  "kind": "narrator",
+  "start": 214.205,
+  "end": 219.85,
+  "dur": 5.645,
+  "fits": true,
+  "text": "Maybe knowing everything about someone isn’t the same as understanding them. Maybe respect matters more than access."
+ },
+ {
+  "id": "s37",
+  "shot": 37,
+  "kind": "narrator",
+  "start": 220.706,
+  "end": 224.556,
+  "dur": 3.85,
+  "fits": true,
+  "text": "Milo walked home, hoping the whole mind-reading thing would finally stop."
+ },
+ {
+  "id": "s38",
+  "shot": 38,
+  "kind": "narrator",
+  "start": 225.238,
+  "end": 229.711,
+  "dur": 4.473,
+  "fits": true,
+  "text": "He put his phone away. No scrolling. No earphones. No mysterious signals. Just peace."
+ },
+ {
+  "id": "s39",
+  "shot": 39,
+  "kind": "narrator",
+  "start": 230.543,
+  "end": 233.619,
+  "dur": 3.076,
+  "fits": true,
+  "text": "Then, from somewhere outside, he heard one tiny thought."
+ },
+ {
+  "id": "s40a",
+  "shot": 40,
+  "kind": "thought",
+  "start": 234.401,
+  "end": 236.202,
+  "dur": 1.801,
+  "fits": true,
+  "text": "Feed me. And… open the door."
+ },
+ {
+  "id": "s40b",
+  "shot": 40,
+  "kind": "narrator",
+  "start": 236.902,
+  "end": 240.793,
+  "dur": 3.891,
+  "fits": true,
+  "text": "Milo sighed. Tomorrow was going to be a very long day."
+ },
+ {
+  "id": "s41",
+  "shot": 41,
+  "kind": "narrator",
+  "start": 241.475,
+  "end": 243.588,
+  "dur": 2.113,
+  "fits": true,
+  "text": "Because apparently, even silence had a lot to say."
+ }
+]

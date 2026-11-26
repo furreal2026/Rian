@@ -21,7 +21,7 @@ def treat(x):  # thought voice: high-pass 180 Hz + two short echoes (as build_ti
 step = sys.argv[1]
 if step == 'place':
     kok = json.load(open(os.path.join(OLDVO, 'wav', 'dur.json'))); src = json.load(open(os.path.join(SRC, 'wav', 'dur.json')))
-    tempo = max(1.0, sum(src.values()) / (sum(kok.values()) / RATE))
+    tempo = 1.09  # = Chatterbox total / Kokoro-at-1.1x total (235.3 / 215.6 s), fixed so re-takes of single lines don't move the timeline
     print('Chatterbox total', round(sum(src.values()), 1), 's; Kokoro at 1.1x', round(sum(kok.values()) / RATE, 1), 's; tempo', round(tempo, 3))
     cues, cursor = [], {}
     for l in lines:

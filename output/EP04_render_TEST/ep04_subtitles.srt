@@ -1,292 +1,292 @@
 1
-00:00:00,364 --> 00:00:02,346
+00:00:00,364 --> 00:00:02,304
 It was supposed to be a normal night.
 
 2
-00:00:02,346 --> 00:00:06,502
+00:00:02,304 --> 00:00:06,340
 Just Milo, his phone, and absolutely no plans to improve his life.
 
 3
-00:00:07,173 --> 00:00:08,755
+00:00:07,022 --> 00:00:08,442
 He was scrolling through videos,
 
 4
-00:00:08,755 --> 00:00:12,587
+00:00:08,442 --> 00:00:12,470
 the ancient human ritual of doing nothing while feeling extremely busy.
 
 5
-00:00:14,355 --> 00:00:18,155
+00:00:14,204 --> 00:00:18,204
 Then his phone displayed something unusual. Not a message. Not an update.
 
 6
-00:00:18,155 --> 00:00:20,112
+00:00:18,204 --> 00:00:20,271
 Something that looked… very wrong.
 
 7
-00:00:20,544 --> 00:00:23,144
+00:00:20,702 --> 00:00:22,866
 A strange signal slipped through his earphones.
 
 8
-00:00:23,144 --> 00:00:26,126
+00:00:22,866 --> 00:00:25,640
 And somehow, it felt like the room itself was listening.
 
 9
-00:00:26,705 --> 00:00:29,198
+00:00:26,222 --> 00:00:28,878
 Milo tried to pull them out. A little too late.
 
 10
-00:00:29,620 --> 00:00:31,620
+00:00:29,309 --> 00:00:30,489
 And then… nothing.
 
 11
-00:00:31,620 --> 00:00:35,642
+00:00:30,489 --> 00:00:33,853
 The kind of nothing that usually means tomorrow is going to be complicated.
 
 12
-00:00:39,049 --> 00:00:41,358
+00:00:37,262 --> 00:00:39,742
 The next morning, Milo woke up with a headache,
 
 13
-00:00:41,358 --> 00:00:44,703
+00:00:39,742 --> 00:00:43,013
 a dead phone, and no memory of the weirdest part of his night.
 
 14
-00:00:45,135 --> 00:00:48,008
+00:00:43,445 --> 00:00:46,205
 Then he heard a voice. Not from the street. Not from the phone.
 
 15
-00:00:48,008 --> 00:00:50,019
+00:00:46,205 --> 00:00:47,909
 From inside someone else’s head.
 
 16
-00:00:50,570 --> 00:00:52,968
+00:00:48,465 --> 00:00:51,387
 Please don’t die again. I just bought those plants.
 
 17
-00:00:53,496 --> 00:00:55,551
+00:00:51,919 --> 00:00:54,359
 He could hear thoughts. Actual thoughts.
 
 18
-00:00:55,551 --> 00:01:00,052
+00:00:54,359 --> 00:00:58,201
 Which meant one thing: his brain had either upgraded… or completely given up.
 
 19
-00:01:00,634 --> 00:01:02,325
+00:00:58,782 --> 00:01:00,582
 The neighbor waved politely.
 
 20
-00:01:02,325 --> 00:01:07,492
+00:01:00,582 --> 00:01:04,701
 Meanwhile, her mind was busy remembering groceries and negotiating with a dying fern.
 
 21
-00:01:08,074 --> 00:01:08,654
+00:01:05,283 --> 00:01:05,903
 Naturally,
 
 22
-00:01:08,674 --> 00:01:13,292
+00:01:05,923 --> 00:01:09,683
 Milo did what any reasonable person would do after gaining a supernatural ability.
 
 23
-00:01:13,292 --> 00:01:14,942
+00:01:09,683 --> 00:01:11,099
 He went outside to test it.
 
 24
-00:01:15,009 --> 00:01:19,082
+00:01:11,207 --> 00:01:14,827
 One person was thinking about bread. Another was thinking about a missing key.
 
 25
-00:01:19,082 --> 00:01:24,226
+00:01:14,827 --> 00:01:20,327
 A third was apparently thinking about lunch. Humanity was not mysterious. It was hungry.
 
 26
-00:01:24,613 --> 00:01:29,754
+00:01:20,772 --> 00:01:25,720
 Then someone smiled at him. Milo smiled back. A perfectly normal social interaction.
 
 27
-00:01:30,288 --> 00:01:33,090
+00:01:26,252 --> 00:01:29,252
 Wait… why is he smiling? Do I have something on my face?
 
 28
-00:01:33,691 --> 00:01:38,473
+00:01:29,859 --> 00:01:34,919
 Milo suddenly became very aware of his own existence. Every step felt awkward.
 
 29
-00:01:38,473 --> 00:01:40,253
+00:01:34,919 --> 00:01:36,550
 Every movement felt visible.
 
 30
-00:01:40,833 --> 00:01:44,615
+00:01:37,132 --> 00:01:40,412
 But most people were too busy thinking about themselves to study him.
 
 31
-00:01:44,615 --> 00:01:49,254
+00:01:40,412 --> 00:01:44,218
 That’s the spotlight effect: we often imagine we’re the center of everyone’s attention.
 
 32
-00:01:49,837 --> 00:01:52,292
+00:01:44,800 --> 00:01:47,540
 And then he discovered something even stranger.
 
 33
-00:01:52,292 --> 00:01:56,150
+00:01:47,540 --> 00:01:51,143
 People could say one thing… while thinking something completely different.
 
 34
-00:01:56,725 --> 00:02:01,070
+00:01:51,725 --> 00:01:56,025
 At a café, the cashier said, ’Have a wonderful day.’ Her thoughts were mostly about the
 
 35
-00:02:01,070 --> 00:02:04,612
+00:01:56,025 --> 00:01:59,144
 long line and the coffee machine making a suspicious noise.
 
 36
-00:02:05,037 --> 00:02:07,419
+00:01:59,575 --> 00:02:02,155
 People manage the impressions they give others.
 
 37
-00:02:07,419 --> 00:02:10,110
+00:02:02,155 --> 00:02:04,695
 They try to be polite, friendly, and appropriate.
 
 38
-00:02:10,110 --> 00:02:13,086
+00:02:04,695 --> 00:02:07,224
 Their private thoughts, however, are not always polished.
 
 39
-00:02:13,713 --> 00:02:17,910
+00:02:07,855 --> 00:02:11,851
 At first, reading minds felt like having the world’s most exclusive information.
 
 40
-00:02:18,342 --> 00:02:21,942
+00:02:12,284 --> 00:02:15,984
 But the more people he passed, the more thoughts arrived. One after another.
 
 41
-00:02:21,942 --> 00:02:23,264
+00:02:15,984 --> 00:02:17,328
 Then all at once.
 
 42
-00:02:24,178 --> 00:02:26,905
+00:02:18,120 --> 00:02:20,350
 Did I lock the door? What’s for dinner? I should call Mom.
 
 43
-00:02:26,905 --> 00:02:29,100
+00:02:20,350 --> 00:02:22,187
 Why is that song still playing in my head?
 
 44
-00:02:30,485 --> 00:02:33,940
+00:02:24,427 --> 00:02:27,187
 His brain had become a browser with forty-seven tabs open…
 
 45
-00:02:33,940 --> 00:02:36,031
+00:02:27,187 --> 00:02:29,002
 and every tab was playing audio.
 
 46
-00:02:36,557 --> 00:02:39,702
+00:02:29,534 --> 00:02:32,734
 The human brain filters information constantly.
 
 47
-00:02:39,702 --> 00:02:43,375
+00:02:32,734 --> 00:02:35,994
 Attention helps us focus on what matters and ignore the rest.
 
 48
-00:02:43,375 --> 00:02:46,170
+00:02:35,994 --> 00:02:38,516
 Milo’s new power seemed to have removed the filter.
 
 49
-00:02:46,750 --> 00:02:48,186
+00:02:39,098 --> 00:02:40,338
 He wasn’t just hearing people.
 
 50
-00:02:48,186 --> 00:02:51,334
+00:02:40,338 --> 00:02:43,614
 He was trying to process too much information at the same time.
 
 51
-00:02:51,764 --> 00:02:54,912
+00:02:44,045 --> 00:02:47,104
 For the first time, Milo wished he could go back to not knowing.
 
 52
-00:02:55,540 --> 00:02:58,651
+00:02:47,735 --> 00:02:51,333
 Then he spotted a cat. Surely, a cat’s mind would be simpler.
 
 53
-00:02:59,080 --> 00:03:02,736
+00:02:51,765 --> 00:02:55,288
 He focused. He listened. He waited for the secrets of the universe.
 
 54
-00:03:03,260 --> 00:03:06,078
+00:02:55,820 --> 00:02:58,360
 The cat’s entire universe appeared to involve food,
 
 55
-00:03:06,078 --> 00:03:09,061
+00:02:58,360 --> 00:03:00,950
 comfort, and a door that someone had failed to open.
 
 56
-00:03:09,490 --> 00:03:12,945
+00:03:01,382 --> 00:03:04,402
 Milo had crossed dimensions, survived a mysterious signal,
 
 57
-00:03:12,945 --> 00:03:16,176
+00:03:04,402 --> 00:03:07,044
 and been defeated by an animal that didn’t even acknowledge him.
 
 58
-00:03:17,327 --> 00:03:20,629
+00:03:09,219 --> 00:03:12,108
 As the day slowed down, Milo began to understand something.
 
 59
-00:03:21,057 --> 00:03:24,966
+00:03:12,540 --> 00:03:16,160
 A thought is not always a belief. A passing worry is not a plan.
 
 60
-00:03:24,966 --> 00:03:28,472
+00:03:16,160 --> 00:03:19,351
 And a strange thought doesn’t automatically reveal who someone is.
 
 61
-00:03:28,899 --> 00:03:30,372
+00:03:19,782 --> 00:03:21,002
 People’s minds are messy.
 
 62
-00:03:30,372 --> 00:03:34,808
+00:03:21,002 --> 00:03:25,302
 They contain memories, guesses, fears, jokes, and random nonsense.
 
 63
-00:03:34,808 --> 00:03:38,194
+00:03:25,302 --> 00:03:28,114
 Understanding someone takes more than collecting their private thoughts.
 
 64
-00:03:38,623 --> 00:03:41,005
+00:03:28,546 --> 00:03:30,726
 Real understanding comes from paying attention,
 
 65
-00:03:41,005 --> 00:03:43,957
+00:03:30,726 --> 00:03:33,773
 asking, listening, and sometimes simply helping.
 
 66
-00:03:44,384 --> 00:03:48,529
+00:03:34,205 --> 00:03:37,865
 Maybe knowing everything about someone isn’t the same as understanding them.
 
 67
-00:03:48,529 --> 00:03:50,821
+00:03:37,865 --> 00:03:40,100
 Maybe respect matters more than access.
 
 68
-00:03:51,425 --> 00:03:55,385
+00:03:40,706 --> 00:03:44,806
 Milo walked home, hoping the whole mind-reading thing would finally stop.
 
 69
-00:03:55,815 --> 00:04:00,661
+00:03:45,238 --> 00:03:49,961
 He put his phone away. No scrolling. No earphones. No mysterious signals. Just peace.
 
 70
-00:04:01,236 --> 00:04:03,984
+00:03:50,543 --> 00:03:53,869
 Then, from somewhere outside, he heard one tiny thought.
 
 71
-00:04:04,515 --> 00:04:06,109
+00:03:54,401 --> 00:03:56,452
 Feed me. And… open the door.
 
 72
-00:04:06,584 --> 00:04:09,934
+00:03:56,902 --> 00:04:01,043
 Milo sighed. Tomorrow was going to be a very long day.
 
 73
-00:04:11,061 --> 00:04:13,865
+00:04:01,475 --> 00:04:03,838
 Because apparently, even silence had a lot to say.
 

@@ -100,6 +100,24 @@ Permintaan pemilik setelah render TEST pertama (7:56): jeda sesudah narasi terla
   - Durasi episode menjadi sekitar 4:15. Ini di bawah target awal "6 menit lebih"; perubahan ini mengikuti permintaan pemilik.
 - **Zoom halus.** Penyebab zoom patah-patah: nilai skala kamera dibulatkan ke 2 desimal, sehingga zoom 1,00→1,14 hanya punya 14 langkah. Sekarang dibulatkan ke 4 desimal. Gerak kamera dihitung dari waktu baru shot, jadi selesai mulus di dalam shot yang lebih pendek.
 
+## 2026-11-26 — EP 04: VO ekspresif (TEST)
+
+Permintaan pemilik: suara narator tidak berekspresi dan harus diberi ekspresi.
+
+- **Mesin baru.** Kokoro tidak punya kontrol emosi, jadi VO dibuat ulang dengan Chatterbox (open source, kontrol `exaggeration`). Timbre `am_puck` yang sudah disetujui ditiru dari klip Kokoro `ref_am_puck.wav`. Teks naskah tidak berubah.
+- **Level ekspresi per baris** (`output/EP04_vo_expressive_TEST/gen_expressive.py`):
+  - narasi biasa 0,62;
+  - punchline komedi 0,75;
+  - suara pikiran 0,8;
+  - bagian reflektif (s32–s36) 0,5.
+- **Tempo** dikunci di 1,09× (atempo). Ini menyamakan panjang total VO dengan VO Kokoro di 1,1×.
+- **Cek Whisper `base.en`: 42 dari 42 baris lolos.**
+  - Baris yang salah ucap dibuat ulang dengan seed lain.
+  - s40b dibuat dalam dua bagian, dengan jeda setelah "Tomorrow…".
+  - "Milo sighed" terdengar sebagai "Milo's side" (homofon), jadi ditulis di field `asr`.
+- Durasi episode menjadi 4:05.
+- Pratinjau detik 00–15 dikirim ke pemilik sebelum render penuh.
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

@@ -19,7 +19,7 @@ m = ChatterboxTTS.from_pretrained(device='cpu')
 dur_p = os.path.join(HERE, 'wav', 'dur.json'); dur = json.load(open(dur_p)) if os.path.exists(dur_p) else {}
 for i, l in enumerate(lines):
     if only and l['id'] not in only: continue
-    ex, cfg = level(l); torch.manual_seed(1000 + i); t0 = time.time()
+    ex, cfg = level(l); torch.manual_seed(int(os.environ.get('SEED', 1000)) + i); t0 = time.time()
     w = m.generate(l['text'], audio_prompt_path=os.path.join(HERE, 'ref_am_puck.wav'), exaggeration=ex, cfg_weight=cfg)
     ta.save(os.path.join(HERE, 'wav', l['id'] + '.wav'), w, m.sr)
     dur[l['id']] = round(w.shape[-1] / m.sr, 3); json.dump(dur, open(dur_p, 'w'), indent=1)
