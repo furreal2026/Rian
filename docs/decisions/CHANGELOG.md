@@ -61,6 +61,34 @@ Diminta pemilik proyek (tugas "Full-body character rig revision"). **Disetujui p
 - Batasan desain yang tercatat: lengan Rian (128 unit) tidak mencapai puncak kepala (diameter 200), jadi "garuk kepala" menyentuh sisi/belakang kepala. Berbaring telentang: kepala besar bertumpu di lantai dan torso sedikit miring.
 - Bukti: `output/rig_v3_motion_TEST/` (perbandingan proporsi, video sebelum/sesudah, motion test 14 segmen, pustaka pose, render courtyard QC PASS). Tes: 59 dijalankan, OK (1 skip opsional).
 
+## 2026-11-25 — EP 04 "What If Bisa Mendengar Pikiran?" memakai Milo v2
+
+Instruksi pemilik proyek: "Milo v2 pakai untuk cerita ini."
+
+- Karakter EP 04: **Milo v2** sesuai `curious-mind/character/MILO_CHARACTER_BIBLE.md` versi 2.1 dan `references/v2/milo_v2_1_reference_sheet.png` (badan krem, tanpa rambut, tanpa baju, tanpa mulut, sekitar 2,8 kepala).
+- Konflik: `CLAUDE.md` Rian menulis "Never use Milo"; Master §3 dan Environment §2 membolehkan Milo jika diminta eksplisit. Instruksi pemilik untuk EP 04 eksplisit. `CLAUDE.md` tidak diubah, dan Rian tetap karakter utama Pilot 01.
+- Storyboard: `episodes/EP04_WHAT_IF_BISA_MENDENGAR_PIKIRAN/STORYBOARD.md` v0.2 (draft, belum disetujui).
+
+## 2026-11-26 — EP 04: storyboard final pemilik, naskah VO, VO TEST `am_puck`
+
+- Storyboard final dari pemilik menggantikan storyboard v0.2 buatan asisten: `episodes/EP04_WHAT_IF_BISA_MENDENGAR_PIKIRAN/source/CURIOUS_MIND_EP004_FINAL_STORYBOARD.docx` ("What If You Could Read Everyone's Mind?", 41 shot, 7:50, narasi English, satu narator, Milo v2). Tambahan visual: `source/CURIOUS_MIND_EP004_STORYBOARD_DENGAN_REFERENSI_VISUAL.docx` dan `source/visual_refs/`.
+- Naskah VO: `episodes/EP04_WHAT_IF_BISA_MENDENGAR_PIKIRAN/SCRIPT_VO.md`. Teks narasi diambil persis dari tabel shot.
+- VO TEST dengan Kokoro `am_puck` (permintaan pemilik): `output/EP04_vo_am_puck_TEST/`. Belum disetujui.
+- Teks di dalam gambar referensi berbeda dari tabel shot; mengikuti catatan dokumen itu sendiri, tabel shot yang mengikat.
+
+## 2026-11-26 — EP 04: intro dengan logo, frame storyboard TEST
+
+- **Intro baru** (permintaan pemilik): kartu judul setelah Shot 06 (Milo pingsan), 6 detik, dengan logo Curious Mind (`episodes/EP04_WHAT_IF_BISA_MENDENGAR_PIKIRAN/source/curious_mind_logo.png`), "EPISODE 004", dan judul episode. Total durasi 7:50 → 7:56; semua shot mulai 07 bergeser +6 detik. Track VO TEST diperbarui, narasi tidak berubah.
+- **Frame storyboard TEST** (permintaan pemilik, sebelum render): `output/EP04_storyboard_frames_TEST/`, 41 shot + intro. Milo dari rig v2 resmi (`curious-mind` 203bfc9); environment berupa sketsa kode, bukan plate final.
+
+## 2026-11-26 — EP 04 storyboard v2: angle beragam, transisi kuat, tanpa pose telentang
+
+Permintaan pemilik: berbagai angle 3D/2D dengan transisi yang kuat, insert ponsel yang layarnya bergulir, gerakan karakter tidak lambat semua, dan pose bersandar dengan punggung menyentuh papan kayu kasur. Pose tidur telentang **tidak dipakai**.
+
+- Frame v2 di `output/EP04_storyboard_frames_TEST/` (43 frame: Shot 02 dipecah menjadi 02A kamar dari kaki kasur dan 02B insert layar scroll) dan uji gerak scroll `motion/ep04_motiontest_02B_03_scroll.mp4` (6,5 detik, TEST).
+- Rencana transisi dan tempo per shot: `output/EP04_storyboard_frames_TEST/plan.mjs`.
+- **Konflik yang dicatat:** `CLAUDE.md` Rian hanya mencantumkan empat transisi (`cut_on_action`, `whip_pan`, `leaf_wipe`, `cut`). Rencana EP 04 memakai juga snap zoom, match cut, smash cut, push-through, crash zoom, dan object wipe, yang diizinkan Master §9 dan Camera §5, atas permintaan eksplisit pemilik. `CLAUDE.md` tidak diubah. Transisi tambahan ini belum ada di pipeline render Rian.
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

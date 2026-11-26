@@ -1,0 +1,418 @@
+[
+ {
+  "id": "s01",
+  "shot": 1,
+  "kind": "narrator",
+  "text": "It was supposed to be a normal night. Just Milo, his phone, and absolutely no plans to improve his life.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s02",
+  "shot": 2,
+  "kind": "narrator",
+  "text": "He was scrolling through videos, the ancient human ritual of doing nothing while feeling extremely busy.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s03",
+  "shot": 3,
+  "kind": "narrator",
+  "text": "Then his phone displayed something unusual. Not a message. Not an update. Something that looked... very wrong.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s04",
+  "shot": 4,
+  "kind": "narrator",
+  "text": "A strange signal slipped through his earphones. And somehow, it felt like the room itself was listening.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s05",
+  "shot": 5,
+  "kind": "narrator",
+  "text": "Milo tried to pull them out. A little too late.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s06",
+  "shot": 6,
+  "kind": "narrator",
+  "text": "And then... nothing. The kind of nothing that usually means tomorrow is going to be complicated.",
+  "voice": "am_puck",
+  "speed": 0.92,
+  "lang": "en-us",
+  "note": "Built from three parts with controlled pauses; as one take, \"nothing\" after the ellipsis was swallowed. Script text unchanged.",
+  "parts": [
+   {
+    "text": "And then...",
+    "speed": 0.92
+   },
+   {
+    "pause_s": 0.55
+   },
+   {
+    "text": "Nothing.",
+    "speed": 0.92
+   },
+   {
+    "pause_s": 0.35
+   },
+   {
+    "text": "The kind of nothing that usually means tomorrow is going to be complicated.",
+    "speed": 0.95
+   }
+  ]
+ },
+ {
+  "id": "s07",
+  "shot": 7,
+  "kind": "narrator",
+  "text": "The next morning, Milo woke up with a headache, a dead phone, and no memory of the weirdest part of his night.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s08",
+  "shot": 8,
+  "kind": "narrator",
+  "text": "Then he heard a voice. Not from the street. Not from the phone. From inside someone else's head.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s09",
+  "shot": 9,
+  "kind": "thought",
+  "text": "Please don't die again. I just bought those plants.",
+  "voice": "am_puck",
+  "speed": 1.0,
+  "lang": "en-us"
+ },
+ {
+  "id": "s10",
+  "shot": 10,
+  "kind": "narrator",
+  "text": "He could hear thoughts. Actual thoughts. Which meant one thing: his brain had either upgraded... or completely given up.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s11",
+  "shot": 11,
+  "kind": "narrator",
+  "text": "The neighbor waved politely. Meanwhile, her mind was busy remembering groceries and negotiating with a dying fern.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s12",
+  "shot": 12,
+  "kind": "narrator",
+  "text": "Naturally, Milo did what any reasonable person would do after gaining a supernatural ability. He went outside to test it.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s13",
+  "shot": 13,
+  "kind": "narrator",
+  "text": "One person was thinking about bread. Another was thinking about a missing key. A third was apparently thinking about lunch. Humanity was not mysterious. It was hungry.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s14",
+  "shot": 14,
+  "kind": "narrator",
+  "text": "Then someone smiled at him. Milo smiled back. A perfectly normal social interaction.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s15",
+  "shot": 15,
+  "kind": "thought",
+  "text": "Wait... why is he smiling? Do I have something on my face?",
+  "voice": "am_puck",
+  "speed": 1.0,
+  "lang": "en-us"
+ },
+ {
+  "id": "s16",
+  "shot": 16,
+  "kind": "narrator",
+  "text": "Milo suddenly became very aware of his own existence. Every step felt awkward. Every movement felt visible.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s17",
+  "shot": 17,
+  "kind": "narrator",
+  "text": "But most people were too busy thinking about themselves to study him. That's the spotlight effect: we often imagine we're the center of everyone's attention.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s18",
+  "shot": 18,
+  "kind": "narrator",
+  "text": "And then he discovered something even stranger. People could say one thing... while thinking something completely different.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s19",
+  "shot": 19,
+  "kind": "narrator",
+  "text": "At a café, the cashier said, 'Have a wonderful day.' Her thoughts were mostly about the long line and the coffee machine making a suspicious noise.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us",
+  "asr": "At a cafe, the cashier said, 'Have a wonderful day.' Her thoughts were mostly about the long line and the coffee machine making a suspicious noise.",
+  "note": "café/cafe: accent only."
+ },
+ {
+  "id": "s20",
+  "shot": 20,
+  "kind": "narrator",
+  "text": "People manage the impressions they give others. They try to be polite, friendly, and appropriate. Their private thoughts, however, are not always polished.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s21",
+  "shot": 21,
+  "kind": "narrator",
+  "text": "At first, reading minds felt like having the world's most exclusive information.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s22",
+  "shot": 22,
+  "kind": "narrator",
+  "text": "But the more people he passed, the more thoughts arrived. One after another. Then all at once.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s23",
+  "shot": 23,
+  "kind": "thought",
+  "text": "Did I lock the door? What's for dinner? I should call Mom. Why is that song still playing in my head?",
+  "voice": "am_puck",
+  "speed": 1.0,
+  "lang": "en-us"
+ },
+ {
+  "id": "s24",
+  "shot": 24,
+  "kind": "narrator",
+  "text": "His brain had become a browser with forty-seven tabs open... and every tab was playing audio.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s25",
+  "shot": 25,
+  "kind": "narrator",
+  "text": "The human brain filters information constantly. Attention helps us focus on what matters and ignore the rest. Milo's new power seemed to have removed the filter.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s26",
+  "shot": 26,
+  "kind": "narrator",
+  "text": "He wasn't just hearing people. He was trying to process too much information at the same time.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s27",
+  "shot": 27,
+  "kind": "narrator",
+  "text": "For the first time, Milo wished he could go back to not knowing.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s28",
+  "shot": 28,
+  "kind": "narrator",
+  "text": "Then he spotted a cat. Surely, a cat's mind would be simpler.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s29",
+  "shot": 29,
+  "kind": "narrator",
+  "text": "He focused. He listened. He waited for the secrets of the universe.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s30",
+  "shot": 30,
+  "kind": "narrator",
+  "text": "The cat's entire universe appeared to involve food, comfort, and a door that someone had failed to open.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s31",
+  "shot": 31,
+  "kind": "narrator",
+  "text": "Milo had crossed dimensions, survived a mysterious signal, and been defeated by an animal that didn't even acknowledge him.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s32",
+  "shot": 32,
+  "kind": "narrator",
+  "text": "As the day slowed down, Milo began to understand something.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s33",
+  "shot": 33,
+  "kind": "narrator",
+  "text": "A thought is not always a belief. A passing worry is not a plan. And a strange thought doesn't automatically reveal who someone is.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s34",
+  "shot": 34,
+  "kind": "narrator",
+  "text": "People's minds are messy. They contain memories, guesses, fears, jokes, and random nonsense. Understanding someone takes more than collecting their private thoughts.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s35",
+  "shot": 35,
+  "kind": "narrator",
+  "text": "Real understanding comes from paying attention, asking, listening, and sometimes simply helping.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s36",
+  "shot": 36,
+  "kind": "narrator",
+  "text": "Maybe knowing everything about someone isn't the same as understanding them. Maybe respect matters more than access.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s37",
+  "shot": 37,
+  "kind": "narrator",
+  "text": "Milo walked home, hoping the whole mind-reading thing would finally stop.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s38",
+  "shot": 38,
+  "kind": "narrator",
+  "text": "He put his phone away. No scrolling. No earphones. No mysterious signals. Just peace.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s39",
+  "shot": 39,
+  "kind": "narrator",
+  "text": "Then, from somewhere outside, he heard one tiny thought.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ },
+ {
+  "id": "s40a",
+  "shot": 40,
+  "kind": "thought",
+  "text": "Feed me. And... open the door.",
+  "voice": "am_puck",
+  "speed": 1.0,
+  "lang": "en-us"
+ },
+ {
+  "id": "s40b",
+  "shot": 40,
+  "kind": "narrator",
+  "text": "Milo sighed. Tomorrow was going to be a very long day.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us",
+  "parts": [
+   {
+    "text": "Milo sighed.",
+    "speed": 0.92
+   },
+   {
+    "pause_s": 0.35
+   },
+   {
+    "text": "Tomorrow was going to be a very long day.",
+    "speed": 0.85
+   }
+  ],
+  "asr": "Milo side. Tomorrow was going to be a very long day.",
+  "note": "\"sighed\" and \"side\" are homophones (/saɪd/), Whisper cannot tell them apart. \"was\" was heard as \"is\" at speed 0.92; fixed at 0.85."
+ },
+ {
+  "id": "s41",
+  "shot": 41,
+  "kind": "narrator",
+  "text": "Because apparently, even silence had a lot to say.",
+  "voice": "am_puck",
+  "speed": 0.95,
+  "lang": "en-us"
+ }
+]

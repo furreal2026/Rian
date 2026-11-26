@@ -1,0 +1,2 @@
+# WAV audio is large and re-creatable (see README.md: tts.py + build_timed_vo.py); the MP3 preview and SRT are kept
+*.wav
