@@ -89,6 +89,17 @@ Permintaan pemilik: berbagai angle 3D/2D dengan transisi yang kuat, insert ponse
 - Rencana transisi dan tempo per shot: `output/EP04_storyboard_frames_TEST/plan.mjs`.
 - **Konflik yang dicatat:** `CLAUDE.md` Rian hanya mencantumkan empat transisi (`cut_on_action`, `whip_pan`, `leaf_wipe`, `cut`). Rencana EP 04 memakai juga snap zoom, match cut, smash cut, push-through, crash zoom, dan object wipe, yang diizinkan Master §9 dan Camera §5, atas permintaan eksplisit pemilik. `CLAUDE.md` tidak diubah. Transisi tambahan ini belum ada di pipeline render Rian.
 
+## 2026-11-26 — EP 04 render: potongan padat, VO 1,1×, zoom halus
+
+Permintaan pemilik setelah render TEST pertama (7:56): jeda sesudah narasi terlalu panjang, adegan harus langsung pindah, VO dipercepat 1,1×, dan zoom in/out patah-patah.
+
+- **VO 1,1×.** Klip `am_puck` dipercepat dengan `atempo` (nada tetap). Hasilnya di `output/EP04_render_TEST/vo_fast/`.
+- **Potongan padat.** Setiap shot berakhir 0,35 detik (waktu lama) setelah narasinya selesai, ditambah setengah durasi transisi keluarnya. Aksi di dalam shot berjalan 1,1× supaya tetap sinkron dengan VO.
+  - Shot yang punya aksi visual sesudah narasi mendapat waktu minimum (`MIN_OLD` di `episode.mjs`): 02B, intro, 22, 23, 31, 40, dan 41.
+  - Intro dipendekkan menjadi 2,7 detik.
+  - Durasi episode menjadi sekitar 4:15. Ini di bawah target awal "6 menit lebih"; perubahan ini mengikuti permintaan pemilik.
+- **Zoom halus.** Penyebab zoom patah-patah: nilai skala kamera dibulatkan ke 2 desimal, sehingga zoom 1,00→1,14 hanya punya 14 langkah. Sekarang dibulatkan ke 4 desimal. Gerak kamera dihitung dari waktu baru shot, jadi selesai mulus di dalam shot yang lebih pendek.
+
 ## Konflik dan keputusan yang menunggu pemilik proyek
 
 Sesuai Master §14, konflik ditandai dan tidak diubah diam-diam.

@@ -45,14 +45,14 @@ import * as L from './locations.mjs';
 import * as F from './fx.mjs';
 import { drawHand } from './rig/milo.mjs';
 import * as V from './views.mjs';
-const R = Wd.ROOM;
-const MS = 70; // Milo scale in the room master
-const WALK = POSES.berjalan;
-const dimPhone = '#3b3f46';
+export const R = Wd.ROOM;
+export const MS = 70; // Milo scale in the room master
+export const WALK = POSES.berjalan;
+export const dimPhone = '#3b3f46';
 const wallCol = (l) => Wd.LIGHT[l].wall;
 
 /** room wall with a window opening (screen space), curtains and sill — for shots looking out of Milo's window */
-function windowOverlay(light, x0, y0, w, h, o = {}) {
+export function windowOverlay(light, x0, y0, w, h, o = {}) {
   const wall = wallCol(light);
   let s = `<path d="M0 0 H${W} V${H} H0 Z M${x0} ${y0} V${y0 + h} H${x0 + w} V${y0} Z" fill="${wall}" fill-rule="evenodd"/>`;
   s += Wd.rect(x0 - 22, y0 - 22, w + 44, h + 44, 'none', { sw: 22, stroke: '#e9e0cf', so: 1 }) + Wd.rect(x0 - 22, y0 - 22, w + 44, h + 44, 'none', { sw: 2.4 });
@@ -62,13 +62,13 @@ function windowOverlay(light, x0, y0, w, h, o = {}) {
   s += Wd.pth(`M${x0 + w + 160} ${y0 - 60} L${x0 + w - 70} ${y0 - 60} Q${x0 + w - 40} ${y0 + h * 0.5} ${x0 + w - 90} ${y0 + h + 80} L${x0 + w + 160} ${y0 + h + 80} Z`, cur);
   return `<g ${o.blur ? `filter="url(#${o.blur})"` : ''}>${Wd.wc(s)}</g>`;
 }
-const neighbour = (pz = {}, o = {}) => Wd.extra({ view: 'side', facing: -1, x: 1430, y: 848, scale: 58, armR: { a1: -70, a2: -95 }, ...pz }, { top: '#9fae84', bottom: '#6a5a50', acc: ['hat', 'apron', 'can'], ...o });
-const neighbourWave = () => Wd.extra(F.wave({ view: 'front', x: 1430, y: 848, scale: 58 }, 'L'), { top: '#9fae84', bottom: '#6a5a50', acc: ['hat', 'apron'] });
+export const neighbour = (pz = {}, o = {}) => Wd.extra({ view: 'side', facing: -1, x: 1430, y: 848, scale: 58, armR: { a1: -70, a2: -95 }, ...pz }, { top: '#9fae84', bottom: '#6a5a50', acc: ['hat', 'apron', 'can'], ...o });
+export const neighbourWave = () => Wd.extra(F.wave({ view: 'front', x: 1430, y: 848, scale: 58 }, 'L'), { top: '#9fae84', bottom: '#6a5a50', acc: ['hat', 'apron'] });
 /** Milo seen from behind, large, as an over-the-shoulder foreground (screen space) */
-const otsMilo = (x, y, scale, blur = 'b3', o = {}) => `<g filter="url(#${blur})">${M({ view: 'back', x, y, scale, armR: { a1: 10, a2: 6 }, armL: { a1: -10, a2: -6 }, ...o })}</g>`;
-const cafeCashier = (o = {}) => Wd.extra({ x: 1180, y: 880, scale: 74, armR: { a1: 30, a2: 70 }, armL: { a1: -30, a2: -70 }, ...o }, { top: '#efe6d6', bottom: '#5b6070', acc: ['apron', 'id'], apron: '#7d5e43' });
-const plazaCrowd = (o = {}) => L.crowd('far', { seed: 11 }) + L.crowd('mid', { seed: 12, ...o });
-const parkExtras = () =>
+export const otsMilo = (x, y, scale, blur = 'b3', o = {}) => `<g filter="url(#${blur})">${M({ view: 'back', x, y, scale, armR: { a1: 10, a2: 6 }, armL: { a1: -10, a2: -6 }, ...o })}</g>`;
+export const cafeCashier = (o = {}) => Wd.extra({ x: 1180, y: 880, scale: 74, armR: { a1: 30, a2: 70 }, armL: { a1: -30, a2: -70 }, ...o }, { top: '#efe6d6', bottom: '#5b6070', acc: ['apron', 'id'], apron: '#7d5e43' });
+export const plazaCrowd = (o = {}) => L.crowd('far', { seed: 11 }) + L.crowd('mid', { seed: 12, ...o });
+export const parkExtras = () =>
   Wd.extra({ x: 2150, y: 900, scale: 44, hip: [0, 0.62], legL: { a1: -8, a2: -8 }, legR: { a1: 8, a2: 8 } }, { top: '#9a86a8', bottom: '#5f5a68', blur: 'b2', acc: ['glasses'] }) +
   Wd.extra({ ...WALK, x: 1750, y: 960, scale: 46 }, { top: '#7d93ad', bottom: '#4f5566', acc: ['bag'], blur: 'b2' }) +
   Wd.extra({ view: 'side', facing: 1, x: 420, y: 950, scale: 46, armR: { a1: 50, a2: 110, hand: 'explain' } }, { top: '#c98f6f', bottom: '#44505e', blur: 'b2' }) +

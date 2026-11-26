@@ -1,0 +1,86 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Doc,Inter,46,&H00FFFFFF,&H00FFFFFF,&H00141414,&H96000000,0,0,0,0,100,100,0.3,0,1,2.4,1.2,2,288,288,62,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.36,0:00:02.35,Doc,,0,0,0,,It was supposed to be a normal night.
+Dialogue: 0,0:00:02.35,0:00:06.50,Doc,,0,0,0,,Just Milo, his phone, and absolutely no plans to improve his life.
+Dialogue: 0,0:00:07.17,0:00:08.75,Doc,,0,0,0,,He was scrolling through videos,
+Dialogue: 0,0:00:08.75,0:00:12.59,Doc,,0,0,0,,the ancient human ritual of doing nothing while feeling extremely busy.
+Dialogue: 0,0:00:14.36,0:00:18.16,Doc,,0,0,0,,Then his phone displayed something unusual. Not a message. Not an update.
+Dialogue: 0,0:00:18.16,0:00:20.11,Doc,,0,0,0,,Something that looked… very wrong.
+Dialogue: 0,0:00:20.54,0:00:23.14,Doc,,0,0,0,,A strange signal slipped through his earphones.
+Dialogue: 0,0:00:23.14,0:00:26.13,Doc,,0,0,0,,And somehow, it felt like the room itself was listening.
+Dialogue: 0,0:00:26.70,0:00:29.20,Doc,,0,0,0,,Milo tried to pull them out. A little too late.
+Dialogue: 0,0:00:29.62,0:00:31.62,Doc,,0,0,0,,And then… nothing.
+Dialogue: 0,0:00:31.62,0:00:35.64,Doc,,0,0,0,,The kind of nothing that usually means tomorrow is going to be complicated.
+Dialogue: 0,0:00:39.05,0:00:41.36,Doc,,0,0,0,,The next morning, Milo woke up with a headache,
+Dialogue: 0,0:00:41.36,0:00:44.70,Doc,,0,0,0,,a dead phone, and no memory of the weirdest part of his night.
+Dialogue: 0,0:00:45.13,0:00:48.01,Doc,,0,0,0,,Then he heard a voice. Not from the street. Not from the phone.
+Dialogue: 0,0:00:48.01,0:00:50.02,Doc,,0,0,0,,From inside someone else’s head.
+Dialogue: 0,0:00:50.57,0:00:52.97,Doc,,0,0,0,,Please don’t die again. I just bought those plants.
+Dialogue: 0,0:00:53.50,0:00:55.55,Doc,,0,0,0,,He could hear thoughts. Actual thoughts.
+Dialogue: 0,0:00:55.55,0:01:00.05,Doc,,0,0,0,,Which meant one thing: his brain had either upgraded… or completely given up.
+Dialogue: 0,0:01:00.63,0:01:02.32,Doc,,0,0,0,,The neighbor waved politely.
+Dialogue: 0,0:01:02.32,0:01:07.49,Doc,,0,0,0,,Meanwhile, her mind was busy remembering groceries and negotiating with a dying fern.
+Dialogue: 0,0:01:08.07,0:01:08.65,Doc,,0,0,0,,Naturally,
+Dialogue: 0,0:01:08.67,0:01:13.29,Doc,,0,0,0,,Milo did what any reasonable person would do after gaining a supernatural ability.
+Dialogue: 0,0:01:13.29,0:01:14.94,Doc,,0,0,0,,He went outside to test it.
+Dialogue: 0,0:01:15.01,0:01:19.08,Doc,,0,0,0,,One person was thinking about bread. Another was thinking about a missing key.
+Dialogue: 0,0:01:19.08,0:01:24.23,Doc,,0,0,0,,A third was apparently thinking about lunch. Humanity was not mysterious. It was hungry.
+Dialogue: 0,0:01:24.61,0:01:29.75,Doc,,0,0,0,,Then someone smiled at him. Milo smiled back. A perfectly normal social interaction.
+Dialogue: 0,0:01:30.29,0:01:33.09,Doc,,0,0,0,,Wait… why is he smiling? Do I have something on my face?
+Dialogue: 0,0:01:33.69,0:01:38.47,Doc,,0,0,0,,Milo suddenly became very aware of his own existence. Every step felt awkward.
+Dialogue: 0,0:01:38.47,0:01:40.25,Doc,,0,0,0,,Every movement felt visible.
+Dialogue: 0,0:01:40.83,0:01:44.61,Doc,,0,0,0,,But most people were too busy thinking about themselves to study him.
+Dialogue: 0,0:01:44.61,0:01:49.25,Doc,,0,0,0,,That’s the spotlight effect: we often imagine we’re the center of everyone’s attention.
+Dialogue: 0,0:01:49.84,0:01:52.29,Doc,,0,0,0,,And then he discovered something even stranger.
+Dialogue: 0,0:01:52.29,0:01:56.15,Doc,,0,0,0,,People could say one thing… while thinking something completely different.
+Dialogue: 0,0:01:56.72,0:02:01.07,Doc,,0,0,0,,At a café, the cashier said, ’Have a wonderful day.’ Her thoughts were mostly about the
+Dialogue: 0,0:02:01.07,0:02:04.61,Doc,,0,0,0,,long line and the coffee machine making a suspicious noise.
+Dialogue: 0,0:02:05.04,0:02:07.42,Doc,,0,0,0,,People manage the impressions they give others.
+Dialogue: 0,0:02:07.42,0:02:10.11,Doc,,0,0,0,,They try to be polite, friendly, and appropriate.
+Dialogue: 0,0:02:10.11,0:02:13.09,Doc,,0,0,0,,Their private thoughts, however, are not always polished.
+Dialogue: 0,0:02:13.71,0:02:17.91,Doc,,0,0,0,,At first, reading minds felt like having the world’s most exclusive information.
+Dialogue: 0,0:02:18.34,0:02:21.94,Doc,,0,0,0,,But the more people he passed, the more thoughts arrived. One after another.
+Dialogue: 0,0:02:21.94,0:02:23.26,Doc,,0,0,0,,Then all at once.
+Dialogue: 0,0:02:24.18,0:02:26.91,Doc,,0,0,0,,Did I lock the door? What’s for dinner? I should call Mom.
+Dialogue: 0,0:02:26.91,0:02:29.10,Doc,,0,0,0,,Why is that song still playing in my head?
+Dialogue: 0,0:02:30.49,0:02:33.94,Doc,,0,0,0,,His brain had become a browser with forty-seven tabs open…
+Dialogue: 0,0:02:33.94,0:02:36.03,Doc,,0,0,0,,and every tab was playing audio.
+Dialogue: 0,0:02:36.56,0:02:39.70,Doc,,0,0,0,,The human brain filters information constantly.
+Dialogue: 0,0:02:39.70,0:02:43.38,Doc,,0,0,0,,Attention helps us focus on what matters and ignore the rest.
+Dialogue: 0,0:02:43.38,0:02:46.17,Doc,,0,0,0,,Milo’s new power seemed to have removed the filter.
+Dialogue: 0,0:02:46.75,0:02:48.19,Doc,,0,0,0,,He wasn’t just hearing people.
+Dialogue: 0,0:02:48.19,0:02:51.33,Doc,,0,0,0,,He was trying to process too much information at the same time.
+Dialogue: 0,0:02:51.76,0:02:54.91,Doc,,0,0,0,,For the first time, Milo wished he could go back to not knowing.
+Dialogue: 0,0:02:55.54,0:02:58.65,Doc,,0,0,0,,Then he spotted a cat. Surely, a cat’s mind would be simpler.
+Dialogue: 0,0:02:59.08,0:03:02.74,Doc,,0,0,0,,He focused. He listened. He waited for the secrets of the universe.
+Dialogue: 0,0:03:03.26,0:03:06.08,Doc,,0,0,0,,The cat’s entire universe appeared to involve food,
+Dialogue: 0,0:03:06.08,0:03:09.06,Doc,,0,0,0,,comfort, and a door that someone had failed to open.
+Dialogue: 0,0:03:09.49,0:03:12.94,Doc,,0,0,0,,Milo had crossed dimensions, survived a mysterious signal,
+Dialogue: 0,0:03:12.94,0:03:16.18,Doc,,0,0,0,,and been defeated by an animal that didn’t even acknowledge him.
+Dialogue: 0,0:03:17.33,0:03:20.63,Doc,,0,0,0,,As the day slowed down, Milo began to understand something.
+Dialogue: 0,0:03:21.06,0:03:24.97,Doc,,0,0,0,,A thought is not always a belief. A passing worry is not a plan.
+Dialogue: 0,0:03:24.97,0:03:28.47,Doc,,0,0,0,,And a strange thought doesn’t automatically reveal who someone is.
+Dialogue: 0,0:03:28.90,0:03:30.37,Doc,,0,0,0,,People’s minds are messy.
+Dialogue: 0,0:03:30.37,0:03:34.81,Doc,,0,0,0,,They contain memories, guesses, fears, jokes, and random nonsense.
+Dialogue: 0,0:03:34.81,0:03:38.19,Doc,,0,0,0,,Understanding someone takes more than collecting their private thoughts.
+Dialogue: 0,0:03:38.62,0:03:41.00,Doc,,0,0,0,,Real understanding comes from paying attention,
+Dialogue: 0,0:03:41.00,0:03:43.96,Doc,,0,0,0,,asking, listening, and sometimes simply helping.
+Dialogue: 0,0:03:44.38,0:03:48.53,Doc,,0,0,0,,Maybe knowing everything about someone isn’t the same as understanding them.
+Dialogue: 0,0:03:48.53,0:03:50.82,Doc,,0,0,0,,Maybe respect matters more than access.
+Dialogue: 0,0:03:51.43,0:03:55.38,Doc,,0,0,0,,Milo walked home, hoping the whole mind-reading thing would finally stop.
+Dialogue: 0,0:03:55.81,0:04:00.66,Doc,,0,0,0,,He put his phone away. No scrolling. No earphones. No mysterious signals. Just peace.
+Dialogue: 0,0:04:01.24,0:04:03.98,Doc,,0,0,0,,Then, from somewhere outside, he heard one tiny thought.
+Dialogue: 0,0:04:04.51,0:04:06.11,Doc,,0,0,0,,Feed me. And… open the door.
+Dialogue: 0,0:04:06.58,0:04:09.93,Doc,,0,0,0,,Milo sighed. Tomorrow was going to be a very long day.
+Dialogue: 0,0:04:11.06,0:04:13.87,Doc,,0,0,0,,Because apparently, even silence had a lot to say.
