@@ -1,0 +1,330 @@
+[
+ {
+  "shot": 1,
+  "tc": "00:00–00:10",
+  "visual": "Wide establishing. Kamera perlahan mendekati jendela kamar. E01: rumah malam, jendela gelap, lampu meja hangat, kamar tenang. Milo rebahan di kasur sambil scroll ponsel, earphone terpasang.",
+  "narration": "It was supposed to be a normal night. Just Milo, his phone, and absolutely no plans to improve his life.",
+  "direction": "Bangun suasana dan kenalkan Milo. Kontras cahaya hangat-biru; suara malam sangat pelan.",
+  "camera": "3D CAMERA: Wide establishing shot, eye-level sedikit di luar jendela; slow dolly-in menuju kamar, lensa 28mm, gerak stabil. 2D LAYOUT: Background rumah/jendela sebagai layer belakang; tirai dan bingkai jendela midground; kamar dan Milo foreground. Parallax halus antar-layer, tanpa perspektif ekstrem."
+ },
+ {
+  "shot": 2,
+  "tc": "00:10–00:20",
+  "visual": "Medium dari sisi kasur. Cahaya layar ponsel memantul pada kepala dan tangan Milo. Detail meja, buku, kabel charger, dan tirai terlihat di latar.",
+  "narration": "He was scrolling through videos, the ancient human ritual of doing nothing while feeling extremely busy.",
+  "direction": "Humor pembuka. Gerak jempol kecil dan scroll berulang.",
+  "camera": "3D CAMERA: Medium side-angle dari tinggi kasur, 35–50mm; slow push-in ke Milo dan ponsel. 2D LAYOUT: Kasur foreground, Milo/ponsel midground, meja dan lemari background. Pisahkan tangan/ponsel dari badan untuk sedikit depth dan gerak scroll."
+ },
+ {
+  "shot": 3,
+  "tc": "00:20–00:30",
+  "visual": "Close-up ponsel: layar mendadak berkedip, muncul pola gelombang abstrak dan gangguan visual. Lampu meja berkedip sekali.",
+  "narration": "Then his phone displayed something unusual. Not a message. Not an update. Something that looked… very wrong.",
+  "direction": "Jangan tampilkan teks teknis yang terbaca; sinyal misterius tetap abstrak.",
+  "camera": "3D CAMERA: Insert close-up dari high three-quarter angle ke layar ponsel; quick controlled push-in saat layar berkedip. 2D LAYOUT: Ponsel sebagai foreground plane; jari Milo midground; kamar sangat soft di background. Distorsi layar dibuat sebagai overlay 2D."
+ },
+ {
+  "shot": 4,
+  "tc": "00:30–00:40",
+  "visual": "Close-up earphone dan tangan Milo. Suara statis meningkat. Gelombang tipis merambat dari ponsel melalui kabel/earphone, lalu menyebar di udara.",
+  "narration": "A strange signal slipped through his earphones. And somehow, it felt like the room itself was listening.",
+  "direction": "Sound design: static, low-frequency hum, sedikit distorsi.",
+  "camera": "3D CAMERA: Extreme close-up, low side angle sejajar kabel earphone; short lateral slide mengikuti kabel ke telinga. 2D LAYOUT: Kabel sebagai layer depan; tangan dan sisi kepala midground; kamar blur di belakang. Gelombang sinyal berupa 2D overlay transparan."
+ },
+ {
+  "shot": 5,
+  "tc": "00:40–00:50",
+  "visual": "Wide shot. Gelombang cahaya transparan menyapu kamar, tirai bergerak, bayangan memanjang. Milo terkejut, ponsel terlepas dari tangan.",
+  "narration": "Milo tried to pull them out. A little too late.",
+  "direction": "Visual fantasi, bukan representasi sains.",
+  "camera": "3D CAMERA: Wide shot dari sudut kamar, slightly low angle; slow 20–30 degree orbit/arc mengitari Milo ketika gelombang menyapu ruangan. 2D LAYOUT: Gelombang melewati beberapa layer depth; tirai foreground bergerak terpisah, Milo midground, furnitur background."
+ },
+ {
+  "shot": 6,
+  "tc": "00:50–01:00",
+  "visual": "Milo jatuh pingsan ke kasur/lantai dengan pose aman. Layar ponsel padam. Kamera perlahan gelap.",
+  "narration": "And then… nothing. The kind of nothing that usually means tomorrow is going to be complicated.",
+  "direction": "Cut to black dengan bunyi statis berhenti mendadak.",
+  "camera": "3D CAMERA: Medium-wide high angle; kamera tilt-down mengikuti Milo kehilangan kesadaran, lalu gentle pull-back menuju gelap. 2D LAYOUT: Kasur/lantai menjadi bidang utama; Milo dipisah dari background agar pose jatuh terbaca. Fade/vignette dilakukan sebagai overlay 2D."
+ },
+ {
+  "shot": 7,
+  "tc": "01:00–01:10",
+  "visual": "E02. Cahaya pagi menyinari kamar. Milo terbangun, duduk, mengucek kepala. Ponsel tergeletak mati di meja.",
+  "narration": "The next morning, Milo woke up with a headache, a dead phone, and no memory of the weirdest part of his night.",
+  "direction": "Kontras visual kuat dari malam ke pagi.",
+  "camera": "3D CAMERA: Wide dari sudut kamar yang sama seperti shot 01; static lalu slow push-in saat Milo bangun. 2D LAYOUT: Pertahankan geometri dan posisi layer E01; ubah hanya pencahayaan pagi, bayangan jendela, dan posisi Milo."
+ },
+ {
+  "shot": 8,
+  "tc": "01:10–01:20",
+  "visual": "Dari jendela terlihat tetangga figuran menyiram tanaman. Figuran model Milo tanpa wajah/ekspresi, memakai apron atau topi sederhana; sedikit blur.",
+  "narration": "Then he heard a voice. Not from the street. Not from the phone. From inside someone else’s head.",
+  "direction": "Suara pikiran pertama terdengar terpisah dari narator utama, tetapi tetap dibawakan satu narator dengan intonasi berbeda.",
+  "camera": "3D CAMERA: Over-the-shoulder dari belakang Milo ke jendela, eye-level; rack-focus simulasi dari kepala Milo ke tetangga di luar. 2D LAYOUT: Kepala/bahu Milo foreground blur; kusen jendela midground; tetangga dan tanaman background. Figuran dibuat soft-focus."
+ },
+ {
+  "shot": 9,
+  "tc": "01:20–01:30",
+  "visual": "Close-up Milo menoleh ke jendela. Di sekitar figuran muncul gelembung pikiran samar berupa ikon tanaman layu dan selang bocor, bukan teks panjang.",
+  "narration": "Please don’t die again. I just bought those plants.",
+  "direction": "Pikiran figuran menjadi pemicu kemampuan. Figuran tetap tanpa ekspresi.",
+  "camera": "3D CAMERA: Medium close-up profile Milo, slight push-in saat ia mendengar pikiran. 2D LAYOUT: Milo di foreground-midground; tetangga di luar jendela sebagai layer terpisah; ikon pikiran muncul sebagai overlay 2D di dekat figuran, bukan objek fisik."
+ },
+ {
+  "shot": 10,
+  "tc": "01:30–01:40",
+  "visual": "Milo melihat sekeliling, lalu menutup dan membuka telinga secara konyol. Tidak ada perubahan. Kamera push-in pada mata Milo.",
+  "narration": "He could hear thoughts. Actual thoughts. Which meant one thing: his brain had either upgraded… or completely given up.",
+  "direction": "Momen komedi dan pengenalan aturan kemampuan.",
+  "camera": "3D CAMERA: Front medium close-up, eye-level; subtle dolly-in lalu micro hold untuk reaksi komedi. 2D LAYOUT: Milo terisolasi dari background dengan ruang negatif di sekeliling kepala; garis/ikon gelombang suara tipis sebagai overlay 2D."
+ },
+ {
+  "shot": 11,
+  "tc": "01:40–01:50",
+  "visual": "Milo menguji dari jendela. Tetangga tersenyum dan melambaikan tangan, sementara gelembung pikiran samar menunjukkan daftar belanja dan tanaman.",
+  "narration": "The neighbor waved politely. Meanwhile, her mind was busy remembering groceries and negotiating with a dying fern.",
+  "direction": "Perilaku luar dan isi pikiran tidak selalu sama.",
+  "camera": "3D CAMERA: OTS dari belakang Milo mengarah ke tetangga; slow pan kecil mengikuti lambaian tangan. 2D LAYOUT: Bahu Milo foreground, tetangga dan tanaman midground, rumah background; bubble pikiran berada pada bidang 2D terpisah."
+ },
+ {
+  "shot": 12,
+  "tc": "01:50–02:00",
+  "visual": "E03. Milo berjalan di jalan perumahan. Detail rumah, pagar, pot, motor parkir, kabel listrik dan selokan. Figuran berlalu-lalang, blur lembut.",
+  "narration": "Naturally, Milo did what any reasonable person would do after gaining a supernatural ability. He went outside to test it.",
+  "direction": "Tracking shot mengikuti Milo; suasana pagi.",
+  "camera": "3D CAMERA: Wide tracking shot sejajar tinggi pinggang Milo, 28–35mm; lateral track mengikuti langkah dari kiri ke kanan. 2D LAYOUT: Pagar/tanaman foreground bergerak lebih cepat, Milo dan trotoar midground, rumah/tiang listrik background untuk parallax."
+ },
+ {
+  "shot": 13,
+  "tc": "02:00–02:10",
+  "visual": "Milo melewati figuran dewasa dengan tas belanja. Gelembung pikiran kecil berisi ikon roti, kunci, dan jam.",
+  "narration": "One person was thinking about bread. Another was thinking about a missing key. A third was apparently thinking about lunch. Humanity was not mysterious. It was hungry.",
+  "direction": "Humor dari fragmen pikiran sehari-hari.",
+  "camera": "3D CAMERA: Medium tracking two/three-quarter angle; kamera bergerak paralel dengan Milo lalu sedikit pan ke figuran yang dilewati. 2D LAYOUT: Milo tetap paling tajam; figuran midground soft; ikon pikiran kecil muncul sebagai overlay 2D dan hilang cepat."
+ },
+ {
+  "shot": 14,
+  "tc": "02:10–02:20",
+  "visual": "Seorang figuran perempuan dengan cardigan dan tas tersenyum sopan saat berpapasan. Milo otomatis tersenyum balik. Figuran tanpa wajah, sedikit blur.",
+  "narration": "Then someone smiled at him. Milo smiled back. A perfectly normal social interaction.",
+  "direction": "Siapkan contoh Spotlight Effect.",
+  "camera": "3D CAMERA: Medium two-shot eye-level dari arah depan-samping; gentle push-in saat figuran tersenyum dan Milo membalas. 2D LAYOUT: Milo dan figuran pada dua plane midground; jalan dan rumah background; jaga jarak agar gestur saling menyapa terbaca."
+ },
+ {
+  "shot": 15,
+  "tc": "02:20–02:30",
+  "visual": "Visualisasi pikiran figuran: ikon kecil berupa tanda tanya dan bayangan noda di baju; Milo membeku di tengah langkah.",
+  "narration": "Wait… why is he smiling? Do I have something on my face?",
+  "direction": "Pikiran disuarakan narator dengan intonasi ragu; jangan gunakan karakter voice terpisah.",
+  "camera": "3D CAMERA: Close-up reaction pada Milo, slight dutch tilt 3–5 derajat untuk rasa canggung; quick push-in lalu hold. 2D LAYOUT: Milo tajam di foreground; bubble pikiran figuran muncul di sisi frame sebagai overlay; latar jalan dibuat lebih blur."
+ },
+ {
+  "shot": 16,
+  "tc": "02:30–02:45",
+  "visual": "Milo melihat bajunya sendiri, memeriksa bahu dan dada, lalu mencoba tersenyum lebih kecil. Background jalan tetap terlihat, tetapi fokus menyempit ke Milo.",
+  "narration": "Milo suddenly became very aware of his own existence. Every step felt awkward. Every movement felt visible.",
+  "direction": "Penjelasan ilmiah: Spotlight Effect — kecenderungan melebih-lebihkan seberapa besar orang lain memperhatikan kita.",
+  "camera": "3D CAMERA: Medium shot sedikit high angle, lalu tilt-down mengikuti Milo memeriksa bajunya. 2D LAYOUT: Milo terpusat; lingkungan diturunkan kontrasnya; detail pakaian/gesture menjadi layer fokus. Gunakan vignette lembut 2D."
+ },
+ {
+  "shot": 17,
+  "tc": "02:45–03:00",
+  "visual": "Cutaway visual: figuran lain di jalan sibuk dengan urusannya sendiri—memeriksa ponsel, membawa belanjaan, membuka pagar. Milo tampak kecil di tengah frame.",
+  "narration": "But most people were too busy thinking about themselves to study him. That’s the spotlight effect: we often imagine we’re the center of everyone’s attention.",
+  "direction": "Environment mendukung penjelasan: tiap orang punya fokus masing-masing. Jangan tampilkan semua orang menatap Milo.",
+  "camera": "3D CAMERA: Wide locked-off shot dengan Milo agak kecil di foreground; slow pull-back memperlihatkan orang-orang sibuk sendiri. 2D LAYOUT: Figuran tersebar pada beberapa depth planes; Milo dan figuran foreground-midground; rumah dan jalan background. Kurangi blur pada aktivitas yang perlu terbaca."
+ },
+ {
+  "shot": 18,
+  "tc": "03:00–03:10",
+  "visual": "Milo melewati dua figuran yang tampak berbincang ramah. Di atas mereka muncul dua lapisan pikiran abstrak yang berbeda dan saling bertentangan.",
+  "narration": "And then he discovered something even stranger. People could say one thing… while thinking something completely different.",
+  "direction": "Masuk ke social desirability / impression management.",
+  "camera": "3D CAMERA: Medium-wide side angle; slow lateral slide melewati dua figuran yang berbincang. 2D LAYOUT: Dua figuran pada midground; Milo dapat berada di tepi foreground; bubble pikiran transparan sebagai overlay 2D yang tidak menutupi gestur."
+ },
+ {
+  "shot": 19,
+  "tc": "03:10–03:25",
+  "visual": "E04. Kafe kecil. Meja, kursi, etalase, rak, lampu gantung, papan menu generik. Figuran kasir memakai apron; pelanggan memakai jaket dan tas. Milo antre.",
+  "narration": "At a café, the cashier said, ‘Have a wonderful day.’ Her thoughts were mostly about the long line and the coffee machine making a suspicious noise.",
+  "direction": "Visualisasi pikiran dengan ikon antrean dan mesin kopi; bukan menghakimi karakter.",
+  "camera": "3D CAMERA: Interior café medium-wide dari pintu masuk, eye-level; slow dolly-in menuju antrean/kasir. 2D LAYOUT: Kursi atau tanaman foreground, antrean dan kasir midground, etalase/rak background. Pertahankan layout café konsisten untuk shot berikutnya."
+ },
+ {
+  "shot": 20,
+  "tc": "03:25–03:40",
+  "visual": "Milo menerima minuman. Ia melihat pelanggan tersenyum ramah, sementara gelembung pikiran mereka berisi hal pribadi yang acak: pekerjaan, tugas, lagu yang menempel di kepala.",
+  "narration": "People manage the impressions they give others. They try to be polite, friendly, and appropriate. Their private thoughts, however, are not always polished.",
+  "direction": "Penjelasan social desirability/impression management. Pikiran acak bukan berarti orang jahat atau palsu.",
+  "camera": "3D CAMERA: Medium OTS dari belakang Milo ke kasir/pelanggan; slight pan antar figuran saat pikiran mereka terdengar. 2D LAYOUT: Bahu Milo foreground; kasir dan pelanggan midground; rak/etalase background. Ikon pikiran tampil satu per satu sebagai overlay 2D."
+ },
+ {
+  "shot": 21,
+  "tc": "03:40–03:50",
+  "visual": "Milo keluar dari kafe menuju E05. Area publik lebih ramai: trotoar, zebra crossing, bangku, papan petunjuk, kendaraan, pepohonan dan toko. Crowd berlapis.",
+  "narration": "At first, reading minds felt like having the world’s most exclusive information.",
+  "direction": "Kamera mengikuti Milo keluar; suara kota mulai meningkat.",
+  "camera": "3D CAMERA: Wide exterior dari sisi seberang jalan; slow crane-up kecil atau dolly-out untuk mengungkap area publik. 2D LAYOUT: Marka jalan/pejalan kaki foreground, Milo dan plaza midground, toko/pepohonan/gedung background; depth planes disiapkan untuk crowd."
+ },
+ {
+  "shot": 22,
+  "tc": "03:50–04:00",
+  "visual": "Milo melewati kerumunan. Satu gelembung pikiran muncul, lalu dua, lalu banyak. Figuran tetap model Milo tanpa ekspresi, blur bertingkat.",
+  "narration": "But the more people he passed, the more thoughts arrived. One after another. Then all at once.",
+  "direction": "Mulai bangun sensory overload.",
+  "camera": "3D CAMERA: Medium tracking shot bergerak masuk bersama Milo ke kerumunan; sedikit handheld-style drift yang terkendali. 2D LAYOUT: Figuran melintas di foreground dengan blur; Milo midground tetap tajam; crowd tambahan dan toko background."
+ },
+ {
+  "shot": 23,
+  "tc": "04:00–04:10",
+  "visual": "Wide shot kerumunan. Gelembung pikiran saling menumpuk: daftar belanja, tenggat kerja, lagu, rasa lapar, kekhawatiran kecil. Teks dibuat fragmentaris dan cepat.",
+  "narration": "Did I lock the door? What’s for dinner? I should call Mom. Why is that song still playing in my head?",
+  "direction": "Jangan buat semua pikiran berupa kalimat panjang; gunakan potongan visual/teks singkat.",
+  "camera": "3D CAMERA: Wide shot sedikit high angle; slow push-in ke pusat kerumunan. 2D LAYOUT: Gelembung pikiran bertumpuk pada beberapa bidang 2D dengan skala berbeda; jangan menutupi siluet utama Milo."
+ },
+ {
+  "shot": 24,
+  "tc": "04:10–04:20",
+  "visual": "POV Milo. Background menjadi sedikit kabur, gelembung suara dan visual berlapis memenuhi frame. Milo memegang kepala dengan kedua tangan.",
+  "narration": "His brain had become a browser with forty-seven tabs open… and every tab was playing audio.",
+  "direction": "Analogi cognitive overload, bukan diagnosis klinis.",
+  "camera": "3D CAMERA: POV Milo, 35mm; subtle camera sway dan focus breathing, lalu push-in singkat ketika overload memuncak. 2D LAYOUT: Layer crowd tetap statis/parallax ringan; teks/ikon pikiran sebagai overlay 2D yang menumpuk dan bergerak tidak serempak."
+ },
+ {
+  "shot": 25,
+  "tc": "04:20–04:35",
+  "visual": "Close-up mata Milo. Fokus berpindah cepat dari satu figuran ke figuran lain; lingkungan tetap ramai tetapi detail tepi frame meredup.",
+  "narration": "The human brain filters information constantly. Attention helps us focus on what matters and ignore the rest. Milo’s new power seemed to have removed the filter.",
+  "direction": "Penjelasan selective attention dan beban kognitif secara sederhana.",
+  "camera": "3D CAMERA: Close-up mata/kepala Milo dengan rack-focus bergantian ke figur-figur di belakang; kamera hampir statis. 2D LAYOUT: Gunakan mask/blur 2D untuk meredupkan tepi frame; fokus visual bergeser antar-plane, bukan memerlukan model 3D penuh."
+ },
+ {
+  "shot": 26,
+  "tc": "04:35–04:50",
+  "visual": "Milo mencoba fokus pada satu orang, tetapi pikiran lain terus masuk. Kamera orbit pendek, lalu berhenti mendadak saat Milo menutup telinga.",
+  "narration": "He wasn’t just hearing people. He was trying to process too much information at the same time.",
+  "direction": "Sound mix menumpuk, kemudian mendadak senyap saat Milo menutup telinga.",
+  "camera": "3D CAMERA: Medium close-up frontal; slow 90-degree arc kecil mengitari Milo, lalu hard stop ketika ia menutup telinga. 2D LAYOUT: Gelembung pikiran bergerak melintasi foreground dan background; pada hard stop semua overlay berhenti/meredup."
+ },
+ {
+  "shot": 27,
+  "tc": "04:50–05:00",
+  "visual": "Milo menepi dari keramaian ke sisi jalan yang lebih sepi. Bangunan dan crowd tetap di belakang, lebih blur. Ia menarik napas dan menunduk.",
+  "narration": "For the first time, Milo wished he could go back to not knowing.",
+  "direction": "Transisi menuju momen refleksi.",
+  "camera": "3D CAMERA: Medium-wide side shot; dolly-out mengikuti Milo menepi dari arus kerumunan ke area yang sepi. 2D LAYOUT: Crowd bergerak pada layer belakang; Milo pindah ke midground yang lebih kosong; foreground tepi trotoar memberi kedalaman."
+ },
+ {
+  "shot": 28,
+  "tc": "05:00–05:10",
+  "visual": "E07. Halaman rumah dengan pagar, pot, keset, mangkuk makanan, teras dan rerumputan. Seekor kucing duduk tenang di dekat mangkuk.",
+  "narration": "Then he spotted a cat. Surely, a cat’s mind would be simpler.",
+  "direction": "Suasana sedikit lebih ringan. Kucing berperilaku natural.",
+  "camera": "3D CAMERA: Low-angle medium-wide setinggi kucing; slow dolly-in dari halaman menuju kucing, Milo masuk ke frame. 2D LAYOUT: Pot/keset foreground, kucing dan Milo midground, pagar/teras background; rumput dan tanaman jadi layer parallax ringan."
+ },
+ {
+  "shot": 29,
+  "tc": "05:10–05:20",
+  "visual": "Milo jongkok sejajar dengan kucing. Kucing menatap Milo, lalu mengalihkan pandangan. Kamera medium two-shot.",
+  "narration": "He focused. He listened. He waited for the secrets of the universe.",
+  "direction": "Tidak perlu ekspresi wajah kucing berlebihan.",
+  "camera": "3D CAMERA: Eye-level two-shot rendah, seolah kamera dekat tinggi kepala kucing; gentle push-in saat Milo jongkok. 2D LAYOUT: Kucing dan Milo dipisah sebagai cutout midground; mangkuk foreground; teras/pagar background."
+ },
+ {
+  "shot": 30,
+  "tc": "05:20–05:30",
+  "visual": "Visual fantasi singkat: ikon mangkuk, ikan, tempat hangat, dan pintu terbuka muncul bergantian sebagai gambaran lucu kebutuhan/kebiasaan kucing.",
+  "narration": "The cat’s entire universe appeared to involve food, comfort, and a door that someone had failed to open.",
+  "direction": "Tegaskan secara naratif bahwa ini komedi fantasi; bukan klaim kita mengetahui isi pikiran kucing.",
+  "camera": "3D CAMERA: Close-up kucing dari three-quarter angle; short tilt/pan mengikuti kepala atau gerak kecilnya. 2D LAYOUT: Ikon makanan/kenyamanan muncul sebagai overlay 2D di ruang kosong di atas kucing; jangan tampilkan sebagai teks faktual."
+ },
+ {
+  "shot": 31,
+  "tc": "05:30–05:40",
+  "visual": "Kucing berjalan pergi tanpa peduli. Milo masih jongkok dengan satu tangan terulur, lalu perlahan menurunkannya.",
+  "narration": "Milo had crossed dimensions, survived a mysterious signal, and been defeated by an animal that didn’t even acknowledge him.",
+  "direction": "Punchline visual; beri jeda komedi.",
+  "camera": "3D CAMERA: Medium-wide locked shot; hold komedi, lalu very slight pull-back saat kucing pergi dan Milo menurunkan tangan. 2D LAYOUT: Kucing bergerak melintasi satu plane; Milo tetap di midground; halaman tidak berubah."
+ },
+ {
+  "shot": 32,
+  "tc": "05:40–05:50",
+  "visual": "E06. Milo duduk sendiri di bangku taman. Pohon, semak, jalur paving, lampu taman dan pagar rendah membentuk ruang tenang. Cahaya sore lembut.",
+  "narration": "As the day slowed down, Milo began to understand something.",
+  "direction": "Kamera statis, suasana tenang.",
+  "camera": "3D CAMERA: Wide symmetrical shot dari depan bangku, eye-level; slow dolly-in yang sangat halus menuju Milo. 2D LAYOUT: Daun/semak foreground, Milo dan bangku midground, pepohonan/pagar background; cahaya sore sebagai overlay/gradasi 2D."
+ },
+ {
+  "shot": 33,
+  "tc": "05:50–06:05",
+  "visual": "Milo memperhatikan beberapa figuran dari kejauhan: seseorang duduk sendiri, seseorang berjalan sambil membawa tas, dua orang berbincang. Semuanya tetap tanpa ekspresi dan sedikit blur.",
+  "narration": "A thought is not always a belief. A passing worry is not a plan. And a strange thought doesn’t automatically reveal who someone is.",
+  "direction": "Penting: isi pikiran sesaat bukan niat atau karakter seseorang.",
+  "camera": "3D CAMERA: OTS dari belakang Milo, medium-wide; slow pan mengikuti beberapa figuran di taman tanpa mendekat terlalu jauh. 2D LAYOUT: Milo foreground silhouette, figuran midground dengan blur lembut, jalur dan pepohonan background."
+ },
+ {
+  "shot": 34,
+  "tc": "06:05–06:20",
+  "visual": "Visualisasi tiga lapis: figuran melakukan tindakan sederhana; di atasnya muncul ikon pikiran yang berubah-ubah; lalu visual kembali ke tindakan nyata yang tidak selalu identik.",
+  "narration": "People’s minds are messy. They contain memories, guesses, fears, jokes, and random nonsense. Understanding someone takes more than collecting their private thoughts.",
+  "direction": "Hubungkan dengan Theory of Mind: menyimpulkan keadaan mental orang lain dari konteks dan perilaku, bukan membaca pikiran literal.",
+  "camera": "3D CAMERA: Medium shot Milo, eye-level; mostly locked camera dengan gentle push-in saat narasi menyimpulkan. 2D LAYOUT: Tiga lapisan visual bergantian: aksi figuran, ikon pikiran, lalu aksi nyata; gunakan compositing 2D, bukan adegan 3D literal."
+ },
+ {
+  "shot": 35,
+  "tc": "06:20–06:35",
+  "visual": "Milo melihat seorang figuran membantu orang lain mengambil barang yang jatuh. Milo tidak membaca gelembung pikiran; ia hanya mengamati tindakan dan mendekat untuk membantu.",
+  "narration": "Real understanding comes from paying attention, asking, listening, and sometimes simply helping.",
+  "direction": "Visual empati melalui tindakan, bukan akses pikiran.",
+  "camera": "3D CAMERA: Medium-wide side angle; slow tracking ke arah figuran yang menjatuhkan barang, lalu pan mengikuti Milo mendekat membantu. 2D LAYOUT: Barang jatuh foreground; Milo dan figuran midground; taman background. Pastikan aksi terbaca jelas dalam siluet."
+ },
+ {
+  "shot": 36,
+  "tc": "06:35–06:50",
+  "visual": "Milo membantu mengambil barang. Figuran mengangguk terima kasih. Kamera medium, taman tetap lembut di latar.",
+  "narration": "Maybe knowing everything about someone isn’t the same as understanding them. Maybe respect matters more than access.",
+  "direction": "Inti emosional episode.",
+  "camera": "3D CAMERA: Medium two-shot eye-level; gentle push-in ketika Milo membantu dan figuran mengangguk. 2D LAYOUT: Kedua karakter berada pada plane yang sama; bangku/pohon background dibuat soft. Fokus pada gestur tangan dan barang."
+ },
+ {
+  "shot": 37,
+  "tc": "06:50–07:00",
+  "visual": "Milo berjalan pulang melewati E03. Senja hangat, lampu rumah mulai menyala, motor terparkir dan pepohonan membentuk siluet.",
+  "narration": "Milo walked home, hoping the whole mind-reading thing would finally stop.",
+  "direction": "Kamera mengikuti dari belakang; suasana mereda.",
+  "camera": "3D CAMERA: Rear tracking shot mengikuti Milo berjalan pulang; kamera setinggi bahu, gerak stabil, sedikit pull-back menjelang akhir. 2D LAYOUT: Trotoar foreground bergerak parallax; Milo midground; rumah, pagar, motor dan pepohonan background dengan cahaya senja."
+ },
+ {
+  "shot": 38,
+  "tc": "07:00–07:10",
+  "visual": "Milo masuk kamar E02 yang kini senja. Ia meletakkan ponsel di meja dan duduk di kasur. Layout kamar sama seperti awal.",
+  "narration": "He put his phone away. No scrolling. No earphones. No mysterious signals. Just peace.",
+  "direction": "Callback visual ke kamar pembuka.",
+  "camera": "3D CAMERA: Interior medium-wide dari sudut kamar yang familiar; slow dolly-in saat Milo meletakkan ponsel dan duduk. 2D LAYOUT: Ulangi master layout kamar E01/E02; ponsel/meja foreground, Milo midground, jendela/lemari background."
+ },
+ {
+  "shot": 39,
+  "tc": "07:10–07:25",
+  "visual": "Dari luar jendela terdengar suara kucing. Milo menoleh. Gelembung pikiran kecil muncul sebentar dengan ikon makanan dan mangkuk, lalu hilang.",
+  "narration": "Then, from somewhere outside, he heard one tiny thought.",
+  "direction": "Kucing sebagai running gag; visualisasi tetap komedik dan fiktif.",
+  "camera": "3D CAMERA: Medium profile Milo menghadap jendela; slow pan ke arah sumber suara di luar, lalu kembali ke Milo. 2D LAYOUT: Milo foreground-midground; jendela dan halaman luar background; bubble pikiran kucing muncul sebagai overlay kecil."
+ },
+ {
+  "shot": 40,
+  "tc": "07:25–07:40",
+  "visual": "Close-up Milo menatap kosong ke arah jendela. Ia perlahan menarik tirai, lalu kembali duduk. Di meja, ponsel berkedip sangat singkat.",
+  "narration": "Feed me. And… open the door. Milo sighed. Tomorrow was going to be a very long day.",
+  "direction": "Akhiri dengan punchline dan misteri sinyal untuk kemungkinan episode lanjutan.",
+  "camera": "3D CAMERA: Close-up reaction Milo dari slight low angle; slow push-in, tahan jeda komedi, lalu rack-focus simulasi ke ponsel di meja. 2D LAYOUT: Milo di foreground, ponsel midground; pola sinyal muncul di layar sebagai overlay 2D."
+ },
+ {
+  "shot": 41,
+  "tc": "07:40–07:50",
+  "visual": "Final wide kamar. Milo rebahan, menatap langit-langit. Layar ponsel menyala sekali dengan pola gelombang samar, lalu cut to black.",
+  "narration": "Because apparently, even silence had a lot to say.",
+  "direction": "End card Curious Mind. Musik penutup ringan dengan satu bunyi statis kecil.",
+  "camera": "3D CAMERA: Final wide static composition dari sudut kamar; very slow pull-back menuju frame gelap. 2D LAYOUT: Kamar tersusun tiga plane; Milo sebagai siluet midground, ponsel sebagai titik cahaya foreground/midground, vignette dan end card composited 2D."
+ }
+]
